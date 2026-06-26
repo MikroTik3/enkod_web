@@ -1,0 +1,84 @@
+'use client'
+
+import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
+
+import { Button } from '../ui/button'
+import { Skeleton } from '../ui/skeleton'
+
+import { useGetAvailableSsoProviders } from '@/api/hooks'
+import { getAuthUrl } from '@/api/requests'
+import { SSO_PROVIDERS } from '@/constants'
+import { useFingerprint } from '@/hooks'
+
+export function AuthSocial() {
+	const router = useRouter()
+
+	const { data, isLoading } = useGetAvailableSsoProviders()
+	const { data: fingerprint, error: fpError } = useFingerprint()
+
+	const { mutate, isPending } = useMutation({
+		mutationKey: ['oauth login'],
+		mutationFn: (provider: string) => {
+			const payload =
+				fingerprint && !fpError
+					? {
+							visitorId: fingerprint.visitorId,
+							requestId: fingerprint.requestId
+						}
+					: { visitorId: '', requestId: '' }
+
+			return getAuthUrl(provider, payload)
+		},
+		onSuccess(data, variables) {
+			router.push(data.url as any)
+		},
+		onError(error: any, variables) {
+			toast.error(
+				error.response?.data?.message ??
+					'Ошибка при создании URL'
+			)
+		}
+	})
+
+	return (
+		<div className='flex flex-col gap-4'>
+			<div className='grid w-full grid-cols-4 gap-4'>
+				{isLoading
+					? Array.from({ length: 4 }).map((_, i) => (
+							<Skeleton
+								key={i}
+								className='h-9 w-full rounded-lg'
+							/>
+						))
+					: data?.map((provider, index) => {
+							const meta =
+								SSO_PROVIDERS[
+									provider as keyof typeof SSO_PROVIDERS
+								]
+
+							if (!meta) return null
+
+							return (
+								<Button
+									key={index}
+									onClick={() => {
+										mutate(meta.id)
+									}}
+									variant='outline'
+									className='[&_svg]:size-[21px]'
+									disabled={isPending}
+								>
+									<meta.icon
+										style={{
+											color: meta.color
+										}}
+									/>
+								</Button>
+							)
+						})}
+			</div>
+		</div>
+	)
+}

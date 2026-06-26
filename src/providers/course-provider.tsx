@@ -1,0 +1,24 @@
+'use client'
+
+import { useMutation } from '@tanstack/react-query'
+import { type ReactNode, useEffect } from 'react'
+
+import { incrementCourseViews } from '@/api/requests'
+
+interface CourseProviderProps {
+	id: string
+	children: ReactNode
+}
+
+export function CourseProvider({ id, children }: CourseProviderProps) {
+	const { mutate } = useMutation({
+		mutationKey: ['increment course views', id],
+		mutationFn: () => incrementCourseViews(id)
+	})
+
+	useEffect(() => {
+		mutate()
+	}, [mutate])
+
+	return <>{children}</>
+}
