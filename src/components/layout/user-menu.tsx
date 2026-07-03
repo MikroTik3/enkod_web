@@ -48,14 +48,14 @@ export function UserMenu() {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
+			<DropdownMenuTrigger>
 				<div
 					className={cn(
 						buttonVariants({
 							size: 'icon',
 							variant: 'outline'
 						}),
-						'text-muted-foreground relative !hidden !size-8 !rounded-xl lg:!flex'
+						'text-muted-foreground relative hidden size-8 rounded-xl lg:flex'
 					)}
 				>
 					<LucideUser2 />
@@ -64,7 +64,8 @@ export function UserMenu() {
 			<DropdownMenuContent className='w-56' align='end'>
 				<DropdownMenuLabel className='font-normal'>
 					<div className='flex flex-col space-y-1'>
-						<p className='text-sm leading-none font-medium'>
+                                          
+						<p className='text-sm text-black leading-none font-medium'>
 							{user?.displayName}
 						</p>
 						<p className='text-muted-foreground text-xs leading-none'>
@@ -88,9 +89,9 @@ export function UserMenu() {
 					</DropdownMenuItem>
 					<DropdownMenuItem
 						onClick={() => mutate()}
-						className='text-rose-600!'
+                                           variant="destructive"
 					>
-						<LogOut className='text-rose-600!' />
+						<LogOut />
 						Вийти
 					</DropdownMenuItem>
 				</DropdownMenuGroup>

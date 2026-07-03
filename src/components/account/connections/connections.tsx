@@ -3,7 +3,7 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import { FaGoogle } from 'react-icons/fa6'
+import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'sonner'
 
 import { Heading } from '@/components/shared/heading'
@@ -107,7 +107,7 @@ export function Connections() {
 					/>
 					<div className='mt-2 space-y-5'>
 						{isLoadingProviders || isLoadingStatus
-							? Array.from({ length: 3 }).map(
+							? Array.from({ length: 4 }).map(
 									(_, index) => (
 										<ConnectionsSkeleton
 											key={index}
@@ -135,16 +135,19 @@ export function Connections() {
 												key={
 													index
 												}
-												className='py-0 shadow-none'
+												 className='rounded-2xl bg-white shadow-sm ring-1 shadow-black/10 ring-black/10 md:row-span-2 dark:bg-neutral-900 dark:shadow-white/5 dark:ring-white/10 p-0'
 											>
-												<CardContent className='flex items-center justify-between p-4'>
-													<div className='flex items-center gap-x-3'>
-														<div className='rounded-full bg-blue-600 p-2.5'>
+												<CardContent className='flex max-[440px]:flex-col max-[440px]:items-start items-center justify-between gap-5 p-4'>
+													<div className='flex items-center max-[440px]:items-start gap-x-3'>
+														<div className='rounded-lg border p-2.5'>
 															{provider ===
 															'google' ? (
-																<FaGoogle className='size-5 text-white' />
+																<FcGoogle className='size-5' />
 															) : (
-																<meta.icon className='size-5 text-white' />
+																<meta.icon
+                                                                                                                       className="size-5"
+                                                                                                                       style={{ color: meta.color }}
+                                                                                                                />
 															)}
 														</div>
 														<div>
@@ -175,7 +178,7 @@ export function Connections() {
 																	}
 																)
 															}
-															variant='outline'
+                                                                                                         className='max-[440px]:w-full'
 															isLoading={
 																isPending
 															}
@@ -207,7 +210,7 @@ export function ConnectionsSkeleton() {
 						<Skeleton className='h-3 w-40 rounded-md' />
 					</div>
 				</div>
-				<Skeleton className='h-10 w-28 rounded-lg' />
+				<Skeleton className='h-9 w-18 rounded-lg' />
 			</CardContent>
 		</Card>
 	)

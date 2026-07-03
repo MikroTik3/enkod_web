@@ -20,7 +20,7 @@ export function Header() {
 	const { isAuthorized } = useAuth()
 
 	return (
-		<div className='fixed z-50 h-16 w-full z-[1000]'>
+		<div className='fixed z-50 h-16 w-full'>
 			<Navbar>
 				<NavBody>
 					<NavbarLogo />

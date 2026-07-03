@@ -1,6 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
-import { KeyRound } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -27,15 +26,15 @@ const passwordSchema = z
 		newPassword: z
 			.string()
 			.min(6, {
-				message: 'Новий пароль повинен містити хоча б 6 символів'
+				message: 'Новий пароль має містити щонайменше 6 символів'
 			})
 			.max(128, {
-				message: 'Новий пароль повинен містити не більше 128 символів'
+				message: 'Новий пароль має містити не більше 128 символів'
 			}),
 		confirmPassword: z.string()
 	})
 	.refine(data => data.newPassword === data.confirmPassword, {
-		message: 'Паролі не співпадають',
+		message: 'Паролі не збігаються',
 		path: ['confirmPassword']
 	})
 
@@ -49,11 +48,12 @@ export function PasswordForm() {
 		mutationFn: (data: Password) => changePassword(data),
 		onSuccess() {
 			setIsOpen(false)
+			toast.success('Пароль успішно оновлено')
 		},
 		onError(error: any) {
 			toast.error(
 				error.response?.data?.message ??
-					'Помилка при зміні пароля'
+					'Помилка під час зміни пароля'
 			)
 		}
 	})
@@ -77,19 +77,17 @@ export function PasswordForm() {
 	return (
 		<div className='flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0'>
 			<div className='mr-5 flex w-full items-start gap-x-4 md:w-auto md:items-center'>
-				<div className='hidden rounded-full bg-blue-600 p-2.5 md:flex'>
-					<KeyRound className='size-5 stroke-[1.7px] text-white' />
-				</div>
 				<div className='flex w-full flex-col'>
 					<h2 className='mb-1 font-semibold'>Пароль</h2>
 					<p className='text-muted-foreground text-sm'>
-						Пароль — ключ до вашого облікового запису.
-						Нікому його не повідомляйте. За необхідності
-						ви можете змінити його тут для підвищення
-						безпеки.
+						Пароль — це ключ до вашого облікового запису.
+						Нікому не повідомляйте його. За потреби ви
+						можете змінити пароль тут, щоб підвищити
+						безпеку свого акаунта.
 					</p>
 				</div>
 			</div>
+
 			<div>
 				<Dialog
 					open={isOpen}
@@ -101,16 +99,16 @@ export function PasswordForm() {
 					<DialogTrigger asChild>
 						<Button variant='outline'>Змінити</Button>
 					</DialogTrigger>
+
 					<DialogContent>
 						<DialogHeader>
-							<DialogTitle>
-								Оновлення пароля
-							</DialogTitle>
+							<DialogTitle>Зміна пароля</DialogTitle>
 							<DialogDescription>
-								Введіть поточний і новий пароль
-								для оновлення.
+								Введіть новий пароль і підтвердьте
+								його, щоб оновити пароль.
 							</DialogDescription>
 						</DialogHeader>
+
 						<form
 							onSubmit={form.handleSubmit(onSubmit)}
 							className='grid gap-4'
@@ -125,8 +123,7 @@ export function PasswordForm() {
 									}) => (
 										<Field>
 											<FieldLabel>
-												Новий
-												пароль
+												Новий пароль
 											</FieldLabel>
 
 											<Input
@@ -149,6 +146,7 @@ export function PasswordForm() {
 										</Field>
 									)}
 								/>
+
 								<Controller
 									control={form.control}
 									name='confirmPassword'
@@ -158,10 +156,10 @@ export function PasswordForm() {
 									}) => (
 										<Field>
 											<FieldLabel>
-												Підтвердьте
-												новий
-												пароль
+												Підтвердіть
+												новий пароль
 											</FieldLabel>
+
 											<Input
 												type='password'
 												placeholder='******'
@@ -173,6 +171,7 @@ export function PasswordForm() {
 												}
 												{...field}
 											/>
+
 											<FieldError
 												errors={[
 													fieldState.error
@@ -186,9 +185,10 @@ export function PasswordForm() {
 							<DialogFooter>
 								<DialogClose asChild>
 									<Button variant='outline'>
-										Відміна
+										Скасувати
 									</Button>
 								</DialogClose>
+
 								<Button
 									type='submit'
 									isLoading={isPending}

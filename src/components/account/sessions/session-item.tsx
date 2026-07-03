@@ -15,10 +15,10 @@ export function SessionItem({ session, isCurrentSession }: SessionItemProps) {
 
 	return (
 		<Card className='py-0 shadow-none'>
-			<CardContent className='flex items-center justify-between p-4'>
+			<CardContent className='flex max-[440px]:flex-col max-[440px]:items-start items-center justify-between gap-5 p-4'>
 				<div className='flex items-center gap-x-3'>
-					<div className='rounded-full bg-blue-600 p-2.5'>
-						<Icon className='size-5 text-white' />
+					<div className='rounded-lg border p-2.5'>
+						<Icon className='size-5 ' />
 					</div>
 					<div>
 						<h2 className='font-semibold'>

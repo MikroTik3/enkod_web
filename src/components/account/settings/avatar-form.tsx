@@ -27,12 +27,12 @@ export function AvatarForm({ user }: AvatarFormProps) {
 		onSuccess: data => {
 			setPreview(getMediaSource(data.file_id, 'users'))
 			queryClient.invalidateQueries({ queryKey: ['get me'] })
-			toast.success('Аватар успешно обновлён')
+			toast.success('Аватар оновлено')
 		},
 		onError(error: any) {
 			toast.error(
 				error.response?.data?.message ??
-					'Ошибка при обновлении аватара'
+					'Помилка під час оновлення аватара'
 			)
 		}
 	})
@@ -46,7 +46,7 @@ export function AvatarForm({ user }: AvatarFormProps) {
 
 			mutate(formData)
 		} else {
-			toast.error('Пожалуйста, выберите файл')
+			toast.error('Будь ласка, виберіть файл')
 		}
 	}
 
@@ -54,7 +54,7 @@ export function AvatarForm({ user }: AvatarFormProps) {
 		<div className='flex items-center gap-x-3'>
 			<label className='cursor-pointer'>
 				<Avatar className='size-14'>
-					<AvatarImage src={preview ?? ''} alt='Аватарка' />
+					<AvatarImage src={preview ?? ''} alt='Аватар' />
 					<AvatarFallback className='text-xl'>
 						{user?.displayName.slice(0, 1)}
 					</AvatarFallback>
@@ -67,10 +67,9 @@ export function AvatarForm({ user }: AvatarFormProps) {
 				/>
 			</label>
 			<div className='flex flex-col'>
-				<h2 className='font-semibold'>Аватарка</h2>
+				<h2 className='font-semibold'>Аватар</h2>
 				<p className='text-muted-foreground text-sm'>
-					Форматы: JPEG, PNG, WEBP, GIF. Макс. размер: 10
-					МБ.
+					Формати: JPEG, PNG, WEBP, GIF. Макс. розмір: 10 МБ.
 				</p>
 			</div>
 		</div>

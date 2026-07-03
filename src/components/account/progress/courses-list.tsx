@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/card'
 
 import { getMeProgress } from '@/api/requests'
-import { CourseProgress } from '@/shared/course-progress'
+import { CourseProgress } from '@/components/shared/course-progress'
 
 interface CoursesListProps {
 	onViewAll: () => void

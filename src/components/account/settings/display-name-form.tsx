@@ -19,7 +19,7 @@ import type { AccountResponse } from '@/api/generated'
 import { patchUser } from '@/api/requests'
 
 const displayNameSchema = z.object({
-	displayName: z.string({ message: 'Имя обязательно' })
+	displayName: z.string({ message: "Ім'я є обов'язковим" })
 })
 
 export type DisplayName = z.infer<typeof displayNameSchema>
@@ -33,12 +33,12 @@ export function DisplayNameForm({ user }: DisplayNameFormProps) {
 		mutationKey: ['patch user'],
 		mutationFn: (data: DisplayName) => patchUser(data),
 		onSuccess() {
-			toast.success('Профиль обновлён')
+			toast.success('Профіль оновлено')
 		},
 		onError(error: any) {
 			toast.error(
 				error.response?.data?.message ??
-					'Ошибка при обновлении профиля'
+					'Помилка під час оновлення профілю'
 			)
 		}
 	})
@@ -69,7 +69,7 @@ export function DisplayNameForm({ user }: DisplayNameFormProps) {
 						render={({ field, fieldState }) => (
 							<Field>
 								<FieldLabel>
-									Ваше имя
+									Ваше ім'я
 								</FieldLabel>
 								<div className='relative'>
 									<Input
@@ -85,14 +85,14 @@ export function DisplayNameForm({ user }: DisplayNameFormProps) {
 													isPending
 												}
 											>
-												Сохранить
+												Зберегти
 											</Button>
 										</div>
 									)}
 								</div>
 								<FieldDescription>
-									Измените ваше имя на
-									любое, какое захотите.
+									Змініть своє ім'я на будь-яке,
+									яке забажаєте.
 								</FieldDescription>
 								<FieldError
 									errors={[

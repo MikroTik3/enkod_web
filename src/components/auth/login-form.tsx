@@ -260,9 +260,10 @@ export function LoginForm() {
 					/>
 
 					<Button
-						type='button'
+						type='submit'
 						className='w-full'
 						disabled={isPending}
+						isLoading={isPending}
 					>
 						Продовжити
 					</Button>

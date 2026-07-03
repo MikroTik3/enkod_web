@@ -2,9 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eye, EyeOff } from 'lucide-react'
-import type { Route } from 'next'
-import Link from 'next/link'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -24,7 +22,7 @@ import { Captcha } from '../shared/captcha'
 import { Button } from '../ui/button'
 
 import { AuthWrapper } from './auth-wrapper'
-import { useLogin, useRegister } from '@/api/hooks'
+import { useRegister } from '@/api/hooks'
 import { instance } from '@/api/instance'
 import { ROUTES } from '@/constants'
 import { useFingerprint } from '@/hooks'
@@ -260,8 +258,9 @@ export function RegisterForm() {
 					/>
 
 					<Button
-						type='button'
+						type='submit'
 						className='w-full'
+                                          isLoading={isPending}
 						disabled={isPending}
 					>
 						Продовжити

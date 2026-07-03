@@ -70,7 +70,7 @@ export default function MobileTrigger() {
 			</SheetTrigger>
 
 			<SheetContent
-				className='no-scrollbar flex flex-col gap-0 overflow-y-auto'
+				className='no-scrollbar z-[10000] flex flex-col gap-0 overflow-y-auto'
 				side='left'
 			>
 				<div className='flex flex-col p-3'>
@@ -118,7 +118,6 @@ export default function MobileTrigger() {
 									)
 									setIsOpen(false)
 								}}
-								size='lg'
 								variant='ghost'
 								className='justify-start'
 							>
@@ -128,7 +127,7 @@ export default function MobileTrigger() {
 							<Button
 								onClick={() => mutate()}
 								variant='ghost'
-								className='justify-start text-red-500!'
+								className='justify-start text-red-500! bg-red-50!'
 							>
 								<LogOut />
 								Вийти
