@@ -1,10 +1,11 @@
 import { CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 
+import { lessonsTranslator } from '@/lib/utils'
+
 import type { LessonResponse } from '@/api/generated'
 import { ROUTES } from '@/constants'
 import { useAuth } from '@/hooks'
-import { lessonsTranslator } from '@/lib/utils'
 
 interface CourseLessonsProps {
 	lessons: LessonResponse[]
@@ -26,26 +27,33 @@ export function CourseLessons({
 				<h1 className='text-3xl font-semibold'>Уроки</h1>
 				{isAuthorized && (
 					<p className='text-sm text-neutral-600 dark:text-neutral-300'>
-						{totalLessons} {lessonsTranslator(totalLessons)} •{' '}
+						{totalLessons}{' '}
+						{lessonsTranslator(totalLessons)} •{' '}
 						{completedCount} выполнено
 					</p>
 				)}
 			</div>
 			<ul className='mt-5 divide-y rounded-xl border'>
 				{lessons.map(lesson => {
-					const isCompleted = completedLessons.includes(lesson.id)
+					const isCompleted = completedLessons.includes(
+						lesson.id
+					)
 
 					return (
 						<li key={lesson.id} className='group'>
 							<Link
 								href={
 									isAuthorized
-										? ROUTES.COURSES.LESSON(lesson.id)
+										? ROUTES.COURSES.LESSON(
+												lesson.id
+											)
 										: ROUTES.AUTH.LOGIN(
-												ROUTES.COURSES.LESSON(lesson.id)
+												ROUTES.COURSES.LESSON(
+													lesson.id
+												)
 											)
 								}
-								className='flex items-center justify-between p-4 transition-colors hover:bg-muted/50'
+								className='hover:bg-muted/50 flex items-center justify-between p-4 transition-colors'
 							>
 								<div className='flex items-start gap-3'>
 									<div className='mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border'>
@@ -53,7 +61,9 @@ export function CourseLessons({
 											<CheckCircle className='size-5 text-emerald-500' />
 										) : (
 											<span className='text-xs'>
-												{lesson.position}
+												{
+													lesson.position
+												}
 											</span>
 										)}
 									</div>
@@ -67,11 +77,14 @@ export function CourseLessons({
 												className='mt-1 overflow-hidden text-sm text-neutral-600 dark:text-neutral-300'
 												style={{
 													display: '-webkit-box',
-													WebkitBoxOrient: 'vertical',
+													WebkitBoxOrient:
+														'vertical',
 													WebkitLineClamp: 2
 												}}
 											>
-												{lesson.description}
+												{
+													lesson.description
+												}
 											</p>
 										)}
 									</div>

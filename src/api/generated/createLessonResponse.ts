@@ -7,6 +7,6 @@
  */
 
 export interface CreateLessonResponse {
-  /** Unique lesson identifier */
-  id: string;
+	/** Unique lesson identifier */
+	id: string
 }

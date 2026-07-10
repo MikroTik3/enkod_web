@@ -7,16 +7,16 @@
  */
 
 export interface SessionResponse {
-  /** Unique identifier */
-  id: string;
-  /** Date and time when the session was created */
-  createdAt: string;
-  /** Country from which the login occurred */
-  country: string;
-  /** City from which the login occurred */
-  city: string;
-  /** Name of the browser used */
-  browser: string;
-  /** Operating system of the user */
-  os: string;
+	/** Unique identifier */
+	id: string
+	/** Date and time when the session was created */
+	createdAt: string
+	/** Country from which the login occurred */
+	country: string
+	/** City from which the login occurred */
+	city: string
+	/** Name of the browser used */
+	browser: string
+	/** Operating system of the user */
+	os: string
 }

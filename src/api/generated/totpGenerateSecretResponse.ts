@@ -7,8 +7,8 @@
  */
 
 export interface TotpGenerateSecretResponse {
-  /** QR code URL for TOTP setup */
-  qrCodeUrl: string;
-  /** TOTP secret key for generating one-time passwords */
-  secret: string;
+	/** QR code URL for TOTP setup */
+	qrCodeUrl: string
+	/** TOTP secret key for generating one-time passwords */
+	secret: string
 }

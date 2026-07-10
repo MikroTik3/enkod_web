@@ -7,6 +7,6 @@
  */
 
 export interface CreateCourseRequest {
-  /** Title of the course */
-  title: string;
+	/** Title of the course */
+	title: string
 }

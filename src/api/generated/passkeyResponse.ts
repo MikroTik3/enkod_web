@@ -7,12 +7,12 @@
  */
 
 export interface PasskeyResponse {
-  /** Unique identifier */
-  id: string;
-  /** Name of the device associated with the passkey */
-  deviceName: string;
-  /** Timestamp of the last time the user accessed the device */
-  lastUsedAt: string;
-  /** Timestamp when the passkey was created */
-  createdAt: string;
+	/** Unique identifier */
+	id: string
+	/** Name of the device associated with the passkey */
+	deviceName: string
+	/** Timestamp of the last time the user accessed the device */
+	lastUsedAt: string
+	/** Timestamp when the passkey was created */
+	createdAt: string
 }

@@ -7,16 +7,16 @@
  */
 
 export interface ProgressResponse {
-  /** Unique identifier */
-  id: string;
-  /** Indicates whether the lesson is completed */
-  isCompleted: boolean;
-  /** User ID associated with the progress */
-  userId: string;
-  /** Lesson ID associated with the progress */
-  lessonId: string;
-  /** Date when the progress was created */
-  createdAt: string;
-  /** Date when the progress was last updated */
-  updatedAt: string;
+	/** Unique identifier */
+	id: string
+	/** Indicates whether the lesson is completed */
+	isCompleted: boolean
+	/** User ID associated with the progress */
+	userId: string
+	/** Lesson ID associated with the progress */
+	lessonId: string
+	/** Date when the progress was created */
+	createdAt: string
+	/** Date when the progress was last updated */
+	updatedAt: string
 }

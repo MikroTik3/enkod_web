@@ -54,7 +54,7 @@ export function ConfirmDialog({
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel disabled={isLoading}>
-						{cancelBtnText ?? 'Отмена'}
+						{cancelBtnText ?? 'Скасування'}
 					</AlertDialogCancel>
 					<Button
 						variant={
@@ -66,7 +66,7 @@ export function ConfirmDialog({
 						isLoading={isLoading}
 						disabled={isDisabled}
 					>
-						{confirmText ?? 'Продолжить'}
+						{confirmText ?? 'Продовжити'}
 					</Button>
 				</AlertDialogFooter>
 			</AlertDialogContent>

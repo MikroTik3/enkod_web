@@ -7,6 +7,6 @@
  */
 
 export interface InitPaymentResponse {
-  /** URL to complete the payment */
-  url: string;
+	/** URL to complete the payment */
+	url: string
 }

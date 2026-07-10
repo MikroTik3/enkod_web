@@ -135,19 +135,21 @@ export function Connections() {
 												key={
 													index
 												}
-												 className='rounded-2xl bg-white shadow-sm ring-1 shadow-black/10 ring-black/10 md:row-span-2 dark:bg-neutral-900 dark:shadow-white/5 dark:ring-white/10 p-0'
+												className='rounded-2xl bg-white p-0 shadow-sm ring-1 shadow-black/10 ring-black/10 md:row-span-2 dark:bg-neutral-900 dark:shadow-white/5 dark:ring-white/10'
 											>
-												<CardContent className='flex max-[440px]:flex-col max-[440px]:items-start items-center justify-between gap-5 p-4'>
-													<div className='flex items-center max-[440px]:items-start gap-x-3'>
+												<CardContent className='flex items-center justify-between gap-5 p-4 max-[440px]:flex-col max-[440px]:items-start'>
+													<div className='flex items-center gap-x-3 max-[440px]:items-start'>
 														<div className='rounded-lg border p-2.5'>
 															{provider ===
 															'google' ? (
 																<FcGoogle className='size-5' />
 															) : (
 																<meta.icon
-                                                                                                                       className="size-5"
-                                                                                                                       style={{ color: meta.color }}
-                                                                                                                />
+																	className='size-5'
+																	style={{
+																		color: meta.color
+																	}}
+																/>
 															)}
 														</div>
 														<div>
@@ -178,7 +180,7 @@ export function Connections() {
 																	}
 																)
 															}
-                                                                                                         className='max-[440px]:w-full'
+															className='max-[440px]:w-full'
 															isLoading={
 																isPending
 															}

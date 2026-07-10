@@ -7,8 +7,8 @@
  */
 
 export interface SendPasswordResetRequest {
-  /** Email associated with the account */
-  email: string;
-  /** Captcha verification code */
-  captcha: string;
+	/** Email associated with the account */
+	email: string
+	/** Captcha verification code */
+	captcha: string
 }

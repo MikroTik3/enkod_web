@@ -7,10 +7,10 @@
  */
 
 export interface LoginMfaResponse {
-  /** MFA ticket for further verification */
-  ticket: string;
-  /** Allowed MFA methods */
-  allowedMethods: string[];
-  /** Unique user identifier */
-  userId: string;
+	/** MFA ticket for further verification */
+	ticket: string
+	/** Allowed MFA methods */
+	allowedMethods: string[]
+	/** Unique user identifier */
+	userId: string
 }

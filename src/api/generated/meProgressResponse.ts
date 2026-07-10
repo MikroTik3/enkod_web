@@ -5,24 +5,24 @@
  * API for Teacoder educational platform
  * OpenAPI spec version: 1.0.0
  */
-import type { MeProgressResponseLastLesson } from './meProgressResponseLastLesson';
+import type { MeProgressResponseLastLesson } from './meProgressResponseLastLesson'
 
 export interface MeProgressResponse {
-  /** Уникальный идентификатор курса */
-  id: string;
-  /** Название курса */
-  title: string;
-  /** Общее количество уроков в курсе */
-  totalLessons: number;
-  /** Количество завершенных пользователем уроков */
-  completedLessons: number;
-  /** Прогресс прохождения курса в процентах */
-  progress: number;
-  /** Дата последнего прогресса в курсе (последний доступ) */
-  lastAccessed: string;
-  /**
-   * Последний просмотренный урок
-   * @nullable
-   */
-  lastLesson: MeProgressResponseLastLesson;
+	/** Уникальный идентификатор курса */
+	id: string
+	/** Название курса */
+	title: string
+	/** Общее количество уроков в курсе */
+	totalLessons: number
+	/** Количество завершенных пользователем уроков */
+	completedLessons: number
+	/** Прогресс прохождения курса в процентах */
+	progress: number
+	/** Дата последнего прогресса в курсе (последний доступ) */
+	lastAccessed: string
+	/**
+	 * Последний просмотренный урок
+	 * @nullable
+	 */
+	lastLesson: MeProgressResponseLastLesson
 }

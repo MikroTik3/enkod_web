@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { ChevronRightIcon, GemIcon, TrophyIcon, UsersIcon } from 'lucide-react'
+import { ChevronRightIcon, TrophyIcon, UsersIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -11,11 +11,13 @@ import {
 	CardTitle
 } from '@/components/ui/card'
 
-import { cn, getMediaSource } from '@/lib/utils'
+import { getMediaSource } from '@/lib/utils'
 
 import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar'
 
 import { getLeaders } from '@/api/requests'
+import { Separator } from '@/components/ui/separator'
+import { IconApple } from '@tabler/icons-react'
 
 interface LeaderboardProps {
 	limit?: number
@@ -36,16 +38,21 @@ export function Leaderboard({
 	const users = limit ? data?.slice(0, limit) : data
 
 	return (
-		<Card>
-			<CardHeader>
+		<Card className='gap-0 p-0'>
+			<CardHeader className='py-4'>
 				<CardTitle className='flex items-center text-lg font-medium'>
-					<UsersIcon className='mr-2 size-5' /> Рейтинг
-					пользователей
+					<div className='mr-2 flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+						<UsersIcon className='size-4' />
+					</div>
+					Рейтинг користувачів
 				</CardTitle>
 				<CardDescription>
-					Пользователи с наибольшим количеством очков
+					Користувачі з найбільшою кількістю балів
 				</CardDescription>
 			</CardHeader>
+
+			<Separator />
+
 			<CardContent>
 				<div className='space-y-4'>
 					{users?.map((user, index) => {
@@ -57,19 +64,19 @@ export function Leaderboard({
 								className='flex items-center justify-between rounded-md p-2'
 							>
 								<div className='flex items-center'>
-									<div className='w-8 text-center text-[15px] font-semibold'>
+									<div className='flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
 										{position === 1 && (
-											<TrophyIcon className='mx-auto size-5 text-yellow-500' />
+											<TrophyIcon className='mx-auto size-4 text-yellow-500' />
 										)}
 										{position === 2 && (
-											<TrophyIcon className='mx-auto size-5 text-gray-400' />
+											<TrophyIcon className='mx-auto size-4 text-gray-400' />
 										)}
 										{position === 3 && (
-											<TrophyIcon className='mx-auto size-5 text-amber-700' />
+											<TrophyIcon className='mx-auto size-4 text-amber-700' />
 										)}
-										{position > 3 &&
-											position}
+										{position > 3 && position}
 									</div>
+
 									<div className='ml-4 flex items-center gap-4'>
 										<Avatar>
 											<AvatarImage
@@ -77,9 +84,8 @@ export function Leaderboard({
 													user.avatar,
 													'users'
 												)}
-												alt={
-													user.displayName
-												}
+												className='rounded-lg border'
+												alt={user.displayName}
 											/>
 											<AvatarFallback>
 												{user?.displayName.slice(
@@ -91,35 +97,32 @@ export function Leaderboard({
 
 										<div className='flex items-center gap-2'>
 											<p className='font-medium'>
-												{
-													user.displayName
-												}
+												{user.displayName}
 											</p>
+
 											{user.isPremium && (
-												<span className='flex items-center gap-1 rounded-full bg-blue-100 px-2 py-[3px] text-xs font-medium text-blue-600'>
-													<GemIcon className='size-3 text-blue-500' />
-													Premium
+												<span className='flex items-center gap-1 rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-600'>
+													<IconApple className='size-3 text-yellow-500' />
+													Живчик
 												</span>
 											)}
 										</div>
 									</div>
 								</div>
+
 								<div className='font-medium'>
-									{user.points} очков
+									{user.points} балів
 								</div>
 							</div>
 						)
 					})}
 				</div>
 			</CardContent>
+
 			{showButton && (
 				<CardFooter>
-					<Button
-						variant='outline'
-						className='w-full'
-						onClick={onViewAll}
-					>
-						Посмотреть полный рейтинг{' '}
+					<Button className='w-full' onClick={onViewAll}>
+						Переглянути повний рейтинг
 						<ChevronRightIcon className='ml-2 size-4' />
 					</Button>
 				</CardFooter>

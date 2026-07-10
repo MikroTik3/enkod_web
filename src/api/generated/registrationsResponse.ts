@@ -7,8 +7,8 @@
  */
 
 export interface RegistrationsResponse {
-  /** Date of user registrations in YYYY-MM-DD format */
-  date: string;
-  /** Number of users registered on the given date */
-  users: number;
+	/** Date of user registrations in YYYY-MM-DD format */
+	date: string
+	/** Number of users registered on the given date */
+	users: number
 }

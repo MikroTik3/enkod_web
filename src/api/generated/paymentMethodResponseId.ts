@@ -9,17 +9,17 @@
 /**
  * Unique identifier of the payment method
  */
-export type PaymentMethodResponseId = typeof PaymentMethodResponseId[keyof typeof PaymentMethodResponseId];
-
+export type PaymentMethodResponseId =
+	(typeof PaymentMethodResponseId)[keyof typeof PaymentMethodResponseId]
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PaymentMethodResponseId = {
-  BANK_CARD: 'BANK_CARD',
-  SBP: 'SBP',
-  T_PAY: 'T_PAY',
-  SBER_PAY: 'SBER_PAY',
-  YOOMONEY: 'YOOMONEY',
-  CRYPTO: 'CRYPTO',
-  INTERNATIONAL_CARD: 'INTERNATIONAL_CARD',
-  TELEGRAM_STARS: 'TELEGRAM_STARS',
-} as const;
+	BANK_CARD: 'BANK_CARD',
+	SBP: 'SBP',
+	T_PAY: 'T_PAY',
+	SBER_PAY: 'SBER_PAY',
+	YOOMONEY: 'YOOMONEY',
+	CRYPTO: 'CRYPTO',
+	INTERNATIONAL_CARD: 'INTERNATIONAL_CARD',
+	TELEGRAM_STARS: 'TELEGRAM_STARS'
+} as const

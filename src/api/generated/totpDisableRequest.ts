@@ -7,10 +7,10 @@
  */
 
 export interface TotpDisableRequest {
-  /**
-   * Password
-   * @minLength 6
-   * @maxLength 128
-   */
-  password: string;
+	/**
+	 * Password
+	 * @minLength 6
+	 * @maxLength 128
+	 */
+	password: string
 }

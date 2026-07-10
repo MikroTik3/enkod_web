@@ -7,34 +7,34 @@
  */
 
 export interface CourseResponse {
-  /** Unique identifier */
-  id: string;
-  /** Title of the course */
-  title: string;
-  /** Slug of the course (unique URL identifier) */
-  slug: string;
-  /**
-   * Short description of the course
-   * @nullable
-   */
-  shortDescription: string | null;
-  /**
-   * Full description of the course
-   * @nullable
-   */
-  fullDescription: string | null;
-  /**
-   * Identifier of the course thumbnail
-   * @nullable
-   */
-  thumbnail: string | null;
-  /**
-   * YouTube URL for course content or trailer
-   * @nullable
-   */
-  youtubeUrl: string | null;
-  /** Number of views the course has */
-  views: number;
-  /** Date when the course was created */
-  createdAt: string;
+	/** Unique identifier */
+	id: string
+	/** Title of the course */
+	title: string
+	/** Slug of the course (unique URL identifier) */
+	slug: string
+	/**
+	 * Short description of the course
+	 * @nullable
+	 */
+	shortDescription: string | null
+	/**
+	 * Full description of the course
+	 * @nullable
+	 */
+	fullDescription: string | null
+	/**
+	 * Identifier of the course thumbnail
+	 * @nullable
+	 */
+	thumbnail: string | null
+	/**
+	 * YouTube URL for course content or trailer
+	 * @nullable
+	 */
+	youtubeUrl: string | null
+	/** Number of views the course has */
+	views: number
+	/** Date when the course was created */
+	createdAt: string
 }

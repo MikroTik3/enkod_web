@@ -5,7 +5,9 @@
  * API for Teacoder educational platform
  * OpenAPI spec version: 1.0.0
  */
-import type { LoginSessionResponse } from './loginSessionResponse';
-import type { LoginMfaResponse } from './loginMfaResponse';
+import type { LoginMfaResponse } from './loginMfaResponse'
+import type { LoginSessionResponse } from './loginSessionResponse'
 
-export type SessionControllerLoginAdmin200 = LoginSessionResponse | LoginMfaResponse;
+export type SessionControllerLoginAdmin200 =
+	| LoginSessionResponse
+	| LoginMfaResponse

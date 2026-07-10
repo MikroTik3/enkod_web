@@ -7,8 +7,8 @@
  */
 
 export interface CreateProgressResponse {
-  /** Next lesson identifier or null if no next lesson exists */
-  nextLesson: string;
-  /** Indicates whether the lesson is completed */
-  isCompleted: boolean;
+	/** Next lesson identifier or null if no next lesson exists */
+	nextLesson: string
+	/** Indicates whether the lesson is completed */
+	isCompleted: boolean
 }

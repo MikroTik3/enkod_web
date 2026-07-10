@@ -5,15 +5,15 @@
  * API for Teacoder educational platform
  * OpenAPI spec version: 1.0.0
  */
-import type { PaymentMethodResponseId } from './paymentMethodResponseId';
+import type { PaymentMethodResponseId } from './paymentMethodResponseId'
 
 export interface PaymentMethodResponse {
-  /** Unique identifier of the payment method */
-  id: PaymentMethodResponseId;
-  /** Display name of the payment method */
-  name: string;
-  /** Description of the payment method */
-  description: string;
-  /** Indicates whether this payment method is available for the user */
-  isAvailable: boolean;
+	/** Unique identifier of the payment method */
+	id: PaymentMethodResponseId
+	/** Display name of the payment method */
+	name: string
+	/** Description of the payment method */
+	description: string
+	/** Indicates whether this payment method is available for the user */
+	isAvailable: boolean
 }

@@ -41,9 +41,7 @@ export function RevokeSession({ id }: RevokeSessionProps) {
 			open={isOpen}
 			onOpenChange={setIsOpen}
 		>
-			<Button className='max-[440px]:w-full'>
-				Вийти
-			</Button>
+			<Button className='max-[440px]:w-full'>Вийти</Button>
 		</ConfirmDialog>
 	)
 }

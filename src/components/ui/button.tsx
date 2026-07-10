@@ -32,8 +32,23 @@ const buttonVariants = cva(
 					dark:hover:shadow-[0px_0px_20px_0px_rgba(0,0,0,0.3)_inset]
 					dark:hover:ring-black/50
 				`,
-				destructive:
-					'bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90',
+				destructive: `
+					bg-red-600 text-white
+					shadow-[0px_0px_10px_0px_rgba(255,255,255,0.15)_inset]
+					ring ring-red-400/30 ring-offset-2 ring-offset-red-600 ring-inset
+					hover:bg-red-500
+					hover:shadow-[0px_0px_20px_0px_rgba(255,255,255,0.25)_inset]
+					hover:ring-red-300/50
+
+					dark:bg-red-600
+					dark:text-white
+					dark:shadow-[0px_0px_10px_0px_rgba(255,255,255,0.1)_inset]
+					dark:ring-red-500/30
+					dark:ring-offset-neutral-950
+					dark:hover:bg-red-500
+					dark:hover:shadow-[0px_0px_20px_0px_rgba(255,255,255,0.2)_inset]
+					dark:hover:ring-red-400/50
+				`,
 				outline: 'border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
 				secondary:
 					'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
@@ -88,7 +103,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				{...props}
 			>
 				{isLoading && (
-					<Loader2 className='!size-4 animate-spin' />
+					<Loader2 className='size-4! animate-spin' />
 				)}
 				<Slottable>{children}</Slottable>
 			</Comp>

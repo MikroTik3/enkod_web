@@ -7,6 +7,6 @@
  */
 
 export interface GenerateDownloadLinkResponse {
-  /** URL to download the course */
-  url: string;
+	/** URL to download the course */
+	url: string
 }

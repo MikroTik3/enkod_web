@@ -87,7 +87,7 @@ function Card({ children }: { children: React.ReactNode }) {
 	)
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
 	return (
 		<div className='relative min-h-screen bg-neutral-50 dark:bg-neutral-950'>
 			<div className='mx-auto max-w-3xl px-4 pt-24 pb-16 md:pt-36 md:pb-24'>

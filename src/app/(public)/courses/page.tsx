@@ -1,11 +1,12 @@
-import { CourseCard } from '@/components/course/course-card'
 import type { Metadata } from 'next'
+
+import { CourseCard } from '@/components/course/course-card'
 
 export const metadata: Metadata = {
 	title: 'Курсі'
 }
 
-export default function CoursesPage() {
+export default async function CoursesPage() {
 	return (
 		<section
 			id='courses'
@@ -25,17 +26,23 @@ export default function CoursesPage() {
 
 				<div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3'>
 					{[1, 2, 3, 4, 5, 6].map((_, index) => (
-						<CourseCard key={index} course={{
-                                                 id: 'sdfsefsdgse',
-                                                 title: 'Shaders',
-                                                 slug: 'shaders',
-                                                 shortDescription: 'A collection of reusable shaders for your backgrounds.',
-                                                 fullDescription: 'A collection of reusable shaders for your backgrounds. A collection of reusable shaders for your backgrounds.',
-                                                 thumbnail: 'https://assets.aceternity.com/components/hero-section-with-mousemove.webp',
-                                                 youtubeUrl: '',
-                                                 views: 3453,
-                                                 createdAt: ''
-                                          }}/>
+						<CourseCard
+							key={index}
+							course={{
+								id: 'sdfsefsdgse',
+								title: 'Shaders',
+								slug: 'shaders',
+								shortDescription:
+									'A collection of reusable shaders for your backgrounds.',
+								fullDescription:
+									'A collection of reusable shaders for your backgrounds. A collection of reusable shaders for your backgrounds.',
+								thumbnail:
+									'https://assets.aceternity.com/components/hero-section-with-mousemove.webp',
+								youtubeUrl: '',
+								views: 3453,
+								createdAt: ''
+							}}
+						/>
 					))}
 				</div>
 			</div>

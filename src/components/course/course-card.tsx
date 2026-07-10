@@ -1,14 +1,18 @@
-import type { CourseResponse } from "@/api/generated"
-import { ROUTES } from "@/constants"
-import Link from "next/link"
+import Link from 'next/link'
+
+import type { CourseResponse } from '@/api/generated'
+import { ROUTES } from '@/constants'
 
 interface CourseCardProps {
-       course: CourseResponse
+	course: CourseResponse
 }
 
 export function CourseCard({ course }: CourseCardProps) {
 	return (
-		<Link href={ROUTES.COURSES.SINGLE(course.slug)} className='group block h-full overflow-hidden rounded-3xl bg-gray-100 antialiased transition duration-200 hover:bg-gray-50 dark:bg-neutral-900 dark:hover:bg-neutral-900'>
+		<Link
+			href={ROUTES.COURSES.SINGLE(course.slug)}
+			className='group block h-full overflow-hidden rounded-3xl bg-gray-100 antialiased transition duration-200 hover:bg-gray-50 dark:bg-neutral-900 dark:hover:bg-neutral-900'
+		>
 			<div className='relative overflow-hidden rounded-2xl bg-neutral-200/50 transition duration-200 dark:bg-neutral-950'>
 				<div className='p-1'>
 					<div className='relative'>

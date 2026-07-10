@@ -7,8 +7,8 @@
  */
 
 export interface SsoLoginRequest {
-  /** Visitor fingerprint ID */
-  visitorId: string;
-  /** Request ID for fingerprint tracking */
-  requestId: string;
+	/** Visitor fingerprint ID */
+	visitorId: string
+	/** Request ID for fingerprint tracking */
+	requestId: string
 }

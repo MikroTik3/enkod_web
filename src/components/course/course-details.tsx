@@ -35,7 +35,7 @@ export function CourseDetails({ course, lessons }: CourseDetailsProps) {
 						<Skeleton className='h-8 w-3/4 rounded' />{' '}
 						<Skeleton className='h-4 w-full rounded' />
 						<Skeleton className='h-4 w-5/6 rounded' />
-						<Skeleton className='my-5 h-[0.5px] bg-border' />
+						<Skeleton className='bg-border my-5 h-[0.5px]' />
 						<Skeleton className='h-6 w-1/4 rounded' />{' '}
 						<Skeleton className='h-4 w-full rounded' />
 						<Skeleton className='h-4 w-5/6 rounded' />

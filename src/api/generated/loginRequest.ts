@@ -7,18 +7,18 @@
  */
 
 export interface LoginRequest {
-  /** Email address */
-  email: string;
-  /**
-   * Password
-   * @minLength 6
-   * @maxLength 128
-   */
-  password: string;
-  /** Captcha verification code */
-  captcha: string;
-  /** Fingerprint visitor ID */
-  visitorId?: string;
-  /** Fingerprint request ID */
-  requestId?: string;
+	/** Email address */
+	email: string
+	/**
+	 * Password
+	 * @minLength 6
+	 * @maxLength 128
+	 */
+	password: string
+	/** Captcha verification code */
+	captcha: string
+	/** Fingerprint visitor ID */
+	visitorId?: string
+	/** Fingerprint request ID */
+	requestId?: string
 }

@@ -127,7 +127,7 @@ export default function MobileTrigger() {
 							<Button
 								onClick={() => mutate()}
 								variant='ghost'
-								className='justify-start text-red-500! bg-red-50!'
+								className='justify-start bg-red-50! text-red-500!'
 							>
 								<LogOut />
 								Вийти

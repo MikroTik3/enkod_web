@@ -7,10 +7,10 @@
  */
 
 export interface LastLessonResponse {
-  /** Unique identifier */
-  id: string;
-  /** Unique lesson slug */
-  slug: string;
-  /** Lesson position in course */
-  position: number;
+	/** Unique identifier */
+	id: string
+	/** Unique lesson slug */
+	slug: string
+	/** Lesson position in course */
+	position: number
 }

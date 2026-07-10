@@ -7,10 +7,10 @@
  */
 
 export interface CreateUserResponse {
-  /** Unique session identifier */
-  id: string;
-  /** Session token */
-  token: string;
-  /** Unique user identifier */
-  userId: string;
+	/** Unique session identifier */
+	id: string
+	/** Session token */
+	token: string
+	/** Unique user identifier */
+	userId: string
 }

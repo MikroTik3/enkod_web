@@ -7,16 +7,16 @@
  */
 
 export interface ChangePasswordRequest {
-  /**
-   * New password
-   * @minLength 6
-   * @maxLength 128
-   */
-  newPassword: string;
-  /**
-   * Confirmation of the new password
-   * @minLength 6
-   * @maxLength 128
-   */
-  confirmPassword: string;
+	/**
+	 * New password
+	 * @minLength 6
+	 * @maxLength 128
+	 */
+	newPassword: string
+	/**
+	 * Confirmation of the new password
+	 * @minLength 6
+	 * @maxLength 128
+	 */
+	confirmPassword: string
 }

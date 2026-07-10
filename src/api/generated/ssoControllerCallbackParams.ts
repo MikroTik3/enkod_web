@@ -7,7 +7,7 @@
  */
 
 export type SsoControllerCallbackParams = {
-code: string;
-error: string;
-state: string;
-};
+	code: string
+	error: string
+	state: string
+}

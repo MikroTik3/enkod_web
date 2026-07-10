@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -29,10 +29,13 @@ interface DisplayNameFormProps {
 }
 
 export function DisplayNameForm({ user }: DisplayNameFormProps) {
+	const query = useQueryClient()
+
 	const { mutateAsync, isPending } = useMutation({
 		mutationKey: ['patch user'],
 		mutationFn: (data: DisplayName) => patchUser(data),
 		onSuccess() {
+			query.refetchQueries({ queryKey: ['get me'] })
 			toast.success('Профіль оновлено')
 		},
 		onError(error: any) {
@@ -91,8 +94,8 @@ export function DisplayNameForm({ user }: DisplayNameFormProps) {
 									)}
 								</div>
 								<FieldDescription>
-									Змініть своє ім'я на будь-яке,
-									яке забажаєте.
+									Змініть своє ім'я на
+									будь-яке, яке забажаєте.
 								</FieldDescription>
 								<FieldError
 									errors={[

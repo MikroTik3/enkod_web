@@ -260,7 +260,7 @@ export function RegisterForm() {
 					<Button
 						type='submit'
 						className='w-full'
-                                          isLoading={isPending}
+						isLoading={isPending}
 						disabled={isPending}
 					>
 						Продовжити

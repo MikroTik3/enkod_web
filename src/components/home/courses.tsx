@@ -1,4 +1,4 @@
-import { CourseCard } from "../course/course-card";
+import { CourseCard } from '../course/course-card'
 
 export function Courses() {
 	return (
@@ -20,18 +20,24 @@ export function Courses() {
 
 				<div className='mx-auto mt-8 grid gap-4 sm:grid-cols-3 md:mt-12 md:grid-cols-4'>
 					{[1, 2, 3, 4].map((_, index) => (
-                                          <CourseCard key={index} course={{
-                                                 id: 'sdfsefsdgse',
-                                                 title: 'Shaders',
-                                                 slug: 'shaders',
-                                                 shortDescription: 'A collection of reusable shaders for your backgrounds.',
-                                                 fullDescription: 'A collection of reusable shaders for your backgrounds. A collection of reusable shaders for your backgrounds.',
-                                                 thumbnail: 'https://assets.aceternity.com/components/hero-section-with-mousemove.webp',
-                                                 youtubeUrl: '',
-                                                 views: 3453,
-                                                 createdAt: ''
-                                          }}/>
-                                   ))}
+						<CourseCard
+							key={index}
+							course={{
+								id: 'sdfsefsdgse',
+								title: 'Shaders',
+								slug: 'shaders',
+								shortDescription:
+									'A collection of reusable shaders for your backgrounds.',
+								fullDescription:
+									'A collection of reusable shaders for your backgrounds. A collection of reusable shaders for your backgrounds.',
+								thumbnail:
+									'https://assets.aceternity.com/components/hero-section-with-mousemove.webp',
+								youtubeUrl: '',
+								views: 3453,
+								createdAt: ''
+							}}
+						/>
+					))}
 				</div>
 			</div>
 		</section>

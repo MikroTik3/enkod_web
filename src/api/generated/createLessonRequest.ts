@@ -7,8 +7,8 @@
  */
 
 export interface CreateLessonRequest {
-  /** Lesson title */
-  title: string;
-  /** Course ID to which the lesson belongs */
-  courseId: string;
+	/** Lesson title */
+	title: string
+	/** Course ID to which the lesson belongs */
+	courseId: string
 }

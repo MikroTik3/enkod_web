@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	title: 'Підписка'
 }
 
-export default function SubscriptionPage() {
+export default async function SubscriptionPage() {
 	return (
 		<Fragment>
 			<Subscription />

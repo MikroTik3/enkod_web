@@ -9,6 +9,7 @@ import { toast } from 'sonner'
 import { cookies } from '@/lib/cookie'
 import { cn } from '@/lib/utils'
 
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { buttonVariants } from '../ui/button'
 import {
 	DropdownMenu,
@@ -20,15 +21,15 @@ import {
 	DropdownMenuTrigger
 } from '../ui/dropdown-menu'
 
+import { useGetMe } from '@/api/hooks/useGetMe'
 import { instance } from '@/api/instance'
 import { logout } from '@/api/requests/session'
 import { ROUTES } from '@/constants'
-import { useCurrent } from '@/hooks'
 
 export function UserMenu() {
 	const router = useRouter()
 
-	const { user } = useCurrent()
+	const { data } = useGetMe()
 
 	const { mutate } = useMutation({
 		mutationKey: ['logout'],
@@ -48,7 +49,7 @@ export function UserMenu() {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger>
+			<DropdownMenuTrigger asChild>
 				<div
 					className={cn(
 						buttonVariants({
@@ -62,14 +63,32 @@ export function UserMenu() {
 				</div>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className='w-56' align='end'>
-				<DropdownMenuLabel className='font-normal'>
+				<DropdownMenuLabel className='flex items-center gap-2 font-normal'>
+					<Avatar>
+						{!data?.avatar && (
+							<AvatarFallback className='border rounded-lg'>
+								{data?.displayName?.[0] ?? 'A'}
+							</AvatarFallback>
+						)}
+
+						{data?.avatar && (
+							<AvatarImage
+								src={data.avatar}
+								className="border rounded-lg"
+								alt={
+									data.displayName ??
+									'Avatar'
+								}
+							/>
+						)}
+					</Avatar>
+
 					<div className='flex flex-col space-y-1'>
-                                          
-						<p className='text-sm text-black leading-none font-medium'>
-							{user?.displayName}
+						<p className='text-sm leading-none font-medium text-black'>
+							{data?.displayName}
 						</p>
 						<p className='text-muted-foreground text-xs leading-none'>
-							{user?.email}
+							{data?.email}
 						</p>
 					</div>
 				</DropdownMenuLabel>
@@ -89,7 +108,7 @@ export function UserMenu() {
 					</DropdownMenuItem>
 					<DropdownMenuItem
 						onClick={() => mutate()}
-                                           variant="destructive"
+						variant='destructive'
 					>
 						<LogOut />
 						Вийти

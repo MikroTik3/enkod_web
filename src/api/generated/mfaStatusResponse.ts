@@ -7,10 +7,10 @@
  */
 
 export interface MfaStatusResponse {
-  /** Indicates if TOTP MFA is enabled for the account */
-  totpMfa: boolean;
-  /** Indicates if Passkey MFA is enabled for the account */
-  passkeyMfa: boolean;
-  /** Indicates if recovery codes are active for the account */
-  recoveryActive: boolean;
+	/** Indicates if TOTP MFA is enabled for the account */
+	totpMfa: boolean
+	/** Indicates if Passkey MFA is enabled for the account */
+	passkeyMfa: boolean
+	/** Indicates if recovery codes are active for the account */
+	recoveryActive: boolean
 }

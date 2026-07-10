@@ -3,7 +3,6 @@
 import {
 	IconChartArea,
 	IconLink,
-	IconPackage,
 	IconPhone,
 	IconSettings
 } from '@tabler/icons-react'

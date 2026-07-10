@@ -37,15 +37,15 @@ export function AccountActions() {
 	return (
 		<div className='flex flex-col gap-y-3 pb-10'>
 			<h2 className='text-[19px] font-medium'>Дії</h2>
-			<Card className='border-rose-500 bg-red-100 py-0 shadow-none'>
+			<Card className='border border-rose-500 bg-red-100 py-0 shadow-none'>
 				<CardContent className='p-4'>
 					<div className='space-y-8'>
 						<div className='flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0'>
 							<div className='mr-5'>
-								<h2 className='font-semibold'>
+								<h2 className='font-semibold text-red-900'>
 									Вихід
 								</h2>
-								<p className='text-muted-foreground text-sm'>
+								<p className='text-sm text-red-800'>
 									Завершіть сеанс, щоб вийти
 									з аккаунта на цьому
 									пристрої.

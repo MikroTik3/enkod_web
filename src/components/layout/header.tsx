@@ -15,9 +15,16 @@ import MobileTrigger from './mobile-nav'
 import { NavbarLinks } from './nav-links'
 import { UserMenu } from './user-menu'
 import { ROUTES } from '@/constants'
+import { useEffect, useState } from 'react'
 
 export function Header() {
+	const [isAuth, setIsAuth] = useState<boolean | null>()
+
 	const { isAuthorized } = useAuth()
+
+	useEffect(() => {
+		setIsAuth(isAuthorized)
+	}, [])
 
 	return (
 		<div className='fixed z-50 h-16 w-full'>
@@ -26,7 +33,7 @@ export function Header() {
 					<NavbarLogo />
 					<NavbarLinks />
 					<div className='z-100 flex items-center gap-2'>
-						{isAuthorized ? (
+						{isAuth ? (
 							<UserMenu />
 						) : (
 							<Link

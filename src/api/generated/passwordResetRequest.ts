@@ -7,12 +7,12 @@
  */
 
 export interface PasswordResetRequest {
-  /** Reset token */
-  token: string;
-  /**
-   * New password
-   * @minLength 6
-   * @maxLength 128
-   */
-  password: string;
+	/** Reset token */
+	token: string
+	/**
+	 * New password
+	 * @minLength 6
+	 * @maxLength 128
+	 */
+	password: string
 }

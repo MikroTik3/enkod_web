@@ -1,10 +1,14 @@
 import type { NextConfig } from 'next'
+import path from 'path'
 
 const config: NextConfig = {
 	reactStrictMode: true,
 	poweredByHeader: false,
 	output: 'standalone',
 	trailingSlash: false,
+	turbopack: {
+		root: path.join(process.cwd())
+	},
 	images: {
 		remotePatterns: [
 			{

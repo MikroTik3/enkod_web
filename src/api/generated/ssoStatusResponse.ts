@@ -7,12 +7,12 @@
  */
 
 export interface SsoStatusResponse {
-  /** Indicates whether the GitHub account is connected */
-  github: boolean;
-  /** Indicates whether the Google account is connected */
-  google: boolean;
-  /** Indicates whether the Discord account is connected */
-  discord: boolean;
-  /** Indicates whether the Telegram account is connected */
-  telegram: boolean;
+	/** Indicates whether the GitHub account is connected */
+	github: boolean
+	/** Indicates whether the Google account is connected */
+	google: boolean
+	/** Indicates whether the Discord account is connected */
+	discord: boolean
+	/** Indicates whether the Telegram account is connected */
+	telegram: boolean
 }

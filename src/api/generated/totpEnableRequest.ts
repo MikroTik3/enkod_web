@@ -7,12 +7,12 @@
  */
 
 export interface TotpEnableRequest {
-  /**
-   * PIN code for enabling TOTP 2FA
-   * @minLength 6
-   * @maxLength 6
-   */
-  pin: string;
-  /** TOTP secret key */
-  secret: string;
+	/**
+	 * PIN code for enabling TOTP 2FA
+	 * @minLength 6
+	 * @maxLength 6
+	 */
+	pin: string
+	/** TOTP secret key */
+	secret: string
 }

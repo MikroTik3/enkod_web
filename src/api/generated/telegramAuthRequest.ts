@@ -7,22 +7,22 @@
  */
 
 export interface TelegramAuthRequest {
-  /** Telegram user ID */
-  id: number;
-  /** First name of the Telegram user */
-  first_name: string;
-  /** Last name of the Telegram user */
-  last_name?: string;
-  /** Username of the Telegram user */
-  username?: string;
-  /** URL to the user's profile photo */
-  photo_url?: string;
-  /** Authentication date in UNIX timestamp */
-  auth_date: number;
-  /** Hash for validating the data integrity */
-  hash: string;
-  /** Visitor fingerprint ID */
-  visitorId: string;
-  /** Request ID for fingerprint tracking */
-  requestId: string;
+	/** Telegram user ID */
+	id: number
+	/** First name of the Telegram user */
+	first_name: string
+	/** Last name of the Telegram user */
+	last_name?: string
+	/** Username of the Telegram user */
+	username?: string
+	/** URL to the user's profile photo */
+	photo_url?: string
+	/** Authentication date in UNIX timestamp */
+	auth_date: number
+	/** Hash for validating the data integrity */
+	hash: string
+	/** Visitor fingerprint ID */
+	visitorId: string
+	/** Request ID for fingerprint tracking */
+	requestId: string
 }

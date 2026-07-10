@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar'
 import { Input } from '../../ui/input'
 
 import type { AccountResponse } from '@/api/generated'
+import { useGetMe } from '@/api/hooks/useGetMe'
 import { changeAvatar } from '@/api/requests'
 
 interface AvatarFormProps {
@@ -15,9 +16,7 @@ interface AvatarFormProps {
 }
 
 export function AvatarForm({ user }: AvatarFormProps) {
-	const [preview, setPreview] = useState<string | null>(
-		user?.avatar ? getMediaSource(user.avatar, 'users') : null
-	)
+	const { data } = useGetMe()
 
 	const queryClient = useQueryClient()
 
@@ -25,8 +24,7 @@ export function AvatarForm({ user }: AvatarFormProps) {
 		mutationKey: ['change user avatar'],
 		mutationFn: (data: FormData) => changeAvatar(data),
 		onSuccess: data => {
-			setPreview(getMediaSource(data.file_id, 'users'))
-			queryClient.invalidateQueries({ queryKey: ['get me'] })
+			queryClient.refetchQueries({ queryKey: ['get me'] })
 			toast.success('Аватар оновлено')
 		},
 		onError(error: any) {
@@ -54,9 +52,15 @@ export function AvatarForm({ user }: AvatarFormProps) {
 		<div className='flex items-center gap-x-3'>
 			<label className='cursor-pointer'>
 				<Avatar className='size-14'>
-					<AvatarImage src={preview ?? ''} alt='Аватар' />
-					<AvatarFallback className='text-xl'>
-						{user?.displayName.slice(0, 1)}
+					{data && (
+						<AvatarImage
+							src={data.avatar}
+							className="border rounded-xl"
+							alt='Аватар'
+						/>
+					)}
+					<AvatarFallback className='text-xl border rounded-xl'>
+						{data?.displayName?.slice(0, 1)}
 					</AvatarFallback>
 				</Avatar>
 				<Input
@@ -69,7 +73,8 @@ export function AvatarForm({ user }: AvatarFormProps) {
 			<div className='flex flex-col'>
 				<h2 className='font-semibold'>Аватар</h2>
 				<p className='text-muted-foreground text-sm'>
-					Формати: JPEG, PNG, WEBP, GIF. Макс. розмір: 10 МБ.
+					Формати: JPEG, PNG, WEBP, GIF. Макс. розмір: 10
+					МБ.
 				</p>
 			</div>
 		</div>

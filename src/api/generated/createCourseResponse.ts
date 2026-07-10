@@ -7,6 +7,6 @@
  */
 
 export interface CreateCourseResponse {
-  /** Unique identifier */
-  id: string;
+	/** Unique identifier */
+	id: string
 }

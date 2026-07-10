@@ -5,10 +5,10 @@
  * API for Teacoder educational platform
  * OpenAPI spec version: 1.0.0
  */
-import type { LastLessonResponse } from './lastLessonResponse';
+import type { LastLessonResponse } from './lastLessonResponse'
 
 /**
  * Последний просмотренный урок
  * @nullable
  */
-export type MeProgressResponseLastLesson = LastLessonResponse | null;
+export type MeProgressResponseLastLesson = LastLessonResponse | null

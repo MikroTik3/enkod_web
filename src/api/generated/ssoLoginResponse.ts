@@ -7,6 +7,6 @@
  */
 
 export interface SsoLoginResponse {
-  /** The URL for authorization via the external provider (e.g., Google, GitHub) */
-  url: string;
+	/** The URL for authorization via the external provider (e.g., Google, GitHub) */
+	url: string
 }

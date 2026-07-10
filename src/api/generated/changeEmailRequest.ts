@@ -7,6 +7,6 @@
  */
 
 export interface ChangeEmailRequest {
-  /** Email address */
-  email: string;
+	/** Email address */
+	email: string
 }

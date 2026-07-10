@@ -37,9 +37,7 @@ export function RemoveAllSessions() {
 			open={isOpen}
 			onOpenChange={setIsOpen}
 		>
-			<Button>
-				Вийти на всіх пристроях
-			</Button>
+			<Button>Вийти на всіх пристроях</Button>
 		</ConfirmDialog>
 	)
 }

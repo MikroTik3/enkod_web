@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
-import { BookOpen, Crown, Medal, Trophy } from 'lucide-react'
+import { BookOpen, Trophy } from 'lucide-react'
 import React from 'react'
-import { CircularProgressbar } from 'react-circular-progressbar'
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
 
 import { getMeStatistics } from '@/api/requests'
 
@@ -16,16 +17,20 @@ export function UserStats() {
 
 	return isLoading ? (
 		<div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
-			{/* <Skeleton className='h-4 w-[100px]' /> */}
-			{/* <Skeleton className='h-4 w-[160px]' /> */}
+			<Skeleton className='h-[170px] w-full' />
+			<Skeleton className='h-[170px] w-full' />
 		</div>
 	) : (
-		<div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
-			<Card>
+		<div className='*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs sm:grid-cols-1 lg:grid-cols-2'>
+			<Card className='justify-between'>
 				<CardHeader className='pb-2'>
-					<CardTitle className='flex items-center text-lg font-medium'>
-						<Trophy className='mr-2 size-5 text-yellow-500' />
-						Очки и рейтинг
+					<CardTitle className='flex flex-col items-start gap-2'>
+						<div className='flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+							<Trophy className='size-4' />
+						</div>
+						<span className='text-sm font-light text-muted-foreground'>
+							Бали та рейтинг
+						</span>
 					</CardTitle>
 				</CardHeader>
 				<CardContent>
@@ -34,8 +39,8 @@ export function UserStats() {
 							<div className='text-3xl font-bold'>
 								{data?.totalPoints}
 							</div>
-							<div className='text-muted-foreground text-sm'>
-								Всего очков
+							<div className='text-sm font-light text-muted-foreground'>
+								Усього балів
 							</div>
 						</div>
 					</div>
@@ -44,9 +49,13 @@ export function UserStats() {
 
 			<Card>
 				<CardHeader className='pb-2'>
-					<CardTitle className='flex items-center text-lg font-medium'>
-						<BookOpen className='mr-2 size-5 text-blue-600' />
-						Прогресс обучения
+					<CardTitle className='flex flex-col items-start gap-2'>
+						<div className='flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+							<BookOpen className='size-4' />
+						</div>
+						<span className='text-sm font-light text-muted-foreground'>
+							Прогрес навчання
+						</span>
 					</CardTitle>
 				</CardHeader>
 				<CardContent>
@@ -56,29 +65,18 @@ export function UserStats() {
 								{data?.lessonsCompleted}
 							</div>
 							<div className='text-muted-foreground text-sm'>
-								Пройдено уроков
+								Пройдено уроків
 							</div>
 						</div>
-						<div className='size-20'>
+						<div className='size-15'>
 							<CircularProgressbar
 								value={
-									data?.learningProgressPercentage ??
-									0
+									data?.learningProgressPercentage ?? 0
 								}
 								text={`${data?.learningProgressPercentage ?? 0}%`}
-								styles={{
-									trail: {
-										color: '#E2E8F0'
-									},
-									path: {
-										color: '#3B82F6'
-									},
-									text: {
-										fontSize: '1.5rem',
-										color: '#3B82F6',
-										fontWeight: 600
-									}
-								}}
+								styles={buildStyles({
+									textColor: '#000000',
+								})}
 							/>
 						</div>
 					</div>

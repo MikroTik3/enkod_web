@@ -7,6 +7,6 @@
  */
 
 export interface PatchUserRequest {
-  /** Display name */
-  displayName: string;
+	/** Display name */
+	displayName: string
 }

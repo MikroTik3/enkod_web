@@ -7,8 +7,8 @@
  */
 
 export interface CreateProgressRequest {
-  /** Indicates whether the lesson is completed */
-  isCompleted: boolean;
-  /** Unique identifier of the lesson */
-  lessonId: string;
+	/** Indicates whether the lesson is completed */
+	isCompleted: boolean
+	/** Unique identifier of the lesson */
+	lessonId: string
 }

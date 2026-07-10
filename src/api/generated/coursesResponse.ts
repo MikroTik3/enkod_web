@@ -7,22 +7,22 @@
  */
 
 export interface CoursesResponse {
-  /** Unique identifier */
-  id: string;
-  /** Title of the course */
-  title: string;
-  /** Slug of the course (unique URL identifier) */
-  slug: string;
-  /**
-   * Short description of the course
-   * @nullable
-   */
-  shortDescription: string | null;
-  /**
-   * Identifier of the course thumbnail
-   * @nullable
-   */
-  thumbnail: string | null;
-  /** Number of lessons in the course */
-  lessons: number;
+	/** Unique identifier */
+	id: string
+	/** Title of the course */
+	title: string
+	/** Slug of the course (unique URL identifier) */
+	slug: string
+	/**
+	 * Short description of the course
+	 * @nullable
+	 */
+	shortDescription: string | null
+	/**
+	 * Identifier of the course thumbnail
+	 * @nullable
+	 */
+	thumbnail: string | null
+	/** Number of lessons in the course */
+	lessons: number
 }

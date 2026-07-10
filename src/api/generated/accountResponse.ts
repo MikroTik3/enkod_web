@@ -7,18 +7,18 @@
  */
 
 export interface AccountResponse {
-  /** Unique identifier */
-  id: string;
-  /** Display name */
-  displayName: string;
-  /** Email address */
-  email: string;
-  /** Identifier of the user avatar */
-  avatar: string;
-  /** Indicates whether the user has verified their email address */
-  isEmailVerified: boolean;
-  /** Indicates whether auto billing is enabled for the user */
-  isAutoBilling: boolean;
-  /** Indicates whether the user has an active subscription */
-  isPremium: boolean;
+	/** Unique identifier */
+	id: string
+	/** Display name */
+	displayName: string
+	/** Email address */
+	email: string
+	/** Identifier of the user avatar */
+	avatar: string
+	/** Indicates whether the user has verified their email address */
+	isEmailVerified: boolean
+	/** Indicates whether auto billing is enabled for the user */
+	isAutoBilling: boolean
+	/** Indicates whether the user has an active subscription */
+	isPremium: boolean
 }

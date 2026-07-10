@@ -4,8 +4,41 @@ import { IconCircleCheckFilled } from '@tabler/icons-react'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
+import { useAuth } from '@/hooks/useAuth'
+import { useRouter } from 'next/navigation'
+import { useGetMe, useInitializeSubscription } from '@/api/hooks'
+import { ROUTES } from '@/constants'
+import { toast } from 'sonner'
+import { useEffect, useState } from 'react'
 
 export default function Subscription() {
+	const [mounted, setMounted] = useState(false)
+
+	const { isAuthorized } = useAuth()
+	const router = useRouter()
+
+	const { mutate } = useInitializeSubscription({
+		onSuccess: (data) => {
+			router.push(data.pageUrl)
+		},
+		onError: (error: any) => {
+			toast.error(error.response?.data?.message ?? 'Помилка при оплатi')
+		}
+	})
+
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
+
+	const { data: user, isLoading } = useGetMe({
+		enabled: isAuthorized
+	})
+
+	const onSubmit = () => {
+		mutate({  })
+	}
+
 	return (
 		<section
 			id='subscription'
@@ -55,8 +88,23 @@ export default function Subscription() {
 								</div>
 							</div>
 
-							<Button className='mt-10 w-full'>
-								Отримати річний доступ
+							<Button 
+								className='mt-10 w-full'
+								onClick={() => {
+									if (!isAuthorized) {
+										return router.push(
+											ROUTES.AUTH.LOGIN(ROUTES.SUBSCRIPTION)
+										)
+									}
+
+									onSubmit()
+								}}
+								isLoading={mounted && isLoading}
+								disabled={mounted && (user?.isPremium || isLoading)}
+							>
+								{user?.isPremium
+									? 'У вас уже є підписка'
+									: 'Оплатити'}
 							</Button>
 						</div>
 						<div className='mt-1 p-4'>
@@ -85,6 +133,7 @@ export default function Subscription() {
 					<div className='p-4'>
 						<Link
 							href='https://t.me/d16ddd348'
+							target="_blank"
 							className='w-full text-left text-sm text-neutral-500 hover:underline dark:text-neutral-200'
 						>
 							Питання? Напишіть менi

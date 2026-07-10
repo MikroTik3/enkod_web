@@ -7,14 +7,14 @@
  */
 
 export interface LeaderResponse {
-  /** Unique identifier of the user */
-  id: string;
-  /** Display name of the user */
-  displayName: string;
-  /** User avatar URL or identifier */
-  avatar: string;
-  /** Points accumulated by the user */
-  points: number;
-  /** Whether the user has an active premium subscription */
-  isPremium: boolean;
+	/** Unique identifier of the user */
+	id: string
+	/** Display name of the user */
+	displayName: string
+	/** User avatar URL or identifier */
+	avatar: string
+	/** Points accumulated by the user */
+	points: number
+	/** Whether the user has an active premium subscription */
+	isPremium: boolean
 }

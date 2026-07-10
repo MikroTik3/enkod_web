@@ -10,6 +10,7 @@ import { ProfileForm } from './profile-form'
 import { TwoStepAuthForm } from './two-step-auth-form'
 import { useFetchMfaStatus } from '@/api/hooks'
 import { useCurrent } from '@/hooks'
+import { Subscription } from './subscription'
 
 export function Settings() {
 	const { user } = useCurrent()
@@ -28,6 +29,7 @@ export function Settings() {
 						<ProfileForm user={user} />
 						<AccountForm user={user} />
 						<TwoStepAuthForm status={status} />
+						<Subscription user={user}/>
 						<AccountActions />
 					</div>
 				</Fragment>

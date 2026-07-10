@@ -7,12 +7,12 @@
  */
 
 export interface StatisticsResponse {
-  /** Total number of users */
-  users: number;
-  /** Total number of courses */
-  courses: number;
-  /** Total number of views across all course */
-  views: number;
-  /** Total number of lessons */
-  lessons: number;
+	/** Total number of users */
+	users: number
+	/** Total number of courses */
+	courses: number
+	/** Total number of views across all course */
+	views: number
+	/** Total number of lessons */
+	lessons: number
 }

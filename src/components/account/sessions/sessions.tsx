@@ -3,12 +3,12 @@
 import { Fragment } from 'react'
 
 import { Heading } from '@/components/shared/heading'
+import { Card, CardContent } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
 
 import { RemoveAllSessions } from './remove-all-sessions'
 import { SessionItem } from './session-item'
 import { useGetSessions } from '@/api/hooks'
-import { Card, CardContent } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
 
 export function Sessions() {
 	const { data, isLoading } = useGetSessions()

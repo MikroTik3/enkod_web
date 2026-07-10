@@ -1,8 +1,9 @@
 import Image from 'next/image'
 
+import { getMediaSource } from '@/lib/utils'
+
 import { CourseLessons } from './course-lessons'
 import type { CourseResponse, LessonResponse } from '@/api/generated'
-import { getMediaSource } from '@/lib/utils'
 
 interface CourseContentProps {
 	course: CourseResponse
@@ -25,12 +26,14 @@ export function CourseContent({
 				/>
 			</div>
 			<div className='flex flex-col'>
-				<h1 className='text-3xl font-semibold'>{course.title}</h1>
+				<h1 className='text-3xl font-semibold'>
+					{course.title}
+				</h1>
 				<p className='mt-3 text-[17px] text-neutral-600 dark:text-neutral-300'>
 					{course.shortDescription}
 				</p>
 			</div>
-			<div className='my-5 h-[0.5px] bg-border' />
+			<div className='bg-border my-5 h-[0.5px]' />
 			<div className='flex flex-col'>
 				<h1 className='text-3xl font-semibold'>О курсе</h1>
 				<p className='mt-3 text-[17px] text-neutral-600 dark:text-neutral-300'>
@@ -39,7 +42,7 @@ export function CourseContent({
 			</div>
 			{lessons.length > 0 && (
 				<>
-					<div className='my-5 h-[0.5px] bg-border' />
+					<div className='bg-border my-5 h-[0.5px]' />
 					<CourseLessons
 						lessons={lessons}
 						completedLessons={completedLessons}

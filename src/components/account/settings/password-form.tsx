@@ -80,10 +80,10 @@ export function PasswordForm() {
 				<div className='flex w-full flex-col'>
 					<h2 className='mb-1 font-semibold'>Пароль</h2>
 					<p className='text-muted-foreground text-sm'>
-						Пароль — це ключ до вашого облікового запису.
-						Нікому не повідомляйте його. За потреби ви
-						можете змінити пароль тут, щоб підвищити
-						безпеку свого акаунта.
+						Пароль — це ключ до вашого облікового
+						запису. Нікому не повідомляйте його. За
+						потреби ви можете змінити пароль тут, щоб
+						підвищити безпеку свого акаунта.
 					</p>
 				</div>
 			</div>
@@ -97,15 +97,18 @@ export function PasswordForm() {
 					}}
 				>
 					<DialogTrigger asChild>
-						<Button variant='outline'>Змінити</Button>
+						<Button>Змінити</Button>
 					</DialogTrigger>
 
 					<DialogContent>
 						<DialogHeader>
-							<DialogTitle>Зміна пароля</DialogTitle>
+							<DialogTitle>
+								Зміна пароля
+							</DialogTitle>
 							<DialogDescription>
-								Введіть новий пароль і підтвердьте
-								його, щоб оновити пароль.
+								Введіть новий пароль і
+								підтвердьте його, щоб оновити
+								пароль.
 							</DialogDescription>
 						</DialogHeader>
 
@@ -123,7 +126,8 @@ export function PasswordForm() {
 									}) => (
 										<Field>
 											<FieldLabel>
-												Новий пароль
+												Новий
+												пароль
 											</FieldLabel>
 
 											<Input
@@ -157,7 +161,8 @@ export function PasswordForm() {
 										<Field>
 											<FieldLabel>
 												Підтвердіть
-												новий пароль
+												новий
+												пароль
 											</FieldLabel>
 
 											<Input

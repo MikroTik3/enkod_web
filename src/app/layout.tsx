@@ -10,6 +10,7 @@ import { APP_CONFIG, SEO, geistSans } from '../constants'
 
 import { FingerprintProvider } from '@/providers/fingerprint-provider'
 import { TanstackQueryProvider } from '@/providers/tanstack-provider'
+import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
 	title: {
@@ -86,6 +87,7 @@ export default function RootLayout({
 					<FingerprintProvider>
 						<TooltipProvider>
 							{children}
+							<Toaster richColors theme='light' />
 						</TooltipProvider>
 					</FingerprintProvider>
 				</TanstackQueryProvider>

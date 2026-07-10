@@ -5,29 +5,29 @@
  * API for Teacoder educational platform
  * OpenAPI spec version: 1.0.0
  */
-import type { CourseResponse } from './courseResponse';
+import type { CourseResponse } from './courseResponse'
 
 export interface LessonResponse {
-  /** Unique identifier */
-  id: string;
-  /** Lesson title */
-  title: string;
-  /** Unique lesson slug */
-  slug: string;
-  /** Lesson description */
-  description: string;
-  /** Lesson position in course */
-  position: number;
-  /** Kinescope video ID */
-  kinescopeId: string;
-  /** Is lesson published? */
-  isPublished: boolean;
-  /** Course the lesson belongs to */
-  course: CourseResponse;
-  /** Course ID the lesson belongs to */
-  courseId: string;
-  /** Lesson creation date */
-  createdAt: string;
-  /** Lesson last update date */
-  updatedAt: string;
+	/** Unique identifier */
+	id: string
+	/** Lesson title */
+	title: string
+	/** Unique lesson slug */
+	slug: string
+	/** Lesson description */
+	description: string
+	/** Lesson position in course */
+	position: number
+	/** Kinescope video ID */
+	kinescopeId: string
+	/** Is lesson published? */
+	isPublished: boolean
+	/** Course the lesson belongs to */
+	course: CourseResponse
+	/** Course ID the lesson belongs to */
+	courseId: string
+	/** Lesson creation date */
+	createdAt: string
+	/** Lesson last update date */
+	updatedAt: string
 }
