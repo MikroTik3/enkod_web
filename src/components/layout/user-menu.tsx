@@ -66,7 +66,7 @@ export function UserMenu() {
 				<DropdownMenuLabel className='flex items-center gap-2 font-normal'>
 					<Avatar>
 						{!data?.avatar && (
-							<AvatarFallback className='border rounded-lg'>
+							<AvatarFallback className='border'>
 								{data?.displayName?.[0] ?? 'A'}
 							</AvatarFallback>
 						)}
@@ -74,7 +74,7 @@ export function UserMenu() {
 						{data?.avatar && (
 							<AvatarImage
 								src={data.avatar}
-								className="border rounded-lg"
+								className="border"
 								alt={
 									data.displayName ??
 									'Avatar'

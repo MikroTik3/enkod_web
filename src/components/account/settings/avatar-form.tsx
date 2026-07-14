@@ -55,11 +55,10 @@ export function AvatarForm({ user }: AvatarFormProps) {
 					{data && (
 						<AvatarImage
 							src={data.avatar}
-							className="border rounded-xl"
 							alt='Аватар'
 						/>
 					)}
-					<AvatarFallback className='text-xl border rounded-xl'>
+					<AvatarFallback className='text-xl'>
 						{data?.displayName?.slice(0, 1)}
 					</AvatarFallback>
 				</Avatar>

@@ -5,10 +5,13 @@ import { useState } from 'react'
 import { toast } from 'sonner'
 
 import { ConfirmDialog } from '../../shared/confirm-dialog'
-import { Button } from '../../ui/button'
+import { Button, buttonVariants } from '../../ui/button'
 
 import type { AccountResponse } from '@/api/generated'
 import { toggleAutoBilling } from '@/api/requests'
+import Link from 'next/link'
+import { ROUTES } from '@/constants'
+import { cn } from '@/lib/utils'
 
 interface AutoBillingFormProps {
 	user: AccountResponse | undefined
@@ -22,14 +25,10 @@ export function AutoBillingForm({ user }: AutoBillingFormProps) {
 	const { mutate } = useMutation({
 		mutationKey: ['toggle auto billing', user?.id],
 		mutationFn: toggleAutoBilling,
-		onSuccess: () => {
+		onSuccess: (data: any) => {
 			setIsOpen(false)
 			queryClient.invalidateQueries({ queryKey: ['get me'] })
-			toast.success(
-				user?.isAutoBilling
-					? 'Автоматичні списання вимкнені'
-					: 'Автоматичні списання увімкнено'
-			)
+			toast.success(data.response?.data?.message)
 		},
 		onError: (error: any) => {
 			toast.error(
@@ -68,9 +67,9 @@ export function AutoBillingForm({ user }: AutoBillingFormProps) {
 						</Button>
 					</ConfirmDialog>
 				) : (
-					<Button onClick={() => mutate()}>
-						Увімкнути
-					</Button>
+                                   <Link href={ROUTES.SUBSCRIPTION} className={cn(buttonVariants())}>
+                                          Увімкнути
+                                   </Link>
 				)}
 			</div>
 		</div>

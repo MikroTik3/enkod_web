@@ -29,11 +29,13 @@ export function VerifyEmail() {
 	})
 
 	return (
-		<AuthWrapper heading='Верифікація пошти'>
-			<p className='text-muted-foreground text-sm'>
-				Щоб завершити підтвердження пошти, натисни на кнопку
-				нижче.
-			</p>
+		<AuthWrapper 
+                     heading='Верифікація пошти' 
+                     description='Щоб завершити підтвердження пошти, натисни на кнопку нижче.'
+                     bottomText='Уже є аккаунт?'
+			bottomLinkText='Увійти'
+			bottomLinkHref={ROUTES.AUTH.LOGIN()}
+              >
 			<Button
 				className='mt-5 w-full'
 				onClick={() => mutate()}
