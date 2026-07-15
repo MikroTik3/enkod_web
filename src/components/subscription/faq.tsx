@@ -94,11 +94,11 @@ export default function Faq() {
 					<h2 className='text-center text-4xl font-medium tracking-tight text-neutral-600 md:text-5xl dark:text-neutral-50'>
 						Поширені запитання
 					</h2>
-					<p className='mx-auto max-w-lg text-center text-base text-neutral-600 dark:text-neutral-50'>
+					<p className='mx-auto max-w-lg text-center text-base text-neutral-600 dark:text-neutral-400'>
 						Якщо ви не знайдете тут те, що вам потрібно,
 						зв’яжіться з нами за адресою
 						<Link
-							className='ml-1 text-black underline'
+							className='ml-1 text-black underline dark:text-white'
 							href='mailto:dotsenk20034@gmail.com'
 						>
 							dotsenk20034@gmail.com
@@ -112,7 +112,7 @@ export default function Faq() {
 				>
 					{faqData.map(section => (
 						<div key={section.title}>
-							<h3 className='mb-6 text-lg font-medium text-[#150A35]'>
+							<h3 className='mb-6 text-lg font-medium text-[#150A35] dark:text-white'>
 								{section.title}
 							</h3>
 							<div className='flex flex-col gap-3'>
@@ -128,8 +128,8 @@ export default function Faq() {
 												className={cn(
 													'relative rounded-lg transition-all duration-200',
 													isActive
-														? 'bg-white shadow-sm'
-														: 'hover:bg-white/80'
+														? 'bg-white shadow-sm dark:bg-zinc-950'
+														: 'hover:bg-white/80 dark:hover:bg-zinc-950'
 												)}
 											>
 												{isActive && (
@@ -158,9 +158,9 @@ export default function Faq() {
 															id
 														)
 													}
-													className='hover:bg-accent flex w-full items-center justify-between rounded-lg px-4 py-4 text-left transition-all duration-150'
+													className='hover:bg-accent flex w-full items-center justify-between rounded-lg px-4 py-4 text-left transition-all duration-150 dark:hover:bg-zinc-900'
 												>
-													<span className='text-sm font-medium text-[#150A35] md:text-base'>
+													<span className='text-sm font-medium text-[#150A35] md:text-base dark:text-white'>
 														{
 															item.question
 														}

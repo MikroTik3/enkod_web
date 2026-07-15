@@ -5,11 +5,7 @@ import { initializeSubscription } from '../requests'
 
 export const useInitializeSubscription = (
 	options?: Omit<
-		UseMutationOptions<
-			InitSubscriptionResponse,
-			unknown,
-			any
-		>,
+		UseMutationOptions<InitSubscriptionResponse, unknown, any>,
 		'mutationKey' | 'mutationFn'
 	>
 ) =>

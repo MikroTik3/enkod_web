@@ -110,7 +110,8 @@ export function NewPasswordForm() {
 										}
 									/>
 
-									<div
+									<button
+                                                                      type='button'
 										className='absolute top-2 right-3'
 										onClick={() =>
 											setIsVisible(
@@ -123,7 +124,7 @@ export function NewPasswordForm() {
 										) : (
 											<Eye className='size-5 opacity-50 hover:opacity-80' />
 										)}
-									</div>
+									</button>
 								</div>
 								{fieldState.invalid && (
 									<FieldError

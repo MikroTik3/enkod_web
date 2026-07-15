@@ -44,22 +44,34 @@ export function CoursesTab() {
 				) : (
 					<div className='space-y-6'>
 						{data?.map(course => (
-							<div key={course.id} className='space-y-2'>
+							<div
+								key={course.id}
+								className='space-y-2'
+							>
 								<div className='flex items-center justify-between'>
 									<div className='font-medium'>
 										{course.title}
 									</div>
 									<div className='text-muted-foreground text-sm'>
-										{course.completedLessons}/
-										{course.totalLessons} уроків
+										{
+											course.completedLessons
+										}
+										/
+										{
+											course.totalLessons
+										}{' '}
+										уроків
 									</div>
 								</div>
 
 								<div className='flex items-center gap-4'>
 									<CourseProgress
-										progress={course.progress}
+										progress={
+											course.progress
+										}
 										variant={
-											course.progress === 100
+											course.progress ===
+											100
 												? 'success'
 												: 'default'
 										}
@@ -75,7 +87,9 @@ export function CoursesTab() {
 										Останній доступ:{' '}
 										{new Date(
 											course.lastAccessed
-										).toLocaleDateString('uk-UA')}
+										).toLocaleDateString(
+											'uk-UA'
+										)}
 									</span>
 
 									{course.lastLesson && (
@@ -87,17 +101,21 @@ export function CoursesTab() {
 										>
 											<Link
 												href={ROUTES.COURSES.LESSON(
-													course.lastLesson.id
+													course
+														.lastLesson
+														.id
 												)}
 											>
-												Продовжити навчання
+												Продовжити
+												навчання
 											</Link>
 										</Button>
 									)}
 								</div>
 
 								{course.id !==
-									data[data.length - 1].id && (
+									data[data.length - 1]
+										.id && (
 									<Separator className='mt-4' />
 								)}
 							</div>

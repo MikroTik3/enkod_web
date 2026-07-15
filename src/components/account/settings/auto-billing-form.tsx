@@ -1,17 +1,18 @@
 'use client'
 
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'sonner'
+
+import { cn } from '@/lib/utils'
 
 import { ConfirmDialog } from '../../shared/confirm-dialog'
 import { Button, buttonVariants } from '../../ui/button'
 
 import type { AccountResponse } from '@/api/generated'
 import { toggleAutoBilling } from '@/api/requests'
-import Link from 'next/link'
 import { ROUTES } from '@/constants'
-import { cn } from '@/lib/utils'
 
 interface AutoBillingFormProps {
 	user: AccountResponse | undefined
@@ -45,9 +46,10 @@ export function AutoBillingForm({ user }: AutoBillingFormProps) {
 					<h2 className='mb-1 font-semibold'>
 						Автоматическое списание
 					</h2>
-					<p className='text-sm text-muted-foreground'>
+					<p className='text-muted-foreground text-sm'>
 						Ежемесячно плата списывается автоматически.
-						Автопродление можно отключить в любой момент.
+						Автопродление можно отключить в любой
+						момент.
 					</p>
 				</div>
 			</div>
@@ -60,16 +62,17 @@ export function AutoBillingForm({ user }: AutoBillingFormProps) {
 						description='Ви впевнені, що хочете вимкнути автоматичне списання? Передплата залишатиметься активною до кінця оплаченого періоду.'
 						handleConfirm={mutate}
 					>
-						<Button
-							onClick={() => setIsOpen(true)}
-						>
+						<Button onClick={() => setIsOpen(true)}>
 							Вимкнути
 						</Button>
 					</ConfirmDialog>
 				) : (
-                                   <Link href={ROUTES.SUBSCRIPTION} className={cn(buttonVariants())}>
-                                          Увімкнути
-                                   </Link>
+					<Link
+						href={ROUTES.SUBSCRIPTION}
+						className={cn(buttonVariants())}
+					>
+						Увімкнути
+					</Link>
 				)}
 			</div>
 		</div>

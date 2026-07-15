@@ -29,7 +29,7 @@ export function MotionLink({
 			{hovered === index && (
 				<motion.div
 					layoutId='hovered-nav-links'
-					className='absolute inset-0 h-full w-full rounded-full bg-gray-100'
+					className='absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-zinc-800'
 				/>
 			)}
 			<span className='relative z-20 text-[14px]'>{title}</span>

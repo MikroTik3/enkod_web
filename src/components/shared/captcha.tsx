@@ -1,15 +1,26 @@
+import { useTheme } from 'next-themes'
 import Turnstile, { type TurnstileProps } from 'react-turnstile'
+
+import { env } from '@/config/env'
 
 interface CaptchaProps extends Omit<TurnstileProps, 'sitekey'> {
 	onVerify: (token: string) => void
 }
 
 export function Captcha({ onVerify, ...props }: CaptchaProps) {
+	const { resolvedTheme } = useTheme()
+
 	return (
 		<Turnstile
-			sitekey={process.env['NEXT_PUBLIC_TURNSTILE_SITE_KEY']!}
+			sitekey={env.TURNSTILE_SITE_KEY}
 			onVerify={onVerify}
-			theme='light'
+			theme={
+				resolvedTheme === 'system'
+					? 'auto'
+					: resolvedTheme === 'dark'
+						? 'dark'
+						: 'light'
+			}
 			size='flexible'
 			style={{
 				width: '100%'

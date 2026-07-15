@@ -12,7 +12,7 @@ export function Hero() {
 	return (
 		<section
 			id='hero'
-			className='relative flex min-h-screen w-full bg-white'
+			className='relative flex min-h-screen w-full bg-white dark:bg-zinc-950'
 		>
 			<LinesGradientShader
 				className='pointer-events-none absolute inset-0 z-10 overflow-hidden bg-transparent mask-b-from-50% dark:bg-transparent'
@@ -26,7 +26,8 @@ export function Hero() {
 			<div className='z-20 mx-auto flex w-full max-w-335 flex-col justify-center gap-6 px-4 text-sm md:px-8'>
 				<a
 					className='ring-none group flex w-fit items-center gap-2 rounded-full bg-white px-2 py-1 text-xs text-neutral-700 transition duration-200 hover:bg-neutral-50 active:scale-98 dark:bg-neutral-800 dark:text-neutral-300'
-					href='/'
+					target='_blank'
+					href='https://t.me/enkod_community'
 				>
 					Приєднуйся до нашого Telegram-каналу
 					<span className='duration-150 group-hover:translate-x-0.5'>

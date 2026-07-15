@@ -6,11 +6,12 @@ import { Heading } from '@/components/shared/heading'
 
 import { AccountActions } from './account-actions'
 import { AccountForm } from './account-form'
+import { Preferences } from './preferences'
 import { ProfileForm } from './profile-form'
+import { Subscription } from './subscription'
 import { TwoStepAuthForm } from './two-step-auth-form'
 import { useFetchMfaStatus } from '@/api/hooks'
 import { useCurrent } from '@/hooks'
-import { Subscription } from './subscription'
 
 export function Settings() {
 	const { user } = useCurrent()
@@ -29,7 +30,8 @@ export function Settings() {
 						<ProfileForm user={user} />
 						<AccountForm user={user} />
 						<TwoStepAuthForm status={status} />
-						<Subscription user={user}/>
+						<Subscription user={user} />
+						<Preferences />
 						<AccountActions />
 					</div>
 				</Fragment>

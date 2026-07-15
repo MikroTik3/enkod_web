@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { notFound } from 'next/navigation'
 
-import { api } from '@/api/instance'
-import { getCourseLessons, getLesson } from '@/api/requests'
 import { LessonCompleteButton } from '@/components/lesson/lesson-complete-button'
 import { LessonContainer } from '@/components/lesson/lesson-container'
 import { LessonPlayer } from '@/components/lesson/lesson-player'
 import { LessonSidebar } from '@/components/lesson/lesson-sidebar'
+
+import { api } from '@/api/instance'
+import { getCourseLessons, getLesson } from '@/api/requests'
 
 export const revalidate = 60
 
@@ -94,7 +95,9 @@ export default async function LessonPage({
 				progressCount={progressCount}
 			/>
 			<LessonContainer>
-				<h1 className='mb-4 text-3xl font-bold'>{lesson.title}</h1>
+				<h1 className='mb-4 text-3xl font-bold'>
+					{lesson.title}
+				</h1>
 
 				{lesson.description && (
 					<p className='mb-8 text-neutral-600 dark:text-neutral-300'>

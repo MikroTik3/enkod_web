@@ -4,7 +4,8 @@ export const env = {
 	APP_URL: process.env.NEXT_PUBLIC_APP_URL ?? 'https://encod.com',
 	API_URL: process.env.NEXT_PUBLIC_API_URL ?? 'https://api.encod.com',
 
-	NEXT_PUBLIC_COOKIES_DOMAIN: process.env.NEXT_PUBLIC_COOKIES_DOMAIN ?? 'encod.com',
+	NEXT_PUBLIC_COOKIES_DOMAIN:
+		process.env.NEXT_PUBLIC_COOKIES_DOMAIN ?? 'encod.com',
 
 	TURNSTILE_SITE_KEY:
 		process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ??

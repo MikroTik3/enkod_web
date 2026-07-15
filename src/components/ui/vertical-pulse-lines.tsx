@@ -1,4 +1,5 @@
 'use client'
+
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 
@@ -6,7 +7,10 @@ import { cn } from '@/lib/utils'
 
 export function VerticalPulseLines({ className }: { className?: string }) {
 	const ref = useRef(null)
-	const isInView = useInView(ref, { once: true, margin: '-50px' })
+	const isInView = useInView(ref, {
+		once: true,
+		margin: '-50px'
+	})
 
 	return (
 		<div
@@ -16,14 +20,24 @@ export function VerticalPulseLines({ className }: { className?: string }) {
 				className
 			)}
 		>
-			<div className='pointer-events-none absolute inset-x-0 top-0 z-10 h-8 bg-linear-to-b from-white to-transparent' />
-			<div className='pointer-events-none absolute inset-x-0 bottom-0 z-10 h-8 bg-linear-to-t from-white to-transparent' />
+			<div className='pointer-events-none absolute inset-x-0 top-0 z-10 h-8 bg-linear-to-b from-white to-transparent dark:from-neutral-900' />
+
+			<div className='pointer-events-none absolute inset-x-0 bottom-0 z-10 h-8 bg-linear-to-t from-white to-transparent dark:from-neutral-900' />
+
 			{[0, 1, 2, 3, 4, 5, 6].map(i => (
 				<div key={i} className='relative h-full w-px'>
-					<div className='absolute inset-0 border-l border-dashed border-neutral-300' />
+					<div className='absolute inset-0 border-l border-dashed border-neutral-300 dark:border-neutral-800' />
+
 					<motion.div
-						className='absolute left-0 h-12 w-px bg-linear-to-b from-transparent via-blue-500 to-transparent'
-						initial={{ y: '-100%', opacity: 0 }}
+						className='absolute left-0 h-12 w-px bg-linear-to-b from-transparent via-blue-500 to-transparent dark:via-blue-400'
+						style={{
+							boxShadow:
+								'0 0 10px rgba(96, 165, 250, 0.45)'
+						}}
+						initial={{
+							y: '-100%',
+							opacity: 0
+						}}
 						animate={
 							isInView
 								? {

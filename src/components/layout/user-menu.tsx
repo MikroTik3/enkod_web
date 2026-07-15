@@ -74,7 +74,7 @@ export function UserMenu() {
 						{data?.avatar && (
 							<AvatarImage
 								src={data.avatar}
-								className="border"
+								className='border'
 								alt={
 									data.displayName ??
 									'Avatar'
@@ -84,7 +84,7 @@ export function UserMenu() {
 					</Avatar>
 
 					<div className='flex flex-col space-y-1'>
-						<p className='text-sm leading-none font-medium text-black'>
+						<p className='text-sm leading-none font-medium text-black dark:text-white'>
 							{data?.displayName}
 						</p>
 						<p className='text-muted-foreground text-xs leading-none'>

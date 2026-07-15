@@ -11,7 +11,7 @@ export function Subscription({ user }: SubscriptionProps) {
 	return (
 		<div className='flex flex-col gap-y-3'>
 			<h2 className='text-[19px] font-medium'>Підписка</h2>
-			<Card className='shadow-none p-0'>
+			<Card className='p-0 shadow-none'>
 				<CardContent className='p-4'>
 					<div className='space-y-8'>
 						<AutoBillingForm user={user} />

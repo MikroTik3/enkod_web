@@ -35,11 +35,11 @@ export function LessonPlayer({ videoId }: LessonPlayerProps) {
 	return (
 		<div
 			ref={containerRef}
-			className='relative mx-auto aspect-video w-full max-w-5xl overflow-hidden rounded-lg bg-muted'
+			className='bg-muted relative mx-auto aspect-video w-full max-w-5xl overflow-hidden rounded-lg'
 		>
 			{!iframeLoaded && (
-				<div className='absolute inset-0 flex flex-col items-center justify-center bg-muted'>
-					<div className='z-10 text-base text-muted-foreground'>
+				<div className='bg-muted absolute inset-0 flex flex-col items-center justify-center'>
+					<div className='text-muted-foreground z-10 text-base'>
 						Загрузка видео…
 					</div>
 				</div>

@@ -39,15 +39,6 @@ const buttonVariants = cva(
 					hover:bg-red-500
 					hover:shadow-[0px_0px_20px_0px_rgba(255,255,255,0.25)_inset]
 					hover:ring-red-300/50
-
-					dark:bg-red-600
-					dark:text-white
-					dark:shadow-[0px_0px_10px_0px_rgba(255,255,255,0.1)_inset]
-					dark:ring-red-500/30
-					dark:ring-offset-neutral-950
-					dark:hover:bg-red-500
-					dark:hover:shadow-[0px_0px_20px_0px_rgba(255,255,255,0.2)_inset]
-					dark:hover:ring-red-400/50
 				`,
 				outline: 'border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
 				secondary:

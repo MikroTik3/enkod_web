@@ -30,14 +30,13 @@ export function Tabs({
 	tabClassName,
 	contentClassName
 }: TabsProps) {
-	const active =
-		tabs.find(tab => tab.value === activeTab) ?? tabs[0]
+	const active = tabs.find(tab => tab.value === activeTab) ?? tabs[0]
 
 	return (
 		<>
 			<div
 				className={cn(
-					'no-visible-scrollbar bg-gray-100 relative flex w-max items-center gap-2 overflow-auto rounded-full border p-1 sm:overflow-visible',
+					'no-visible-scrollbar relative flex w-max items-center gap-2 overflow-auto rounded-full border bg-gray-100 p-1 sm:overflow-visible dark:bg-zinc-950',
 					containerClassName
 				)}
 			>
@@ -59,7 +58,7 @@ export function Tabs({
 									duration: 0.6
 								}}
 								className={cn(
-									'absolute inset-0 rounded-full bg-white',
+									'absolute inset-0 rounded-full bg-white dark:bg-zinc-800',
 									activeTabClassName
 								)}
 							/>

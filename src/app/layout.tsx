@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 
+import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
 import { cn } from '@/lib/utils'
@@ -8,9 +9,9 @@ import '@/styles/globals.css'
 
 import { APP_CONFIG, SEO, geistSans } from '../constants'
 
+import { ThemeProvider } from '@/providers'
 import { FingerprintProvider } from '@/providers/fingerprint-provider'
 import { TanstackQueryProvider } from '@/providers/tanstack-provider'
-import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
 	title: {
@@ -85,10 +86,26 @@ export default function RootLayout({
 			<body>
 				<TanstackQueryProvider>
 					<FingerprintProvider>
-						<TooltipProvider>
-							{children}
-							<Toaster richColors theme='light' />
-						</TooltipProvider>
+						<ThemeProvider
+							attribute='class'
+							defaultTheme='light'
+							enableSystem
+							disableTransitionOnChange
+						>
+							<TooltipProvider>
+								{children}
+								<Toaster
+									toastOptions={{
+										classNames: {
+											error: 'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200 border-0',
+											success: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 border-0',
+											warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-950 dark:text-yellow-200 border-0',
+											info: 'bg-sky-100 text-sky-800 dark:bg-gray-800 dark:text-gray-200 border-0'
+										}
+									}}
+								/>
+							</TooltipProvider>
+						</ThemeProvider>
 					</FingerprintProvider>
 				</TanstackQueryProvider>
 			</body>

@@ -94,7 +94,7 @@ export function RegisterPasskeyForm() {
 			<DialogTrigger asChild>
 				<Button>Додати</Button>
 			</DialogTrigger>
-			<DialogContent className='max-w-[550px] p-0'>
+			<DialogContent className='max-w-137.5 p-0'>
 				<DialogHeader className='p-6 pb-0'>
 					<DialogTitle>
 						Реєстрація ключа доступу
@@ -138,7 +138,7 @@ export function RegisterPasskeyForm() {
 								)}
 							/>
 						</FieldGroup>
-						<DialogFooter className='mt-6 pb-6'>
+						<DialogFooter>
 							<DialogClose asChild>
 								<Button variant='outline'>
 									Відміна

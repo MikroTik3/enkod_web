@@ -104,7 +104,7 @@ export function FAQs() {
 				>
 					{faqData.map(section => (
 						<div key={section.title}>
-							<h3 className='mb-6 text-lg font-medium text-[#150A35]'>
+							<h3 className='mb-6 text-lg font-medium text-[#150A35] dark:text-white'>
 								{section.title}
 							</h3>
 							<div className='flex flex-col gap-3'>
@@ -120,8 +120,8 @@ export function FAQs() {
 												className={cn(
 													'relative rounded-lg transition-all duration-200',
 													isActive
-														? 'bg-white shadow-sm'
-														: 'hover:bg-white/80'
+														? 'bg-white shadow-sm dark:bg-zinc-950'
+														: 'hover:bg-white/80 dark:hover:bg-zinc-950'
 												)}
 											>
 												{isActive && (
@@ -150,9 +150,9 @@ export function FAQs() {
 															id
 														)
 													}
-													className='hover:bg-accent flex w-full items-center justify-between rounded-lg px-4 py-4 text-left transition-all duration-150'
+													className='hover:bg-accent flex w-full items-center justify-between rounded-lg px-4 py-4 text-left transition-all duration-150 dark:hover:bg-zinc-900'
 												>
-													<span className='text-sm font-medium text-[#150A35] md:text-base'>
+													<span className='text-sm font-medium text-[#150A35] md:text-base dark:text-white'>
 														{
 															item.question
 														}

@@ -121,7 +121,7 @@ export function Features() {
 			</div>
 
 			<div className='mx-auto mt-4 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-3'>
-				<div className='group rounded-2xl bg-white p-6 dark:bg-neutral-900'>
+				<div className='group bg-accent rounded-2xl p-6 dark:bg-neutral-900'>
 					<Zap className='size-5 transition-all duration-300 group-hover:translate-x-2' />
 					<h3 className='mt-4 text-sm font-semibold text-neutral-900 dark:text-white'>
 						Швидкий старт навчання
@@ -132,7 +132,7 @@ export function Features() {
 						практика та проєкти доступні з першого дня.
 					</p>
 				</div>
-				<div className='group rounded-2xl bg-white p-6 dark:bg-neutral-900'>
+				<div className='group bg-accent rounded-2xl p-6 dark:bg-neutral-900'>
 					<ChartColumn className='size-5 transition-all duration-300 group-hover:translate-x-2' />
 					<h3 className='mt-4 text-sm font-semibold text-neutral-900 dark:text-white'>
 						Відстеження прогресу
@@ -143,7 +143,7 @@ export function Features() {
 						реальні навички, які ви отримуєте.
 					</p>
 				</div>
-				<div className='group rounded-2xl bg-white p-6 dark:bg-neutral-900'>
+				<div className='group bg-accent rounded-2xl p-6 dark:bg-neutral-900'>
 					<Puzzle className='size-5 transition-all duration-300 group-hover:translate-x-2' />
 					<h3 className='mt-4 text-sm font-semibold text-neutral-900 dark:text-white'>
 						Практика на реальних завданнях

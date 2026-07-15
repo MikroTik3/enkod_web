@@ -1,4 +1,4 @@
 export interface InitSubscriptionResponse {
-      pageUrl: string
-      subscriptionId: string
+	pageUrl: string
+	subscriptionId: string
 }

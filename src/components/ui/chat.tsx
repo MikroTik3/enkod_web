@@ -87,7 +87,7 @@ export function ChatConversation({ className }: { className?: string }) {
 									duration: 0.3,
 									delay: baseDelay + 0.15
 								}}
-								className='rounded-xl bg-white px-3 py-2 text-sm text-neutral-700 shadow-sm ring-1 shadow-black/5 ring-black/5'
+								className='rounded-xl bg-white px-3 py-2 text-sm text-neutral-700 shadow-sm ring-1 shadow-black/5 ring-black/5 dark:bg-zinc-950 dark:text-neutral-200'
 							>
 								{message.text}
 							</motion.div>

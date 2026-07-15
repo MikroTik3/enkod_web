@@ -156,7 +156,7 @@ export function EnableTotpForm() {
 			<DialogTrigger asChild>
 				<Button>Увімкнути</Button>
 			</DialogTrigger>
-			<DialogContent className='max-w-[550px] p-0'>
+			<DialogContent className='max-w-[600px] p-0'>
 				<DialogHeader className='p-7 pb-0'>
 					<DialogTitle>
 						{step === 1
@@ -280,7 +280,7 @@ export function EnableTotpForm() {
 										/>
 									</FieldGroup>
 
-									<DialogFooter className='mt-5 pb-7'>
+									<DialogFooter className='mt-5 '>
 										<DialogClose
 											asChild
 										>

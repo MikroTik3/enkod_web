@@ -2,14 +2,16 @@
 
 import { IconCircleCheckFilled } from '@tabler/icons-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
+
 import { useAuth } from '@/hooks/useAuth'
-import { useRouter } from 'next/navigation'
+
 import { useGetMe, useInitializeSubscription } from '@/api/hooks'
 import { ROUTES } from '@/constants'
-import { toast } from 'sonner'
-import { useEffect, useState } from 'react'
 
 export default function Subscription() {
 	const [mounted, setMounted] = useState(false)
@@ -18,14 +20,15 @@ export default function Subscription() {
 	const router = useRouter()
 
 	const { mutate } = useInitializeSubscription({
-		onSuccess: (data) => {
+		onSuccess: data => {
 			router.push(data.pageUrl)
 		},
 		onError: (error: any) => {
-			toast.error(error.response?.data?.message ?? 'Помилка при оплатi')
+			toast.error(
+				error.response?.data?.message ?? 'Помилка при оплатi'
+			)
 		}
 	})
-
 
 	useEffect(() => {
 		setMounted(true)
@@ -36,7 +39,7 @@ export default function Subscription() {
 	})
 
 	const onSubmit = () => {
-		mutate({  })
+		mutate({})
 	}
 
 	return (
@@ -88,19 +91,25 @@ export default function Subscription() {
 								</div>
 							</div>
 
-							<Button 
+							<Button
 								className='mt-10 w-full'
 								onClick={() => {
 									if (!isAuthorized) {
 										return router.push(
-											ROUTES.AUTH.LOGIN(ROUTES.SUBSCRIPTION)
+											ROUTES.AUTH.LOGIN(
+												ROUTES.SUBSCRIPTION
+											)
 										)
 									}
 
 									onSubmit()
 								}}
 								isLoading={mounted && isLoading}
-								disabled={mounted && (user?.isPremium || isLoading)}
+								disabled={
+									mounted &&
+									(user?.isPremium ||
+										isLoading)
+								}
 							>
 								{user?.isPremium
 									? 'У вас уже є підписка'
@@ -120,7 +129,7 @@ export default function Subscription() {
 									className='my-4 flex items-start gap-2'
 								>
 									<div className='mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full'>
-										<IconCircleCheckFilled className='size-5 stroke-[4px] text-neutral-900' />
+										<IconCircleCheckFilled className='size-5 stroke-[4px] text-neutral-900 dark:text-neutral-50' />
 									</div>
 									<div className='text-sm font-medium text-black dark:text-white'>
 										{text}
@@ -133,7 +142,7 @@ export default function Subscription() {
 					<div className='p-4'>
 						<Link
 							href='https://t.me/d16ddd348'
-							target="_blank"
+							target='_blank'
 							className='w-full text-left text-sm text-neutral-500 hover:underline dark:text-neutral-200'
 						>
 							Питання? Напишіть менi

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 import {
 	MobileNav,
@@ -15,7 +16,6 @@ import MobileTrigger from './mobile-nav'
 import { NavbarLinks } from './nav-links'
 import { UserMenu } from './user-menu'
 import { ROUTES } from '@/constants'
-import { useEffect, useState } from 'react'
 
 export function Header() {
 	const [isAuth, setIsAuth] = useState<boolean | null>()

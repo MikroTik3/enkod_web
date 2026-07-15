@@ -1,3 +1,4 @@
+import { IconApple } from '@tabler/icons-react'
 import { useQuery } from '@tanstack/react-query'
 import { ChevronRightIcon, TrophyIcon, UsersIcon } from 'lucide-react'
 
@@ -10,14 +11,13 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 
 import { getMediaSource } from '@/lib/utils'
 
 import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar'
 
 import { getLeaders } from '@/api/requests'
-import { Separator } from '@/components/ui/separator'
-import { IconApple } from '@tabler/icons-react'
 
 interface LeaderboardProps {
 	limit?: number
@@ -41,7 +41,7 @@ export function Leaderboard({
 		<Card className='gap-0 p-0'>
 			<CardHeader className='py-4'>
 				<CardTitle className='flex items-center text-lg font-medium'>
-					<div className='mr-2 flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+					<div className='bg-muted text-muted-foreground mr-2 flex size-7 items-center justify-center rounded-lg border'>
 						<UsersIcon className='size-4' />
 					</div>
 					Рейтинг користувачів
@@ -64,7 +64,7 @@ export function Leaderboard({
 								className='flex items-center justify-between rounded-md p-2'
 							>
 								<div className='flex items-center'>
-									<div className='flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+									<div className='bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-lg border'>
 										{position === 1 && (
 											<TrophyIcon className='mx-auto size-4 text-yellow-500' />
 										)}
@@ -74,7 +74,8 @@ export function Leaderboard({
 										{position === 3 && (
 											<TrophyIcon className='mx-auto size-4 text-amber-700' />
 										)}
-										{position > 3 && position}
+										{position > 3 &&
+											position}
 									</div>
 
 									<div className='ml-4 flex items-center gap-4'>
@@ -84,8 +85,10 @@ export function Leaderboard({
 													user.avatar,
 													'users'
 												)}
-												className='rounded-lg border'
-												alt={user.displayName}
+												className='border'
+												alt={
+													user.displayName
+												}
 											/>
 											<AvatarFallback>
 												{user?.displayName.slice(
@@ -97,12 +100,14 @@ export function Leaderboard({
 
 										<div className='flex items-center gap-2'>
 											<p className='font-medium'>
-												{user.displayName}
+												{
+													user.displayName
+												}
 											</p>
 
 											{user.isPremium && (
-												<span className='flex items-center gap-1 rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-600'>
-													<IconApple className='size-3 text-yellow-500' />
+												<span className='flex items-center gap-1 rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-700 dark:border dark:border-yellow-500/20 dark:bg-yellow-500/10 dark:text-yellow-300'>
+													<IconApple className='size-3 text-yellow-500 dark:text-yellow-400' />
 													Живчик
 												</span>
 											)}

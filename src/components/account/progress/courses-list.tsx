@@ -29,7 +29,7 @@ export function CoursesList({ onViewAll }: CoursesListProps) {
 		<Card>
 			<CardHeader>
 				<CardTitle className='flex items-center text-lg font-medium'>
-					<div className='mr-2 flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+					<div className='bg-muted text-muted-foreground mr-2 flex size-7 items-center justify-center rounded-lg border'>
 						<BookOpen className='size-4' />
 					</div>
 					Усі курси
@@ -51,14 +51,23 @@ export function CoursesList({ onViewAll }: CoursesListProps) {
 				) : (
 					<div className='space-y-4'>
 						{data?.map(course => (
-							<div key={course.id} className='space-y-2'>
+							<div
+								key={course.id}
+								className='space-y-2'
+							>
 								<div className='flex items-center justify-between'>
 									<div className='font-medium'>
 										{course.title}
 									</div>
 									<div className='text-muted-foreground text-sm'>
-										{course.completedLessons}/
-										{course.totalLessons} уроків
+										{
+											course.completedLessons
+										}
+										/
+										{
+											course.totalLessons
+										}{' '}
+										уроків
 									</div>
 								</div>
 

@@ -79,7 +79,7 @@ export function AuthWrapper({
 								{bottomText}{' '}
 								<Link
 									href={bottomLinkHref}
-									className='font-medium text-black'
+									className='font-medium text-black dark:text-white'
 								>
 									{bottomLinkText}
 								</Link>

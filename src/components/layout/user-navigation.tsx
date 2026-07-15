@@ -59,7 +59,7 @@ export function UserNavigation() {
 							{showBg && (
 								<motion.div
 									layoutId='hovered-user-navigation'
-									className='absolute inset-0 h-full w-full rounded-md bg-gray-100'
+									className='absolute inset-0 h-full w-full rounded-md bg-gray-100 dark:bg-zinc-800'
 									transition={{
 										type: 'spring',
 										stiffness: 300,

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { BookOpen, Trophy } from 'lucide-react'
 import React from 'react'
-import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -25,10 +25,10 @@ export function UserStats() {
 			<Card className='justify-between'>
 				<CardHeader className='pb-2'>
 					<CardTitle className='flex flex-col items-start gap-2'>
-						<div className='flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+						<div className='bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-lg border'>
 							<Trophy className='size-4' />
 						</div>
-						<span className='text-sm font-light text-muted-foreground'>
+						<span className='text-muted-foreground text-sm font-light'>
 							Бали та рейтинг
 						</span>
 					</CardTitle>
@@ -39,7 +39,7 @@ export function UserStats() {
 							<div className='text-3xl font-bold'>
 								{data?.totalPoints}
 							</div>
-							<div className='text-sm font-light text-muted-foreground'>
+							<div className='text-muted-foreground text-sm font-light'>
 								Усього балів
 							</div>
 						</div>
@@ -50,10 +50,10 @@ export function UserStats() {
 			<Card>
 				<CardHeader className='pb-2'>
 					<CardTitle className='flex flex-col items-start gap-2'>
-						<div className='flex size-7 items-center justify-center rounded-lg border bg-muted text-muted-foreground'>
+						<div className='bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-lg border'>
 							<BookOpen className='size-4' />
 						</div>
-						<span className='text-sm font-light text-muted-foreground'>
+						<span className='text-muted-foreground text-sm font-light'>
 							Прогрес навчання
 						</span>
 					</CardTitle>
@@ -71,11 +71,12 @@ export function UserStats() {
 						<div className='size-15'>
 							<CircularProgressbar
 								value={
-									data?.learningProgressPercentage ?? 0
+									data?.learningProgressPercentage ??
+									0
 								}
 								text={`${data?.learningProgressPercentage ?? 0}%`}
 								styles={buildStyles({
-									textColor: '#000000',
+									textColor: '#000000'
 								})}
 							/>
 						</div>

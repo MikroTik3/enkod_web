@@ -10,13 +10,14 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { cn } from '@/lib/utils'
+
 import { CourseProgress } from '../shared/course-progress'
 import { buttonVariants } from '../ui/button'
 import { ScrollArea } from '../ui/scroll-area'
 
 import type { CourseResponse, LessonResponse } from '@/api/generated'
 import { ROUTES } from '@/constants'
-import { cn } from '@/lib/utils'
 
 interface LessonSidebarProps {
 	course: CourseResponse
@@ -34,7 +35,7 @@ export function LessonSidebar({
 	const pathname = usePathname()
 
 	return (
-		<aside className='fixed inset-y-0 left-0 z-40 hidden bg-background pb-20 md:z-50 md:block md:w-80 md:border-r'>
+		<aside className='bg-background fixed inset-y-0 left-0 z-40 hidden pb-20 md:z-50 md:block md:w-80 md:border-r'>
 			<div className='flex h-full flex-col'>
 				<div className='flex flex-col gap-y-4 border-b p-5'>
 					<div className='flex items-center justify-between'>
@@ -67,12 +68,15 @@ export function LessonSidebar({
 					<div className='group flex flex-col gap-2 px-2 py-4'>
 						<nav className='flex flex-col gap-3 px-2'>
 							{lessons.map((lesson, index) => {
-								const isCompleted = completedLessons.includes(
-									lesson.id
-								)
+								const isCompleted =
+									completedLessons.includes(
+										lesson.id
+									)
 								const isActive =
 									pathname ===
-									ROUTES.COURSES.LESSON(lesson.id)
+									ROUTES.COURSES.LESSON(
+										lesson.id
+									)
 
 								const Icon = isActive
 									? PauseCircle
@@ -83,14 +87,19 @@ export function LessonSidebar({
 								return (
 									<Link
 										key={index}
-										href={ROUTES.COURSES.LESSON(lesson.id)}
+										href={ROUTES.COURSES.LESSON(
+											lesson.id
+										)}
 										className={cn(
-											buttonVariants({
-												variant: 'ghost',
-												size: 'lg'
-											}),
+											buttonVariants(
+												{
+													variant: 'ghost',
+													size: 'lg'
+												}
+											),
 											'hover:bg-muted',
-											isActive && 'h-10 bg-muted',
+											isActive &&
+												'bg-muted h-10',
 											'h-10 justify-start'
 										)}
 									>
