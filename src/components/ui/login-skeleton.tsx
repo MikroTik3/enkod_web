@@ -44,7 +44,7 @@ export function LoginSkeleton({ className }: { className?: string }) {
 									autoComplete='one-time-code'
 									data-form-type='other'
 									placeholder='you@example.com'
-									className='w-full rounded-md bg-neutral-900 px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white/10 outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500'
+									className='w-full rounded-md bg-white border dark:bg-neutral-900 px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white dark:ring-white/10 outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500'
 								/>
 							</div>
 
@@ -62,7 +62,7 @@ export function LoginSkeleton({ className }: { className?: string }) {
 									autoComplete='new-password'
 									data-form-type='other'
 									placeholder='••••••••'
-									className='w-full rounded-md bg-neutral-900 px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white/10 outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500'
+									className='w-full rounded-md bg-white border dark:bg-neutral-900 px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white dark:ring-white/10 outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500'
 								/>
 							</div>
 
@@ -186,7 +186,7 @@ function LoginLogo() {
 		<a href='#' className='flex items-center gap-1.5'>
 			<div className='relative flex size-5 items-center justify-center rounded-md'>
 				<Image
-					src='https://assets.aceternity.com/logo.png'
+					src='/logo-dark.png'
 					height={20}
 					width={20}
 					alt='Logo'

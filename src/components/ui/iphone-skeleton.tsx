@@ -51,7 +51,7 @@ export function IPhoneSkeleton() {
 							className='absolute inset-0'
 						>
 							<Image
-								src='https://assets.aceternity.com/components/flipping-images-with-bar.webp'
+								src='/logo-dark.png'
 								alt='Screen'
 								fill
 								className='object-cover object-center'

@@ -17,7 +17,7 @@ export function Footer() {
 							className='relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal'
 						>
 							<img
-								src='https://simplistic-saas-template.vercel.app/_next/image?url=https%3A%2F%2Fassets.aceternity.com%2Flogo-dark.png&w=64&q=75'
+								src='/logo-dark.png'
 								alt='logo'
 								width={30}
 								height={30}
