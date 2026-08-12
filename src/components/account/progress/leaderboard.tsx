@@ -13,8 +13,6 @@ import {
 } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
-import { getMediaSource } from '@/lib/utils'
-
 import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar'
 
 import { getLeaders } from '@/api/requests'
@@ -81,10 +79,7 @@ export function Leaderboard({
 									<div className='ml-4 flex items-center gap-4'>
 										<Avatar>
 											<AvatarImage
-												src={getMediaSource(
-													user.avatar,
-													'users'
-												)}
+												src={user.avatar}
 												className='border'
 												alt={
 													user.displayName

@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import { getMediaSource } from '@/lib/utils'
-
 import { CourseLessons } from './course-lessons'
 import type { CourseResponse, LessonResponse } from '@/api/generated'
 
@@ -20,7 +18,7 @@ export function CourseContent({
 		<div className='order-1 col-span-1 flex flex-col space-y-6 lg:col-span-4'>
 			<div className='relative aspect-video overflow-hidden rounded-xl border bg-white'>
 				<Image
-					src={getMediaSource(course.thumbnail!, 'courses')}
+					src={course.thumbnail!}
 					alt={course.title}
 					fill
 				/>

@@ -3,8 +3,6 @@ import { notFound } from 'next/navigation'
 
 import { CourseDetails } from '@/components/course/course-details'
 
-import { getMediaSource } from '@/lib/utils'
-
 import { getCourse, getCourseLessons, getCourses } from '@/api/requests'
 import { CourseProvider } from '@/providers/course-provider'
 
@@ -37,10 +35,7 @@ export async function generateMetadata({
 		openGraph: {
 			images: [
 				{
-					url: getMediaSource(
-						course.thumbnail ?? '',
-						'courses'
-					),
+					url: new URL(course.thumbnail ?? ''),
 					alt: course.title
 				}
 			]
@@ -50,10 +45,7 @@ export async function generateMetadata({
 			description: course.shortDescription ?? '',
 			images: [
 				{
-					url: getMediaSource(
-						course.thumbnail ?? '',
-						'courses'
-					),
+					url: new URL(course.thumbnail ?? ''),
 					alt: course.title
 				}
 			]

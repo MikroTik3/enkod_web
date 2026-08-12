@@ -1,8 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent } from 'react'
 import { toast } from 'sonner'
-
-import { getMediaSource } from '@/lib/utils'
 
 import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar'
 import { Input } from '../../ui/input'
