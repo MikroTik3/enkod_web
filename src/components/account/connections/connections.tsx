@@ -139,7 +139,7 @@ export function Connections() {
 											>
 												<CardContent className='flex items-center justify-between gap-5 p-4 max-[440px]:flex-col max-[440px]:items-start'>
 													<div className='flex items-center gap-x-3 max-[440px]:items-start'>
-														<div className='rounded-lg border p-2.5'>
+														<div className='relative flex aspect-square size-10.5 items-center justify-center rounded-lg align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white'>
 															{provider ===
 															'google' ? (
 																<FcGoogle className='size-5' />
@@ -206,7 +206,7 @@ export function ConnectionsSkeleton() {
 		<Card className='py-0 shadow-none'>
 			<CardContent className='flex items-center justify-between p-4'>
 				<div className='flex items-center gap-x-3'>
-					<Skeleton className='h-10 w-10 rounded-full' />
+					<Skeleton className='size-10.5 rounded-lg' />
 					<div className='flex flex-1 flex-col gap-2'>
 						<Skeleton className='h-4 w-24 rounded-md' />
 						<Skeleton className='h-3 w-40 rounded-md' />
