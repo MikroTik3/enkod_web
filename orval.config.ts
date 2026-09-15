@@ -5,7 +5,7 @@ config({ path: '.env' })
 
 export default defineConfig({
 	client: {
-		input: 'http://localhost:3000/openapi.json',
+		input: 'https://api.encod.top/openapi.json',
 		output: {
 			schemas: './src/api/generated',
 			target: './src/api/generated/client.ts'
