@@ -25,7 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { slug } = await params
 
-	const course = await getCourse(slug).catch(error => {
+	const course = await getCourse(slug).catch(() => {
 		notFound()
 	})
 
@@ -33,22 +33,19 @@ export async function generateMetadata({
 		title: course.title,
 		description: course.shortDescription,
 		openGraph: {
-			images: [
-				{
-					url: new URL(course.thumbnail ?? ''),
-					alt: course.title
-				}
-			]
+			images: course.thumbnail
+				? [
+						{
+							url: course.thumbnail,
+							alt: course.title
+						}
+					]
+				: undefined
 		},
 		twitter: {
 			title: course.title,
 			description: course.shortDescription ?? '',
-			images: [
-				{
-					url: new URL(course.thumbnail ?? ''),
-					alt: course.title
-				}
-			]
+			images: course.thumbnail ? [course.thumbnail] : undefined
 		}
 	}
 }
