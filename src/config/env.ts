@@ -9,7 +9,7 @@ export const env = {
 
 	TURNSTILE_SITE_KEY:
 		process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ??
-		'0x4AAAAAABCT1vfLsRGDrvdo',
+		'0x4AAAAAAE4jt3AZ7fdu2hxc',
 	FPJS_API_KEY:
 		process.env.NEXT_PUBLIC_FPJS_API_KEY ?? '7wb2b5FhlpsSLPaAKf3Y',
 	FPJS_ENDPOINT:
