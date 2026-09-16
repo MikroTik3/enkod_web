@@ -32,14 +32,8 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		emails: ['dotsenk20034@gmail.com'],
-		siteName: SEO.name,
 		locale: 'uk_UA',
 		url: APP_CONFIG.baseUrl
-	},
-	twitter: {
-		card: 'summary_large_image',
-		title: SEO.name,
-		description: SEO.description,
 	},
 	formatDetection: SEO.formatDetection
 }

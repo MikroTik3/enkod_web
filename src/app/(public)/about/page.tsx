@@ -13,13 +13,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-	title: 'Про мене',
+	title: 'Про мене — Enkod',
 	description:
 		'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
 	openGraph: {
 		title: 'Про мене — Enkod',
 		description:
 			'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
+		siteName: 'Enkod',
 		images: [
 			{
 				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent('Про мене')}&subtitle=${encodeURIComponent('Сучасна платформа для навчання веб-розробці та створення реальних проєктів')}`,
