@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 			'Відновіть доступ до свого облікового запису Enkod та встановіть новий пароль.',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Скидання пароля')}&subtitle=${encodeURIComponent('Відновіть доступ до свого облікового запису Enkod та встановіть новий пароль.')}`,
+				url: `https://enkod.top/og?title=${encodeURIComponent('Скидання пароля')}&subtitle=${encodeURIComponent('Відновіть доступ до свого облікового запису Enkod та встановіть новий пароль.')}`,
 				width: 1200,
 				height: 630
 			}

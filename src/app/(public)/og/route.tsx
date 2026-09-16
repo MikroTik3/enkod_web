@@ -56,7 +56,7 @@ export async function GET(request: Request) {
     boxShadow: '0 0 60px rgba(59,130,246,0.4)',
   }}
 >
-  <img alt="Enkod" width={96} height={96} src={`${process.env.NEXT_PUBLIC_APP_URL}/logo-dark.png`} />
+  <img alt="Enkod" width={96} height={96} src={`https://enkod.top/logo-dark.png/logo-dark.png`} />
 </div>
 
 				<div
