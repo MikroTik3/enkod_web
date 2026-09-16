@@ -35,8 +35,6 @@ export const metadata: Metadata = {
 	},
 	manifest: '/manifest.webmanifest',
 	openGraph: {
-		title: SEO.name,
-		description: SEO.description,
 		type: 'website',
 		emails: ['dotsenk20034@gmail.com'],
 		siteName: SEO.name,
