@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 		locale: 'uk_UA',
 		images: [
 			{
-				url: new URL('https://encod.com/opengraph.png'),
+				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent(SEO.name)}&subtitle=${encodeURIComponent(SEO.description)}`,
 				width: 1200,
 				height: 630,
 				alt: SEO.name
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 		description: SEO.description,
 		images: [
 			{
-				url: new URL('https://encod.com/opengraph.png'),
+				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent(SEO.name)}&subtitle=${encodeURIComponent(SEO.description)}`,
 				width: 1200,
 				height: 630,
 				alt: SEO.name
