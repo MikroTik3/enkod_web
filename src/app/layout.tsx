@@ -41,28 +41,12 @@ export const metadata: Metadata = {
 		emails: ['dotsenk20034@gmail.com'],
 		siteName: SEO.name,
 		locale: 'uk_UA',
-		images: [
-			{
-				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent(SEO.name)}&subtitle=${encodeURIComponent(SEO.description)}`,
-				width: 1200,
-				height: 630,
-				alt: SEO.name
-			}
-		],
 		url: APP_CONFIG.baseUrl
 	},
 	twitter: {
 		card: 'summary_large_image',
 		title: SEO.name,
 		description: SEO.description,
-		images: [
-			{
-				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent(SEO.name)}&subtitle=${encodeURIComponent(SEO.description)}`,
-				width: 1200,
-				height: 630,
-				alt: SEO.name
-			}
-		]
 	},
 	formatDetection: SEO.formatDetection
 }
