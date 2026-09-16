@@ -3,6 +3,7 @@ import { Fragment } from 'react/jsx-runtime'
 
 import Faq from '@/components/subscription/faq'
 import Subscription from '@/components/subscription/subscription'
+import { APP_CONFIG } from '@/constants/app'
 
 export const metadata: Metadata = {
 	title: 'Підписка',
@@ -12,12 +13,22 @@ export const metadata: Metadata = {
 		title: 'Підписка — Enkod',
 		description:
 			'Оформіть підписку Enkod та отримайте повний доступ до всіх навчальних матеріалів і курсів.',
+		siteName: 'Enkod',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Підписка')}&subtitle=${encodeURIComponent('Оформіть підписку Enkod та отримайте повний доступ до всіх навчальних матеріалів і курсів.')}`,
+				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent('Підписка')}&subtitle=${encodeURIComponent('Оформіть підписку Enkod та отримайте повний доступ до всіх навчальних матеріалів і курсів.')}`,
 				width: 1200,
 				height: 630
 			}
+		]
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Підписка — Enkod',
+		description:
+			'Оформіть підписку Enkod та отримайте повний доступ до всіх навчальних матеріалів і курсів.',
+		images: [
+			`${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent('Підписка')}&subtitle=${encodeURIComponent('Оформіть підписку Enkod та отримайте повний доступ до всіх навчальних матеріалів і курсів.')}`
 		]
 	}
 }

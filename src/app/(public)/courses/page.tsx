@@ -1,21 +1,32 @@
 import type { Metadata } from 'next'
 
 import { CourseCard } from '@/components/course/course-card'
+import { APP_CONFIG } from '@/constants/app'
 
 export const metadata: Metadata = {
 	title: 'Курси',
 	description:
 		'Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.',
 	openGraph: {
-		title: 'Курси',
+		title: 'Курси — Enkod',
 		description:
 			'Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.',
+		siteName: 'Enkod',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Курси')}&subtitle=${encodeURIComponent('Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.')}`,
+				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent('Курси')}&subtitle=${encodeURIComponent('Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.')}`,
 				width: 1200,
 				height: 630
 			}
+		]
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Курси — Enkod',
+		description:
+			'Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.',
+		images: [
+			`${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent('Курси')}&subtitle=${encodeURIComponent('Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.')}`
 		]
 	}
 }
