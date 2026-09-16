@@ -216,7 +216,7 @@ export function LoginForm() {
 									/>
 
 									<button
-                                                                      type='button'
+										type='button'
 										className='absolute top-2 right-3'
 										onClick={() =>
 											setIsVisible(

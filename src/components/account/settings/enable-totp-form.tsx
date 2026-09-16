@@ -280,7 +280,7 @@ export function EnableTotpForm() {
 										/>
 									</FieldGroup>
 
-									<DialogFooter className='mt-5 '>
+									<DialogFooter className='mt-5'>
 										<DialogClose
 											asChild
 										>

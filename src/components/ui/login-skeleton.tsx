@@ -44,7 +44,7 @@ export function LoginSkeleton({ className }: { className?: string }) {
 									autoComplete='one-time-code'
 									data-form-type='other'
 									placeholder='you@example.com'
-									className='w-full rounded-md bg-white border dark:bg-neutral-900 px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white dark:ring-white/10 outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500'
+									className='w-full rounded-md border bg-white px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500 dark:bg-neutral-900 dark:ring-white/10'
 								/>
 							</div>
 
@@ -62,7 +62,7 @@ export function LoginSkeleton({ className }: { className?: string }) {
 									autoComplete='new-password'
 									data-form-type='other'
 									placeholder='••••••••'
-									className='w-full rounded-md bg-white border dark:bg-neutral-900 px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white dark:ring-white/10 outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500'
+									className='w-full rounded-md border bg-white px-2 py-1.5 text-[8px] text-neutral-200 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ring-1 ring-white outline-none placeholder:text-neutral-500 focus:ring-2 focus:ring-neutral-500 dark:bg-neutral-900 dark:ring-white/10'
 								/>
 							</div>
 
@@ -162,7 +162,7 @@ function TestimonialCard() {
 			</p>
 			<div className='mt-3 flex items-center gap-2'>
 				<Image
-					src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWgSutbzzG1AHPDEMdqZZ-vSKY26kSo2Xwjg&s'
+					src='https://res.cloudinary.com/dhypb4l4d/image/upload/v1789546034/tetsgrjgdjetjlrvlnav.webp'
 					alt='Дiма Михно'
 					width={20}
 					height={20}

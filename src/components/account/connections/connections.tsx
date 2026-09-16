@@ -139,7 +139,7 @@ export function Connections() {
 											>
 												<CardContent className='flex items-center justify-between gap-5 p-4 max-[440px]:flex-col max-[440px]:items-start'>
 													<div className='flex items-center gap-x-3 max-[440px]:items-start'>
-														<div className='relative flex aspect-square size-10.5 items-center justify-center rounded-lg align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white dark:from-neutral-800 dark:to-neutral-800 dark:ring-offset-neutral-800 dark:ring-neutral-900'>
+														<div className='relative flex aspect-square size-10.5 items-center justify-center rounded-lg bg-linear-to-b from-neutral-200 to-neutral-200 align-middle shadow-none ring-1 ring-white ring-offset-2 ring-offset-neutral-200 ring-inset dark:from-neutral-800 dark:to-neutral-800 dark:ring-neutral-900 dark:ring-offset-neutral-800'>
 															{provider ===
 															'google' ? (
 																<FcGoogle className='size-5' />

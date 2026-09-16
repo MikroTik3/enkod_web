@@ -8,7 +8,24 @@ import {
 	IconFileText,
 	IconMail
 } from '@tabler/icons-react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+	title: 'Про мене — Enkod',
+	description: 'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
+	openGraph: {
+		title: 'Про мене — Enkod',
+		description: 'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
+		images: [
+			{
+				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Про мене')}&subtitle=${encodeURIComponent('Сучасна платформа для навчання веб-розробці та створення реальних проєктів')}`,
+				width: 1200,
+				height: 630
+			}
+		]
+	}
+}
 
 const FACTS = [
 	{ label: 'Платформа', value: 'Enkod' },
@@ -161,12 +178,12 @@ export default async function AboutPage() {
 							{FACTS.map(item => (
 								<div
 									key={item.label}
-									className='flex items-center justify-between px-4 py-3'
+									className='flex items-center justify-between gap-4 px-4 py-3'
 								>
 									<dt className='text-sm text-neutral-500 dark:text-neutral-400'>
 										{item.label}
 									</dt>
-									<dd className='text-sm font-medium text-neutral-900 dark:text-white'>
+									<dd className='text-end text-sm font-medium text-neutral-900 dark:text-white'>
 										{item.value}
 									</dd>
 								</div>

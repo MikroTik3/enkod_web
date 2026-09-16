@@ -79,7 +79,9 @@ export function Leaderboard({
 									<div className='ml-4 flex items-center gap-4'>
 										<Avatar>
 											<AvatarImage
-												src={user.avatar}
+												src={
+													user.avatar
+												}
 												className='border'
 												alt={
 													user.displayName

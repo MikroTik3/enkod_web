@@ -18,19 +18,19 @@ interface Pin {
 const DEFAULT_PINS: Pin[] = [
 	{
 		id: '1',
-		image: 'https://cybersport.metaratings.ru/_images/insecure/w-1360:h-1360/aHR0cHM6Ly9zdG9yYWdlLnlhbmRleGNsb3VkLm5ldC9zMy1tZXRhcmF0aW5ncy1zdG9yYWdlL2ltYWdlcy9iNy84Zi9iNzhmNzRhNTEzNDZjOWZkN2E3ZTg4M2VjMzdlOTg1Mi5wbmc=.webp',
-		name: 'Папич',
+		image: 'https://res.cloudinary.com/dhypb4l4d/image/upload/v1789546034/tetsgrjgdjetjlrvlnav.webp',
+		name: 'Діма Михно',
 		location: { lat: 40.7128, lng: -99.006 }
 	},
 	{
 		id: '2',
-		image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWgSutbzzG1AHPDEMdqZZ-vSKY26kSo2Xwjg&s',
-		name: 'Дiма Михно',
+		image: 'https://res.cloudinary.com/dhypb4l4d/image/upload/v1789546034/u2pfd5zwoadmjrurlyjy.webp',
+		name: 'Наташка',
 		location: { lat: 51.5074, lng: -0.1278 }
 	},
 	{
 		id: '3',
-		image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Volodymyr_Zelensky_Official_portrait.jpg/500px-Volodymyr_Zelensky_Official_portrait.jpg',
+		image: 'https://res.cloudinary.com/dhypb4l4d/image/upload/v1789546034/fqckhwe7jfwa2djelhyr.webp',
 		name: 'Зеленский',
 		location: { lat: 35.6762, lng: 80.6503 }
 	}

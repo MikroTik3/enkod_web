@@ -11,22 +11,22 @@ export function ChatConversation({ className }: { className?: string }) {
 	const messages = [
 		{
 			id: 1,
-			name: 'Студент',
-			avatar: 'https://cybersport.metaratings.ru/_images/insecure/w-1360:h-1360/aHR0cHM6Ly9zdG9yYWdlLnlhbmRleGNsb3VkLm5ldC9zMy1tZXRhcmF0aW5ncy1zdG9yYWdlL2ltYWdlcy9iNy84Zi9iNzhmNzRhNTEzNDZjOWZkN2E3ZTg4M2VjMzdlOTg1Mi5wbmc=.webp',
+			avatar: 'https://res.cloudinary.com/dhypb4l4d/image/upload/v1789546034/tetsgrjgdjetjlrvlnav.webp',
+			name: 'Діма Михно',
 			text: 'Привіт! Підкажіть, які мови програмування у вас є на курсах?',
 			isUser: false
 		},
 		{
 			id: 2,
 			name: 'Ви',
-			avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Volodymyr_Zelensky_Official_portrait.jpg/500px-Volodymyr_Zelensky_Official_portrait.jpg',
+			avatar: 'https://res.cloudinary.com/dhypb4l4d/image/upload/v1789546034/fqckhwe7jfwa2djelhyr.webp',
 			text: 'Є кілька напрямів: фронтенд, бекенд і повний стек. Можеш обрати з того, що цікаво 👍',
 			isUser: true
 		},
 		{
 			id: 3,
-			name: 'Студент',
-			avatar: 'https://cybersport.metaratings.ru/_images/insecure/w-1360:h-1360/aHR0cHM6Ly9zdG9yYWdlLnlhbmRleGNsb3VkLm5ldC9zMy1tZXRhcmF0aW5ncy1zdG9yYWdlL2ltYWdlcy9iNy84Zi9iNzhmNzRhNTEzNDZjOWZkN2E3ZTg4M2VjMzdlOTg1Mi5wbmc=.webp',
+			name: 'Діма Михно',
+			avatar: 'https://res.cloudinary.com/dhypb4l4d/image/upload/v1789546034/tetsgrjgdjetjlrvlnav.webp',
 			text: 'Ага, зрозумів. А конкретно які технології там?',
 			isUser: false
 		}

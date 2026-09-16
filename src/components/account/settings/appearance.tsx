@@ -6,14 +6,15 @@ import { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Field, FieldGroup, FieldLabel } from '../../ui/field'
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue
+} from '@/components/ui/select'
+
+import { Field, FieldGroup, FieldLabel } from '../../ui/field'
 
 const appearanceSchema = z.object({
 	theme: z.string()
