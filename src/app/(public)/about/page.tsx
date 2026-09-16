@@ -1,3 +1,4 @@
+import { APP_CONFIG } from '@/constants/app'
 import {
 	IconArrowUpRight,
 	IconBrandGithub,
@@ -13,16 +14,27 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
 	title: 'Про мене',
-	description: 'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
+	description:
+		'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
 	openGraph: {
 		title: 'Про мене — Enkod',
-		description: 'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
+		description:
+			'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Про мене')}&subtitle=${encodeURIComponent('Сучасна платформа для навчання веб-розробці та створення реальних проєктів')}`,
+				url: `${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent('Про мене')}&subtitle=${encodeURIComponent('Сучасна платформа для навчання веб-розробці та створення реальних проєктів')}`,
 				width: 1200,
 				height: 630
 			}
+		]
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Про мене — Enkod',
+		description:
+			'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
+		images: [
+			`${APP_CONFIG.baseUrl}/og?title=${encodeURIComponent('Про мене')}&subtitle=${encodeURIComponent('Сучасна платформа для навчання веб-розробці та створення реальних проєктів')}`
 		]
 	}
 }
