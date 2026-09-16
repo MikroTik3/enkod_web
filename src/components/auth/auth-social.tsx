@@ -44,9 +44,9 @@ export function AuthSocial() {
 
 	return (
 		<div className='flex flex-col gap-4'>
-			<div className='grid w-full grid-cols-4 gap-4'>
+			<div className='grid w-full grid-cols-3 gap-4'>
 				{isLoading
-					? Array.from({ length: 4 }).map((_, i) => (
+					? Array.from({ length: 3 }).map((_, i) => (
 							<Skeleton
 								key={i}
 								className='h-9 w-full rounded-lg'

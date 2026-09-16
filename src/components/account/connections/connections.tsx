@@ -107,7 +107,7 @@ export function Connections() {
 					/>
 					<div className='mt-2 space-y-5'>
 						{isLoadingProviders || isLoadingStatus
-							? Array.from({ length: 4 }).map(
+							? Array.from({ length: 3 }).map(
 									(_, index) => (
 										<ConnectionsSkeleton
 											key={index}
