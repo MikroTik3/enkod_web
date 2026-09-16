@@ -80,7 +80,7 @@ const LINKS = [
 		icon: IconMail
 	},
 	{
-		href: 'https://api.enkod.com/docs',
+		href: 'https://api.enkod.top/docs',
 		label: 'Документація',
 		icon: IconFileText,
 		internal: true
