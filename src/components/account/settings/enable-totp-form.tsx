@@ -156,8 +156,9 @@ export function EnableTotpForm() {
 			<DialogTrigger asChild>
 				<Button>Увімкнути</Button>
 			</DialogTrigger>
-			<DialogContent className='max-w-[600px] p-0'>
-				<DialogHeader className='p-7 pb-0'>
+			
+			<DialogContent className='max-w-[600px]'>
+				<DialogHeader>
 					<DialogTitle>
 						{step === 1
 							? 'Додатки для аутентифікації'
@@ -178,17 +179,17 @@ export function EnableTotpForm() {
 					step === 1 && (
 						<div className='flex flex-col space-y-5'>
 							<div>
-								<div className='flex items-center gap-2 px-7 font-medium'>
+								<div className='flex items-center gap-2 font-medium'>
 									<Badge>Крок 1</Badge>
 									Відскануйте QR-код
 								</div>
-								<p className='text-muted-foreground mt-2 px-7 text-sm'>
+								<p className='text-muted-foreground mt-2 text-sm'>
 									Відскануйте QR-код нижче
 									або введіть секретний ключ
 									вручну в
 									додаток-аутентифікатор.
 								</p>
-								<div className='dark:bg-accent mt-4 grid grid-cols-2 items-center gap-4 border bg-stone-200 px-7 py-4'>
+								<div className='dark:bg-accent mt-4 grid grid-cols-2 items-center -mx-4 p-3 gap-4 border bg-stone-200'>
 									<img
 										src={
 											totp?.qrCodeUrl
@@ -206,7 +207,7 @@ export function EnableTotpForm() {
 											секретний ключ
 											вручну:
 										</p>
-										<div className='border-input bg-background mt-2 h-8 w-full rounded-lg border px-3 py-1.5 text-[13px]'>
+										<div className='border-input bg-background overflow-x-auto mt-2 h-8 w-full rounded-lg border px-3 py-1.5 text-[13px]'>
 											{totp?.secret}
 										</div>
 										<Button
@@ -227,7 +228,7 @@ export function EnableTotpForm() {
 									</div>
 								</div>
 							</div>
-							<div className='px-7'>
+							<div>
 								<div className='flex items-center gap-2 font-medium'>
 									<Badge>Крок 2</Badge>
 									Верифікація кода
@@ -280,7 +281,7 @@ export function EnableTotpForm() {
 										/>
 									</FieldGroup>
 
-									<DialogFooter className='mt-5'>
+									<DialogFooter className='mt-4'>
 										<DialogClose
 											asChild
 										>
@@ -366,7 +367,7 @@ export function EnableTotpForm() {
 									)}
 								</div>
 							</div>
-							<DialogFooter className='flex gap-x-2 pb-7 sm:justify-between'>
+							<DialogFooter className='flex gap-x-2  sm:justify-between'>
 								<DialogClose asChild>
 									<Button
 										variant='outline'

@@ -94,8 +94,8 @@ export function RegisterPasskeyForm() {
 			<DialogTrigger asChild>
 				<Button>Додати</Button>
 			</DialogTrigger>
-			<DialogContent className='max-w-137.5 p-0'>
-				<DialogHeader className='p-6 pb-0'>
+			<DialogContent className='max-w-137.5'>
+				<DialogHeader>
 					<DialogTitle>
 						Реєстрація ключа доступу
 					</DialogTitle>
@@ -105,8 +105,8 @@ export function RegisterPasskeyForm() {
 					</DialogDescription>
 				</DialogHeader>
 
-				<div className='px-6'>
-					<form onSubmit={form.handleSubmit(onSubmit)}>
+				<div>
+					<form className="grid gap-4" onSubmit={form.handleSubmit(onSubmit)}>
 						<FieldGroup>
 							<Controller
 								control={form.control}
