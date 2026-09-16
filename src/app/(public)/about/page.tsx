@@ -12,7 +12,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-	title: 'Про мене — Enkod',
+	title: 'Про мене',
 	description: 'Сучасна платформа для навчання веб-розробці та створення реальних проєктів',
 	openGraph: {
 		title: 'Про мене — Enkod',

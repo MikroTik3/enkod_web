@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	description:
 		'Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.',
 	openGraph: {
-		title: 'Курси — Enkod',
+		title: 'Курси',
 		description:
 			'Отримайте доступ до всіх курсів Enkod — від основ веброзробки до сучасних технологій Frontend.',
 		images: [
