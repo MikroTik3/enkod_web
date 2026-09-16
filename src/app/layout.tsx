@@ -14,11 +14,6 @@ import { FingerprintProvider } from '@/providers/fingerprint-provider'
 import { TanstackQueryProvider } from '@/providers/tanstack-provider'
 
 export const metadata: Metadata = {
-	title: {
-		absolute: SEO.name,
-		template: `%s — ${SEO.name}`
-	},
-	description: SEO.description,
 	metadataBase: new URL(APP_CONFIG.baseUrl),
 	applicationName: SEO.name,
 	keywords: SEO.keywords,
