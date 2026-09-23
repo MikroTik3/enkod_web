@@ -50,25 +50,23 @@ export default async function CoursesPage() {
 				</div>
 
 				<div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3'>
-					{[1, 2, 3, 4, 5, 6].map((_, index) => (
-						<CourseCard
-							key={index}
-							course={{
-								id: 'sdfsefsdgse',
-								title: 'Shaders',
-								slug: 'shaders',
-								shortDescription:
-									'A collection of reusable shaders for your backgrounds.',
-								fullDescription:
-									'A collection of reusable shaders for your backgrounds. A collection of reusable shaders for your backgrounds.',
-								thumbnail:
-									'https://assets.aceternity.com/components/hero-section-with-mousemove.webp',
-								youtubeUrl: '',
-								views: 3453,
-								createdAt: ''
-							}}
-						/>
-					))}
+					<CourseCard
+						comingSoon
+						course={{
+							id: 'ecommerce',
+							title: 'Ecommerce',
+							slug: 'nestjs-ecommerce',
+							shortDescription:
+								'Практичний курс з NestJS, де з нуля створюємо повноцінний eCommerce-магазин з авторизацією, базою даних, Redis, платежами та Docker.',
+							fullDescription:
+								'Великий практичний курс з NestJS. Разом створюємо повноцінний eCommerce-магазин з нуля: проєктуємо архітектуру, реалізовуємо API, авторизацію, роботу з PostgreSQL та Redis, платежі й інтеграцію із зовнішніми сервісами, а потім розгортаємо проєкт за допомогою Docker.',
+							thumbnail:
+								'http://res.cloudinary.com/terieyenike/image/upload/v1790176127/uploaded/2026-09-23%2018.08.37.jpg.jpg',
+							youtubeUrl: '',
+							views: 0,
+							createdAt: ''
+						}}
+					/>
 				</div>
 			</div>
 		</section>
