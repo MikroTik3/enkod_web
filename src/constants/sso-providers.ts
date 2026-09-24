@@ -18,14 +18,14 @@ export const SSO_PROVIDERS: Record<string, SsoProviderMeta> = {
 		icon: FcGoogle,
 		description: 'Налаштуйте вхід через Google для швидкої авторизації'
 	},
-	// telegram: {
-	// 	id: 'telegram',
-	// 	name: 'Telegram',
-	// 	icon: RiTelegram2Fill,
-	// 	description:
-	// 		'Налаштуйте вхід через Telegram для швидкої авторизації',
-	// 	color: '#0088CC'
-	// },
+	telegram: {
+		id: 'telegram',
+		name: 'Telegram',
+		icon: RiTelegram2Fill,
+		description:
+			'Налаштуйте вхід через Telegram для швидкої авторизації',
+		color: '#0088CC'
+	},
 	github: {
 		id: 'github',
 		name: 'Github',
