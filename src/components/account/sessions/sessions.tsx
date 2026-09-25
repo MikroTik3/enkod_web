@@ -32,14 +32,10 @@ export function Sessions() {
 								<p className='px-1 text-xs font-medium uppercase tracking-wide text-muted-foreground/60'>
 									Це пристрій
 								</p>
-								<Card className='rounded-2xl border-none bg-card/60 py-0 shadow-none'>
-									<CardContent className='p-0'>
-										<SessionItem
-											session={current}
-											isCurrentSession
-										/>
-									</CardContent>
-								</Card>
+								<SessionItem
+									session={current}
+									isCurrentSession
+								/>
 
 								<p className="text-xs px-2 text-muted-foreground">Вийти з акаунта на всіх пристроях, крім цього.</p>
 							</section>
@@ -50,16 +46,12 @@ export function Sessions() {
 								<p className='px-1 text-xs font-medium uppercase tracking-wide text-muted-foreground/60'>
 									Активні сесії
 								</p>
-								<Card className='overflow-hidden rounded-2xl border-none bg-card/60 py-0 shadow-none'>
-									<CardContent className='p-0'>
-										{others.map(session => (
-	<SessionItem
-		key={session.id}
-		session={session}
-	/>
-))}
-									</CardContent>
-								</Card>
+								{others.map(session => (
+									<SessionItem
+										key={session.id}
+										session={session}
+									/>
+								))}
 							</section>
 						)}
 					</Fragment>
