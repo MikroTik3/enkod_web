@@ -20,6 +20,8 @@ import { Field, FieldError, FieldGroup, FieldLabel } from '../../ui/field'
 import { Input } from '../../ui/input'
 
 import { changePassword } from '@/api/requests'
+import { IconPassword } from '@tabler/icons-react'
+import { ChevronRight } from 'lucide-react'
 
 const passwordSchema = z
 	.object({
@@ -75,19 +77,16 @@ export function PasswordForm() {
 	}
 
 	return (
-		<div className='flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0'>
-			<div className='mr-5 flex w-full items-start gap-x-4 md:w-auto md:items-center'>
-				<div className='flex w-full flex-col'>
-					<h2 className='mb-1 font-semibold'>Пароль</h2>
-					<p className='text-muted-foreground text-sm'>
-						Пароль — це ключ до вашого облікового
-						запису. Нікому не повідомляйте його. За
-						потреби ви можете змінити пароль тут, щоб
-						підвищити безпеку свого акаунта.
-					</p>
+		<div className='flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+			<div className='flex gap-x-2 items-center'>
+				<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-yellow-400 to-yellow-600 ring-offset-yellow-500'>
+					<IconPassword className='size-4 text-white' />
 				</div>
+				<h2>
+					Пароль
+				</h2>
 			</div>
-
+			
 			<div>
 				<Dialog
 					open={isOpen}
@@ -97,7 +96,10 @@ export function PasswordForm() {
 					}}
 				>
 					<DialogTrigger asChild>
-						<Button>Змінити</Button>
+						<div className="flex items-center">
+							<span className='text-muted-foreground'>Змінити</span>
+							<ChevronRight className='size-5 text-muted-foreground'/>
+						</div>
 					</DialogTrigger>
 
 					<DialogContent>

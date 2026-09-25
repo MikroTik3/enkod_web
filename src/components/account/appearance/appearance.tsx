@@ -40,19 +40,6 @@ export function AppearanceForm() {
 
 	return (
 		<div className='flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0'>
-			<div className='mr-5 flex w-full items-start gap-x-4 md:w-auto md:items-center'>
-				<div className='flex w-full flex-col'>
-					<h2 className='mb-1 font-semibold'>Тема</h2>
-
-					<p className='text-muted-foreground text-sm'>
-						Оберіть світлу, темну або системну тему, яка
-						автоматично синхронізується з налаштуваннями
-						вашої операційної системи.
-					</p>
-				</div>
-			</div>
-
-			<div className='w-37.5'>
 				<FieldGroup>
 					<Controller
 						control={control}
@@ -72,11 +59,11 @@ export function AppearanceForm() {
 										setTheme(value)
 									}}
 								>
-									<SelectTrigger>
+									<SelectTrigger className='h-10! rounded-2xl'>
 										<SelectValue placeholder='Оберіть тему' />
 									</SelectTrigger>
 
-									<SelectContent>
+									<SelectContent side='bottom' position='popper' className='w-20'>
 										<SelectItem value='system'>
 											Системна
 										</SelectItem>
@@ -94,7 +81,6 @@ export function AppearanceForm() {
 						)}
 					/>
 				</FieldGroup>
-			</div>
 		</div>
 	)
 }

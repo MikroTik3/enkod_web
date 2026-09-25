@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Check, Copy, Loader2, TriangleAlert } from 'lucide-react'
+import { Check, ChevronRight, Copy, Loader2, TriangleAlert } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -154,7 +154,10 @@ export function EnableTotpForm() {
 			}}
 		>
 			<DialogTrigger asChild>
-				<Button>Увімкнути</Button>
+				<button type='button' className="flex items-center">
+					<span className='text-muted-foreground'>Увiмкнути</span>
+					<ChevronRight className='size-5 text-muted-foreground'/>
+				</button>
 			</DialogTrigger>
 			
 			<DialogContent className='max-w-[600px]'>

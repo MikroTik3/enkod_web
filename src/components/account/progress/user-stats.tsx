@@ -25,7 +25,7 @@ export function UserStats() {
 			<Card className='justify-between'>
 				<CardHeader className='pb-2'>
 					<CardTitle className='flex flex-col items-start gap-2'>
-						<div className='bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-lg border'>
+						<div className='relative flex aspect-square size-7 mr-2 items-center justify-center rounded-sm align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white'>
 							<Trophy className='size-4' />
 						</div>
 						<span className='text-muted-foreground text-sm font-light'>
@@ -50,7 +50,7 @@ export function UserStats() {
 			<Card>
 				<CardHeader className='pb-2'>
 					<CardTitle className='flex flex-col items-start gap-2'>
-						<div className='bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-lg border'>
+						<div className='relative flex aspect-square size-7 mr-2 items-center justify-center rounded-sm align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white'>
 							<BookOpen className='size-4' />
 						</div>
 						<span className='text-muted-foreground text-sm font-light'>

@@ -11,6 +11,8 @@ export interface AccountResponse {
 	id: string
 	/** Display name */
 	displayName: string
+	/** Username */
+	username: string
 	/** Email address */
 	email: string
 	/** Identifier of the user avatar */

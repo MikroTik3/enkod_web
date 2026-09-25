@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { Download, RotateCcw, TriangleAlert } from 'lucide-react'
+import { ChevronRight, Download, RotateCcw, TriangleAlert } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -74,7 +74,10 @@ export function RecoveryCodesModal() {
 	return (
 		<Dialog open={isOpen} onOpenChange={setIsOpen}>
 			<DialogTrigger asChild>
-				<Button variant='outline'>Переглянути</Button>
+				<button type='button' className="flex items-center">
+					<span className='text-muted-foreground'>Переглянути</span>
+					<ChevronRight className='size-5 text-muted-foreground'/>
+				</button>
 			</DialogTrigger>
 			<DialogContent className='w-[500px]'>
 				<DialogTitle>Коди відновлення</DialogTitle>

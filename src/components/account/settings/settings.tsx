@@ -1,40 +1,19 @@
 'use client'
 
-import { Fragment } from 'react'
-
-import { Heading } from '@/components/shared/heading'
-
-import { AccountActions } from './account-actions'
 import { AccountForm } from './account-form'
-import { Preferences } from './preferences'
-import { ProfileForm } from './profile-form'
 import { Subscription } from './subscription'
-import { TwoStepAuthForm } from './two-step-auth-form'
-import { useFetchMfaStatus } from '@/api/hooks'
 import { useCurrent } from '@/hooks'
 
 export function Settings() {
 	const { user } = useCurrent()
 
-	const { data: status } = useFetchMfaStatus()
-
 	return (
-		<div className='w-full'>
-			<div className='mx-auto flex h-full max-w-5xl flex-col gap-4'>
-				<Fragment>
-					<Heading
-						title='Налаштування облікового запису'
-						description='Управління налаштуваннями вашого облікового запису'
-					/>
-					<div className='mt-2 space-y-9'>
-						<ProfileForm user={user} />
-						<AccountForm user={user} />
-						<TwoStepAuthForm status={status} />
-						<Subscription user={user} />
-						<Preferences />
-						<AccountActions />
-					</div>
-				</Fragment>
+		<div className='mx-auto w-full max-w-xl pb-10'>
+			<h2 className='text-lg text-center font-medium'>Зовнішній вигляд</h2>
+			
+			<div className='flex mt-4 flex-col gap-8'>
+				<AccountForm user={user} />
+				<Subscription user={user} />
 			</div>
 		</div>
 	)

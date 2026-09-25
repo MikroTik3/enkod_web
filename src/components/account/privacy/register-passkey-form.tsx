@@ -21,6 +21,7 @@ import { Field, FieldError, FieldGroup, FieldLabel } from '../../ui/field'
 import { Input } from '../../ui/input'
 
 import { generateRegistrationOptions, verifyRegistration } from '@/api/requests'
+import { ChevronRight } from 'lucide-react'
 
 const registerPasskeySchema = z.object({
 	deviceName: z
@@ -92,7 +93,10 @@ export function RegisterPasskeyForm() {
 			}}
 		>
 			<DialogTrigger asChild>
-				<Button>Додати</Button>
+				<button type='button' className="flex items-center">
+					<span className='text-muted-foreground'>Додати</span>
+					<ChevronRight className='size-5 text-muted-foreground'/>
+				</button>
 			</DialogTrigger>
 			<DialogContent className='max-w-137.5'>
 				<DialogHeader>

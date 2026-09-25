@@ -5,14 +5,15 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
-import { cn } from '@/lib/utils'
-
 import { ConfirmDialog } from '../../shared/confirm-dialog'
-import { Button, buttonVariants } from '../../ui/button'
+import { Button } from '../../ui/button'
 
 import type { AccountResponse } from '@/api/generated'
 import { toggleAutoBilling } from '@/api/requests'
 import { ROUTES } from '@/constants'
+import { Card, CardContent } from '@/components/ui/card'
+import { IconWallet } from '@tabler/icons-react'
+import { ChevronRight } from 'lucide-react'
 
 interface AutoBillingFormProps {
 	user: AccountResponse | undefined
@@ -39,42 +40,49 @@ export function AutoBillingForm({ user }: AutoBillingFormProps) {
 		}
 	})
 
-	return (
-		<div className='flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0'>
-			<div className='mr-5 flex w-full items-start gap-x-4 md:w-auto md:items-center'>
-				<div className='flex w-full flex-col'>
-					<h2 className='mb-1 font-semibold'>
-						Автоматическое списание
-					</h2>
-					<p className='text-muted-foreground text-sm'>
-						Ежемесячно плата списывается автоматически.
-						Автопродление можно отключить в любой
-						момент.
-					</p>
-				</div>
-			</div>
-			<div>
-				{user?.isAutoBilling ? (
-					<ConfirmDialog
-						open={isOpen}
-						onOpenChange={setIsOpen}
-						title='Вимкнення автоматичних списань'
-						description='Ви впевнені, що хочете вимкнути автоматичне списання? Передплата залишатиметься активною до кінця оплаченого періоду.'
-						handleConfirm={mutate}
-					>
-						<Button onClick={() => setIsOpen(true)}>
-							Вимкнути
-						</Button>
-					</ConfirmDialog>
-				) : (
-					<Link
-						href={ROUTES.SUBSCRIPTION}
-						className={cn(buttonVariants())}
-					>
-						Увімкнути
-					</Link>
-				)}
-			</div>
+	return (			
+		<div className='flex flex-col gap-y-3'>
+			<Card className='py-0 shadow-none rounded-4xl'>
+				<CardContent className='p-0'>
+					<div className='flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+						<div className='flex gap-x-2 items-center'>
+							<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-green-400 to-green-600 ring-offset-green-500'>
+								<IconWallet className='size-4 text-white' />
+							</div>
+							<h2>
+								Автоматическое списание
+							</h2>
+						</div>
+						<div>
+							{user?.isAutoBilling ? (
+								<ConfirmDialog
+									open={isOpen}
+									onOpenChange={setIsOpen}
+									title='Вимкнення автоматичних списань'
+									description='Ви впевнені, що хочете вимкнути автоматичне списання? Передплата залишатиметься активною до кінця оплаченого періоду.'
+									handleConfirm={mutate}
+								>
+									<button type="button" onClick={() => setIsOpen(true)} className="flex items-center">
+										<span className='text-muted-foreground'>Увiмкнути</span>
+										<ChevronRight className='size-5 text-muted-foreground'/>
+									</button>
+								</ConfirmDialog>
+							) : (
+								<Link href={ROUTES.SUBSCRIPTION} className="flex items-center">
+									<span className='text-muted-foreground'>Увiмкнути</span>
+									<ChevronRight className='size-5 text-muted-foreground'/>
+								</Link>
+							)}
+						</div>
+					</div>
+				</CardContent>
+			</Card>
+
+			<p className='px-1 text-sm leading-5 text-muted-foreground'>
+				Ежемесячно плата списывается автоматически.
+				Автопродление можно отключить в любой
+				момент.
+			</p>
 		</div>
 	)
 }

@@ -10,16 +10,21 @@ interface AccountFormProps {
 
 export function AccountForm({ user }: AccountFormProps) {
 	return (
-		<div className='flex flex-col gap-y-3'>
-			<h2 className='text-[19px] font-medium'>Акаунт</h2>
-			<Card className='py-0'>
-				<CardContent className='p-4'>
-					<div className='space-y-8'>
+		<section className='flex flex-col gap-3'>
+			<h2  className='px-1 text-xs font-medium tracking-wider text-muted-foreground uppercase'>Акаунт</h2>
+
+			<Card className='py-0 rounded-4xl shadow-none'>
+				<CardContent className='p-0'>
+					<div className='divide-y divide-border'>
 						<EmailForm user={user} />
 						<PasswordForm />
 					</div>
 				</CardContent>
 			</Card>
-		</div>
+
+			<p className='px-1 text-sm leading-5 text-muted-foreground'>
+				Керуйте електронною поштою та паролем для входу в обліковий запис.
+			</p>
+		</section>
 	)
 }

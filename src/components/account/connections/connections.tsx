@@ -1,12 +1,9 @@
 'use client'
 
-import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'sonner'
 
-import { Heading } from '@/components/shared/heading'
 
 import { Button } from '../../ui/button'
 import { Card, CardContent } from '../../ui/card'
@@ -14,38 +11,15 @@ import { Skeleton } from '../../ui/skeleton'
 
 import { ConnectionError } from './connection-error'
 import { UnlinkProvider } from './unlink-provider'
-import { TelegramAuthRequest } from '@/api/generated'
 import {
 	useFetchSsoStatus,
 	useGetAvailableSsoProviders,
 	useSsoConnect,
-	useTelegramConnect
 } from '@/api/hooks'
-import { ROUTES, SSO_PROVIDERS } from '@/constants'
-
-function base64DecodeUnicode(str: string) {
-	try {
-		return decodeURIComponent(
-			atob(str.replace(/-/g, '+').replace(/_/g, '/'))
-				.split('')
-				.map(
-					c =>
-						'%' +
-						('00' + c.charCodeAt(0).toString(16)).slice(
-							-2
-						)
-				)
-				.join('')
-		)
-	} catch {
-		return null
-	}
-}
+import { SSO_PROVIDERS } from '@/constants'
 
 export function Connections() {
 	const router = useRouter()
-
-	const queryClient = useQueryClient()
 
 	const { data: availableProviders, isLoading: isLoadingProviders } =
 		useGetAvailableSsoProviders()
@@ -59,55 +33,26 @@ export function Connections() {
 		onError(error: any) {
 			toast.error(
 				error.response?.data?.message ??
-					'Ошибка при подключении'
+					'Помилка під час підключення'
 			)
 		}
 	})
-
-	const { mutate: connectTelegram } = useTelegramConnect({
-		onSuccess() {
-			queryClient.invalidateQueries({ queryKey: ['sso status'] })
-			router.push(ROUTES.ACCOUNT.CONNECTIONS)
-		},
-		onError() {
-			toast.error('Ошибка при привязке Telegram')
-		}
-	})
-
-	useEffect(() => {
-		const hashString = window.location.hash.replace(
-			'#tgAuthResult=',
-			''
-		)
-		if (!hashString) return
-
-		const decoded = base64DecodeUnicode(hashString)
-		if (!decoded) return
-
-		try {
-			const user: TelegramAuthRequest = JSON.parse(decoded)
-			connectTelegram(user)
-			window.history.replaceState(
-				null,
-				'',
-				ROUTES.ACCOUNT.CONNECTIONS
-			)
-		} catch {
-			router.push(ROUTES.ACCOUNT.CONNECTIONS)
-		}
-	}, [connectTelegram])
 
 	return (
 		<>
 			<div className='w-full'>
-				<div className='mx-auto flex h-full max-w-5xl flex-col gap-4 rounded-xl'>
-					<Heading
-						title='Сторонні сервіси'
-						description='Підключіть і керуйте своїми обліковими записами на сторонніх сервісах, таких як Google і Facebook'
-					/>
-					<div className='mt-2 space-y-5'>
+				
+
+				<div className='mx-auto flex h-full max-w-xl flex-col gap-4 rounded-xl'>
+					<h2 className='text-lg text-center font-medium'>Зовнішній вигляд</h2>
+
+					<h3 className='px-1 text-xs font-medium tracking-wider text-muted-foreground uppercase'>
+						Пов'язані акаунти
+					</h3>
+					
+					<div className='space-y-3'>
 						{isLoadingProviders || isLoadingStatus
-							? Array.from({ length: 3 }).map(
+							? Array.from({ length: 4 }).map(
 									(_, index) => (
 										<ConnectionsSkeleton
 											key={index}
@@ -194,6 +139,8 @@ export function Connections() {
 									}
 								)}
 					</div>
+
+					<p className='px-1 text-sm text-muted-foreground'>Підключіть і керуйте своїми обліковими записами на сторонніх сервісах, таких як Google і Facebook</p>
 				</div>
 			</div>
 			<ConnectionError />

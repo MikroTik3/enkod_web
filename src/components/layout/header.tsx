@@ -16,10 +16,16 @@ import MobileTrigger from './mobile-nav'
 import { NavbarLinks } from './nav-links'
 import { UserMenu } from './user-menu'
 import { ROUTES } from '@/constants'
+import { Button, buttonVariants } from '../ui/button'
+import { ArrowLeft } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
+import { cn } from '@/lib/utils'
 
 export function Header() {
 	const [isAuth, setIsAuth] = useState<boolean | null>()
 
+	const pathname = usePathname()
+	const router = useRouter()
 	const { isAuthorized } = useAuth()
 
 	useEffect(() => {
@@ -49,6 +55,12 @@ export function Header() {
 					<NavbarLogo />
 
 					<div className='z-100 flex items-center gap-2'>
+						{pathname.startsWith('/account/') && (
+							<Link href={ROUTES.ACCOUNT.ROOT} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
+								<ArrowLeft className='size-4'/>
+								Назад
+							</Link>
+						)}
 						<MobileTrigger />
 					</div>
 				</MobileNav>

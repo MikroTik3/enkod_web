@@ -16,28 +16,28 @@ export const SSO_PROVIDERS: Record<string, SsoProviderMeta> = {
 		id: 'google',
 		name: 'Google',
 		icon: FcGoogle,
-		description: 'Налаштуйте вхід через Google для швидкої авторизації'
+		description: 'Налаштуйте вхід через Google'
 	},
 	telegram: {
 		id: 'telegram',
 		name: 'Telegram',
 		icon: RiTelegram2Fill,
 		description:
-			'Налаштуйте вхід через Telegram для швидкої авторизації',
+			'Налаштуйте вхід через Telegram',
 		color: '#0088CC'
 	},
 	github: {
 		id: 'github',
 		name: 'Github',
 		icon: FaGithub,
-		description: 'Налаштуйте вхід через Github для авторизації в 1 клік'
+		description: 'Налаштуйте вхід через Github'
 	},
 	discord: {
 		id: 'discord',
 		name: 'Discord',
 		icon: FaDiscord,
 		description:
-			'Налаштуйте вхід через Discord для авторизації в 1 клік',
+			'Налаштуйте вхід через Discord',
 		color: '#5D6AF2'
 	}
 } as const

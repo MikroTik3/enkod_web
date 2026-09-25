@@ -43,7 +43,7 @@ export function UnlinkProvider({ provider }: UnlinkProviderProps) {
 			open={isOpen}
 			onOpenChange={setIsOpen}
 		>
-			<Button variant='outline'>Відключити</Button>
+			<Button variant='outline' className='max-[440px]:w-full'>Відключити</Button>
 		</ConfirmDialog>
 	)
 }

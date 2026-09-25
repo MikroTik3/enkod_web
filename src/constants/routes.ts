@@ -28,9 +28,13 @@ export const ROUTES = {
 
 	ACCOUNT: {
 		ROOT: '/account' as Route,
-		ORDERS: '/account/orders' as Route,
+
+		PROGRESS: '/account/progress' as Route,
+		PROFILE: '/account/profile' as Route,
 		SETTINGS: '/account/settings' as Route,
+		PRIVACY: '/account/privacy' as Route,
 		SESSIONS: '/account/sessions' as Route,
-		CONNECTIONS: '/account/connections' as Route
+		CONNECTIONS: '/account/connections' as Route,
+		APPEARANCE: '/account/appearance' as Route,
 	}
 }

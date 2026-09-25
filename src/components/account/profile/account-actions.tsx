@@ -36,7 +36,7 @@ export function AccountActions() {
 
 	return (
 		<div className='flex flex-col gap-y-3 pb-10'>
-			<h2 className='text-[19px] font-medium'>Дії</h2>
+			<h2 className='px-1 text-xs font-medium tracking-wider text-muted-foreground uppercase'>Дії</h2>
 			<Card className='border border-rose-500 bg-red-100 py-0 shadow-none dark:border-rose-900 dark:bg-red-950'>
 				<CardContent className='p-4'>
 					<div className='space-y-8'>

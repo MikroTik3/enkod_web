@@ -3,6 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
 	Calendar,
+	ChevronRight,
 	KeyRound,
 	Loader2,
 	MoreHorizontal,
@@ -64,9 +65,10 @@ export function PasskeyModal() {
 		<>
 			<Dialog open={isOpen} onOpenChange={setIsOpen}>
 				<DialogTrigger asChild>
-					<Button variant='outline'>
-						Переглянути ключі
-					</Button>
+					<button type='button' className="flex items-center">
+						<span className='text-muted-foreground'>Переглянути ключі</span>
+						<ChevronRight className='size-5 text-muted-foreground'/>
+					</button>
 				</DialogTrigger>
 				<DialogContent className='sm:max-w-[500px]'>
 					<DialogHeader>

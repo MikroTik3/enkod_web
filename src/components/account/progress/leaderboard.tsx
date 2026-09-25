@@ -39,7 +39,7 @@ export function Leaderboard({
 		<Card className='gap-0 p-0'>
 			<CardHeader className='py-4'>
 				<CardTitle className='flex items-center text-lg font-medium'>
-					<div className='bg-muted text-muted-foreground mr-2 flex size-7 items-center justify-center rounded-lg border'>
+					<div className='relative flex aspect-square size-7 mr-2 items-center justify-center rounded-sm align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white'>
 						<UsersIcon className='size-4' />
 					</div>
 					Рейтинг користувачів
@@ -62,19 +62,24 @@ export function Leaderboard({
 								className='flex items-center justify-between rounded-md p-2'
 							>
 								<div className='flex items-center'>
-									<div className='bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-lg border'>
 										{position === 1 && (
-											<TrophyIcon className='mx-auto size-4 text-yellow-500' />
+											<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset mt-1 size-7 bg-linear-to-b from-yellow-400 to-yellow-600 ring-offset-yellow-500'>
+												<TrophyIcon className='mx-auto size-4 text-white' />
+											</div>
 										)}
 										{position === 2 && (
-											<TrophyIcon className='mx-auto size-4 text-gray-400' />
+											<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset mt-1 size-7 bg-linear-to-b from-gray-400 to-gray-600 ring-offset-gray-500'>
+												<TrophyIcon className='mx-auto size-4 text-white' />
+											</div>
+										
 										)}
 										{position === 3 && (
-											<TrophyIcon className='mx-auto size-4 text-amber-700' />
+											<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset mt-1 size-7 bg-linear-to-b from-amber-400 to-amber-600 ring-offset-amber-500'>
+												<TrophyIcon className='mx-auto size-4 text-white' />
+											</div>
 										)}
 										{position > 3 &&
 											position}
-									</div>
 
 									<div className='ml-4 flex items-center gap-4'>
 										<Avatar>

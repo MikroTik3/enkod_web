@@ -11,7 +11,7 @@ interface ProfileForm {
 export function ProfileForm({ user }: ProfileForm) {
 	return (
 		<div className='flex flex-col gap-y-3'>
-			<h2 className='text-[19px] font-medium'>Профіль</h2>
+			<h2 className='px-1 text-xs font-medium tracking-wider text-muted-foreground uppercase'>Профіль</h2>
 			<Card className='p-0'>
 				<CardContent className='p-4'>
 					<div className='space-y-4'>

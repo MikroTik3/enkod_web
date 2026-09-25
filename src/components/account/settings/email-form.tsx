@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { CheckCircle, Mail, MoreHorizontal, Pencil } from 'lucide-react'
+import { CheckCircle, ChevronRight, Mail, MoreHorizontal, Pencil } from 'lucide-react'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -29,6 +29,7 @@ import { Input } from '../../ui/input'
 
 import type { AccountResponse } from '@/api/generated'
 import { changeEmail, sendEmailVerification } from '@/api/requests'
+import { IconMail } from '@tabler/icons-react'
 
 const emailSchema = z.object({
 	email: z
@@ -92,46 +93,14 @@ export function EmailForm({ user }: EmailFormProps) {
 	}
 
 	return (
-		<div className='flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0'>
-			<div className='mr-5 flex w-full items-start gap-x-4 md:w-auto md:items-center'>
-				<div className='flex w-full flex-col'>
-					<div className='mb-1 flex items-center gap-2'>
-						<h2 className='font-semibold'>Пошта</h2>
-						{user?.email ? (
-							user.isEmailVerified ? (
-								<Badge variant='success'>
-									Підтверджено
-								</Badge>
-							) : (
-								<Badge variant='error'>
-									Не підтверджено
-								</Badge>
-							)
-						) : (
-							<Badge variant='warning'>
-								Не вказано
-							</Badge>
-						)}
-					</div>
-					{user?.email ? (
-						<p className='text-muted-foreground text-sm'>
-							Ваш обліковий запис прив'язаний до
-							адреси{' '}
-							<span className='text-primary font-medium'>
-								{user.email}
-							</span>
-							. На нього ми надсилаємо повідомлення
-							та важливу інформацію.
-						</p>
-					) : (
-						<p className='text-muted-foreground text-sm'>
-							У вашому обліковому записі поки що
-							немає пошти. Додайте її, щоб
-							отримувати повідомлення та мати
-							можливість відновити доступ.
-						</p>
-					)}
+		<div className='flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+			<div className='flex gap-x-2 items-center'>
+				<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-blue-400 to-blue-600 ring-offset-blue-500'>
+					<IconMail className='size-4 text-white' />
 				</div>
+				<h2>
+					Пошта
+				</h2>
 			</div>
 			<div>
 				{user?.email ? (
@@ -140,9 +109,9 @@ export function EmailForm({ user }: EmailFormProps) {
 							asChild
 							className='border-none ring-0'
 						>
-							<Button variant='ghost' size='icon'>
-								<MoreHorizontal className='size-5' />
-							</Button>
+							<div className="flex items-center">
+								<ChevronRight className='size-5 text-muted-foreground'/>
+							</div>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align='end' side='top'>
 							<DropdownMenuGroup>

@@ -12,6 +12,7 @@ import { Field, FieldError, FieldGroup, FieldLabel } from '../../ui/field'
 import { Input } from '../../ui/input'
 
 import { totpDisable } from '@/api/requests'
+import { ChevronRight } from 'lucide-react'
 
 const disableTotpSchema = z.object({
 	password: z
@@ -118,7 +119,10 @@ export function DisableTotpForm() {
 			open={isOpen}
 			onOpenChange={setIsOpen}
 		>
-			<Button variant='destructive'>Відключити</Button>
+			<button type='button' className="flex items-center">
+				<span className='text-muted-foreground'>Вiдключити</span>
+				<ChevronRight className='size-5 text-muted-foreground'/>
+			</button>
 		</ConfirmDialog>
 	)
 }

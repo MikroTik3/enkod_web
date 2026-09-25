@@ -10,14 +10,8 @@ interface SubscriptionProps {
 export function Subscription({ user }: SubscriptionProps) {
 	return (
 		<div className='flex flex-col gap-y-3'>
-			<h2 className='text-[19px] font-medium'>Підписка</h2>
-			<Card className='p-0 shadow-none'>
-				<CardContent className='p-4'>
-					<div className='space-y-8'>
-						<AutoBillingForm user={user} />
-					</div>
-				</CardContent>
-			</Card>
+			<h2  className='px-1 text-xs font-medium tracking-wider text-muted-foreground uppercase'>Підписка</h2>
+			<AutoBillingForm user={user} />
 		</div>
 	)
 }

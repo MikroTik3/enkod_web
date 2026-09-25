@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
+import { UserNavigation } from '@/components/layout/user-navigation'
+import { ProfileCard } from '@/components/shared/profile-card'
 
-import { Progress } from '@/components/account/progress/progress'
-
-export const metadata: Metadata = {
-	title: 'Мiй прогресс'
-}
-
-export default function ProgressPage() {
-	return <Progress />
+export default function AccountPage() {
+      return (
+<div className='w-full lg:max-w-[19rem]'>
+                                          <ProfileCard />
+                                          <UserNavigation />
+                                    </div>
+      )
 }

@@ -37,7 +37,9 @@ export function RemoveAllSessions() {
 			open={isOpen}
 			onOpenChange={setIsOpen}
 		>
-			<Button>Вийти на всіх пристроях</Button>
+			<button type='button' className="text-red-500 p-2 flex justify-start w-full">
+				Вийти на всіх пристроях
+			</button>
 		</ConfirmDialog>
 	)
 }

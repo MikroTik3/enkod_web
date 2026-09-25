@@ -3,7 +3,7 @@
 import { Fragment } from 'react'
 
 import { Heading } from '@/components/shared/heading'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 
 import { RemoveAllSessions } from './remove-all-sessions'
@@ -13,33 +13,55 @@ import { useGetSessions } from '@/api/hooks'
 export function Sessions() {
 	const { data, isLoading } = useGetSessions()
 
+	const current = data?.[0]
+	const others = data?.slice(1) ?? []
+
 	return (
 		<div className='w-full'>
-			<div className='mx-auto flex h-full max-w-5xl flex-col gap-4 rounded-xl'>
+			<div className='mx-auto flex h-full max-w-xl flex-col gap-6'>
+
+				<h2 className='text-lg text-center font-medium'>Пристрої</h2>
 				{isLoading ? (
 					Array.from({ length: 4 }).map((_, index) => (
 						<SessionsSkeleton key={index} />
 					))
 				) : (
 					<Fragment>
-						<div className='block items-center justify-between space-y-3 md:flex md:space-y-0'>
-							<Heading
-								title='Пристрої'
-								description='Тут відображаються пристрої, з яких виконано вхід у ваш обліковий запис'
-							/>
-							<RemoveAllSessions />
-						</div>
-						<div className='mt-2 space-y-5'>
-							{data?.map((session, index) => (
-								<SessionItem
-									key={index}
-									session={session}
-									isCurrentSession={
-										index === 0
-									}
-								/>
-							))}
-						</div>
+						{current && (
+							<section className='space-y-2'>
+								<p className='px-1 text-xs font-medium uppercase tracking-wide text-muted-foreground/60'>
+									Це пристрій
+								</p>
+								<Card className='rounded-2xl border-none bg-card/60 py-0 shadow-none'>
+									<CardContent className='p-0'>
+										<SessionItem
+											session={current}
+											isCurrentSession
+										/>
+									</CardContent>
+								</Card>
+
+								<p className="text-xs px-2 text-muted-foreground">Вийти з акаунта на всіх пристроях, крім цього.</p>
+							</section>
+						)}
+
+						{others.length > 0 && (
+							<section className='space-y-2'>
+								<p className='px-1 text-xs font-medium uppercase tracking-wide text-muted-foreground/60'>
+									Активні сесії
+								</p>
+								<Card className='overflow-hidden rounded-2xl border-none bg-card/60 py-0 shadow-none'>
+									<CardContent className='p-0'>
+										{others.map(session => (
+	<SessionItem
+		key={session.id}
+		session={session}
+	/>
+))}
+									</CardContent>
+								</Card>
+							</section>
+						)}
 					</Fragment>
 				)}
 			</div>

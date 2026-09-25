@@ -1,9 +1,10 @@
 import { formatDate, getBrowserIcon } from '@/lib/utils'
 
-import { Card, CardContent } from '../../ui/card'
+import { Card, CardContent, CardFooter } from '../../ui/card'
 
 import { RevokeSession } from './remove-session'
 import type { SessionResponse } from '@/api/generated'
+import { RemoveAllSessions } from './remove-all-sessions'
 
 interface SessionItemProps {
 	session: SessionResponse
@@ -13,8 +14,10 @@ interface SessionItemProps {
 export function SessionItem({ session, isCurrentSession }: SessionItemProps) {
 	const Icon = getBrowserIcon(session.browser)
 
+	console.log(isCurrentSession)
+
 	return (
-		<Card className='py-0 shadow-none'>
+		<Card className='py-0 shadow-none gap-0'>
 			<CardContent className='flex items-center justify-between gap-5 p-4 max-[440px]:flex-col max-[440px]:items-start'>
 				<div className='flex items-center gap-x-3'>
 					<div className='relative flex aspect-square size-10.5 items-center justify-center rounded-lg bg-linear-to-b from-neutral-200 to-neutral-200 align-middle shadow-none ring-1 ring-white ring-offset-2 ring-offset-neutral-200 ring-inset dark:from-neutral-800 dark:to-neutral-800 dark:ring-neutral-900 dark:ring-offset-neutral-800'>
@@ -51,9 +54,16 @@ export function SessionItem({ session, isCurrentSession }: SessionItemProps) {
 							)}
 						</p>
 					</div>
-				</div>
+				</div> 
+
 				{!isCurrentSession && <RevokeSession id={session.id} />}
 			</CardContent>
+
+			{isCurrentSession && (
+				<div className='border-t active:bg-gray-100'>
+						<RemoveAllSessions />
+				</div>
+			)}
 		</Card>
 	)
 }
