@@ -93,7 +93,7 @@ export function EmailForm({ user }: EmailFormProps) {
 	}
 
 	return (
-		<div className='flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+		<div className='flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
 			<div className='flex gap-x-2 items-center'>
 				<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-blue-400 to-blue-600 ring-offset-blue-500'>
 					<IconMail className='size-4 text-white' />
@@ -109,9 +109,9 @@ export function EmailForm({ user }: EmailFormProps) {
 							asChild
 							className='border-none ring-0'
 						>
-							<div className="flex items-center">
+							<button type='button' className="flex items-center">
 								<ChevronRight className='size-5 text-muted-foreground'/>
-							</div>
+							</button>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align='end' side='top'>
 							<DropdownMenuGroup>

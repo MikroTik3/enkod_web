@@ -10,7 +10,7 @@ export function ProfileCard() {
       const { data } = useGetMe()
 
       return (
-            <Link href={ROUTES.ACCOUNT.SETTINGS} className='group relative flex items-center gap-2 rounded-2xl bg-gray-100 dark:bg-zinc-900 p-4'>
+            <Link href={ROUTES.ACCOUNT.PROFILE} className='group relative flex items-center gap-2 rounded-2xl bg-gray-100 dark:bg-zinc-900 p-4'>
                   <Avatar className='size-14'>
                         {data && (
                               <AvatarImage

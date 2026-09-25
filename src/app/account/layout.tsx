@@ -20,7 +20,7 @@ export default function AccountLayout({ children }: { children: ReactNode }) {
 				<div className='mx-auto w-full max-w-7xl'>
 					<div className='my-2 flex w-full flex-row min-h-screen flex-wrap gap-12 px-6 py-15 md:py-30 lg:flex-nowrap'>
 						{pathname !== '/account' ? (
-							<div className='w-full lg:max-w-[19rem]  lg:block hidden'>
+							<div className='w-full lg:max-w-76  lg:block hidden'>
 								<ProfileCard />
 								<UserNavigation />
 							</div>

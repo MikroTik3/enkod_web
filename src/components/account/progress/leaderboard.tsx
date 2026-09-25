@@ -39,7 +39,7 @@ export function Leaderboard({
 		<Card className='gap-0 p-0'>
 			<CardHeader className='py-4'>
 				<CardTitle className='flex items-center text-lg font-medium'>
-					<div className='relative flex aspect-square size-7 mr-2 items-center justify-center rounded-sm align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white'>
+					<div className='relative flex aspect-square size-7 mr-2 items-center justify-center rounded-sm align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b dark:from-neutral-800 from-neutral-200 dark:to-neutral-800 to-neutral-200 dark:ring-offset-neutral-800 ring-offset-neutral-200 shadow-none dark:ring-neutral-900 ring-white'>
 						<UsersIcon className='size-4' />
 					</div>
 					Рейтинг користувачів

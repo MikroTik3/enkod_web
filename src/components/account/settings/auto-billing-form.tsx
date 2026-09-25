@@ -44,7 +44,7 @@ export function AutoBillingForm({ user }: AutoBillingFormProps) {
 		<div className='flex flex-col gap-y-3'>
 			<Card className='py-0 shadow-none rounded-4xl'>
 				<CardContent className='p-0'>
-					<div className='flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+					<div className='flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
 						<div className='flex gap-x-2 items-center'>
 							<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-green-400 to-green-600 ring-offset-green-500'>
 								<IconWallet className='size-4 text-white' />

@@ -77,7 +77,7 @@ export function PasswordForm() {
 	}
 
 	return (
-		<div className='flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+		<div className='flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
 			<div className='flex gap-x-2 items-center'>
 				<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-yellow-400 to-yellow-600 ring-offset-yellow-500'>
 					<IconPassword className='size-4 text-white' />
@@ -96,10 +96,10 @@ export function PasswordForm() {
 					}}
 				>
 					<DialogTrigger asChild>
-						<div className="flex items-center">
+						<button type='button' className="flex items-center">
 							<span className='text-muted-foreground'>Змінити</span>
 							<ChevronRight className='size-5 text-muted-foreground'/>
-						</div>
+						</button>
 					</DialogTrigger>
 
 					<DialogContent>

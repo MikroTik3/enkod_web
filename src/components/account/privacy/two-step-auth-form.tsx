@@ -19,7 +19,7 @@ export function TwoStepAuthForm({ status }: TwoFactorAuthFormProps) {
 			<Card className='py-0 rounded-4xl shadow-none'>
 				<CardContent className='p-0'>
 					<div className='divide-y divide-border'>
-						<div className='relative flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+						<div className='relative flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
 							<div className='flex gap-x-2 items-center'>
 								<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-orange-400 to-orange-600 ring-offset-orange-500'>
 									<Smartphone className='size-4 text-white' />
@@ -37,7 +37,7 @@ export function TwoStepAuthForm({ status }: TwoFactorAuthFormProps) {
 							</div>
 						</div>
 
-						<div className='flex gap-4 hover:bg-gray-100 px-4 py-2 items-center justify-between'>
+						<div className='flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
 							<div className='flex gap-x-2 items-center'>
 								<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-green-400 to-green-600 ring-offset-green-500'>
 									<KeyRound className='size-4 text-white' />

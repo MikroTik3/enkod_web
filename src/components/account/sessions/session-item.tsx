@@ -60,7 +60,7 @@ export function SessionItem({ session, isCurrentSession }: SessionItemProps) {
 			</CardContent>
 
 			{isCurrentSession && (
-				<div className='border-t active:bg-gray-100'>
+				<div className='border-t active:bg-gray-100 dark:active:bg-accent'>
 						<RemoveAllSessions />
 				</div>
 			)}
