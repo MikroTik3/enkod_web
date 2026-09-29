@@ -12,6 +12,7 @@ import { APP_CONFIG, SEO, geistSans } from '../constants'
 import { ThemeProvider } from '@/providers'
 import { FingerprintProvider } from '@/providers/fingerprint-provider'
 import { TanstackQueryProvider } from '@/providers/tanstack-provider'
+import { GoogleAnalytics } from '@/lib/analytics/google-analytics'
 
 export const metadata: Metadata = {
 	metadataBase: new URL(APP_CONFIG.baseUrl),
@@ -55,6 +56,8 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body>
+				<GoogleAnalytics />
+
 				<TanstackQueryProvider>
 					<FingerprintProvider>
 						<ThemeProvider
