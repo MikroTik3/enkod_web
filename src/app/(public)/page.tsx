@@ -6,6 +6,7 @@ import { FAQs } from '@/components/home/faq'
 import { Features } from '@/components/home/features'
 import { Hero } from '@/components/home/hero'
 import { TelegramCTA } from '@/components/home/telegram-cta'
+import { FeaturesSecondary } from '@/components/home/features-secondary'
 
 export const metadata: Metadata = {
 	title: 'Освітня платформа з веброзробки в Україні',
@@ -31,6 +32,7 @@ export default async function HomePage() {
 			<Hero />
 			<Features />
 			<Courses />
+			{/* <FeaturesSecondary /> */}
 			<FAQs />
 			<TelegramCTA />
 		</Fragment>
