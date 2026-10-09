@@ -1,7 +1,8 @@
 'use client'
 import { Easing, motion, useAnimate } from 'motion/react'
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
-import React, { useImperativeHandle, useRef } from 'react'
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 interface DynamicIslandHandle {
 	start: () => void
@@ -15,7 +16,10 @@ const SPRING_OPTIONS = {
 }
 
 export function MacbookSkeleton() {
+	const { resolvedTheme } = useTheme();
 	const dynamicIslandRef = useRef<DynamicIslandHandle>(null)
+
+	const [mounted, setMounted] = useState<boolean>(false);
 
 	const lidVariants = {
 		initial: { rotateX: -60 },
@@ -38,6 +42,14 @@ export function MacbookSkeleton() {
 		delay: 0.5
 	}
 
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
+
 	return (
 		<motion.div
 			onHoverStart={() => dynamicIslandRef.current?.start()}
@@ -48,16 +60,16 @@ export function MacbookSkeleton() {
 					style={{ transformOrigin: 'bottom' }}
 					variants={lidVariants}
 					transition={TRANSITION}
-					className='mx-auto h-44 w-[90%] rounded-tl-lg rounded-tr-lg bg-neutral-200 p-1.5 shadow-sm ring-1 shadow-black/5 ring-black/5'
+					className='mx-auto h-44 w-[90%] rounded-tl-lg rounded-tr-lg bg-neutral-200 p-1.5 shadow-sm ring-1 shadow-black/5 ring-black/5 dark:bg-neutral-700 dark:shadow-white/5 dark:ring-white/10'
 				>
-					<div className='relative h-full w-full overflow-hidden rounded-tl rounded-tr-lg rounded-br-sm rounded-bl-sm bg-white'>
+					<div className='relative h-full w-full overflow-hidden rounded-tl rounded-tr-lg rounded-br-sm rounded-bl-sm bg-white dark:bg-neutral-900'>
 						<motion.div
 							variants={screenContentVariants}
 							transition={CONTENT_TRANSITION}
 							className='absolute inset-0'
 						>
 							<Image
-								src='/images/macbook.png'
+								src={`/images/macbook-${resolvedTheme}.png`}
 								alt='Screen'
 								fill
 								className='object-cover'
@@ -70,7 +82,7 @@ export function MacbookSkeleton() {
 						</motion.div>
 					</div>
 				</motion.div>
-				<div className='relative h-3.5 w-full rounded-tl-md rounded-tr-md rounded-br-3xl rounded-bl-3xl bg-linear-to-b from-neutral-200 to-neutral-300 shadow-[0px_1px_0px_0px_rgba(0,0,0,0.05)_inset]'>
+				<div className='relative h-3.5 w-full rounded-tl-md rounded-tr-md rounded-br-3xl rounded-bl-3xl bg-linear-to-b from-neutral-200 to-neutral-300 shadow-[0px_1px_0px_0px_rgba(0,0,0,0.05)_inset] dark:from-neutral-600 dark:to-neutral-800'>
 					<div className='absolute inset-x-0 top-0 mx-auto h-1.5 w-12 rounded-br-sm rounded-bl-sm bg-neutral-400' />
 				</div>
 			</div>

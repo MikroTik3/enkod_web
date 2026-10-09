@@ -89,7 +89,7 @@ function FeatureItem({ children }: { children: React.ReactNode }) {
 
 function FeatureTitle({ children }: { children: React.ReactNode }) {
       return (
-            <h3 className="mt-6 text-center text-base font-medium text-neutral-900">
+            <h3 className="mt-6 text-center text-base font-medium text-neutral-900 dark:text-neutral-100">
                   {children}
             </h3>
       );
@@ -97,7 +97,7 @@ function FeatureTitle({ children }: { children: React.ReactNode }) {
 
 function FeatureDescription({ children }: { children: React.ReactNode }) {
       return (
-            <p className="mx-auto mt-2 max-w-xs text-center text-sm text-balance text-neutral-500">
+            <p className="mx-auto mt-2 max-w-xs text-center text-sm text-balance text-neutral-500 dark:text-neutral-400">
                   {children}
             </p>
       );
@@ -106,7 +106,7 @@ function FeatureDescription({ children }: { children: React.ReactNode }) {
 
 function BeamCircle() {
       return (
-            <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-neutral-200">
+            <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-neutral-200 dark:bg-neutral-800">
                   <div className="h-2 w-2 rounded-full bg-[#A577FF]" />
             </div>
       );
