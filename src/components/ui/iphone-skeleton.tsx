@@ -2,6 +2,9 @@
 import { Easing, motion, useAnimate } from 'motion/react'
 import Image from 'next/image'
 import React, { useImperativeHandle, useRef } from 'react'
+import { Avatar, AvatarImage } from './avatar'
+import { Button } from './button'
+import { Bookmark, MoreHorizontal, Share2, ThumbsDown, ThumbsUp } from 'lucide-react'
 
 interface DynamicIslandHandle {
 	start: () => void
@@ -50,12 +53,60 @@ export function IPhoneSkeleton() {
 							transition={CONTENT_TRANSITION}
 							className='absolute inset-0'
 						>
-							<Image
-								src='/logo-dark.png'
-								alt='Screen'
-								fill
-								className='object-cover object-center'
-							/>
+							<div className='mt-5 p-1'>
+								<div className="w-full h-12 border-[0.5px] overflow-hidden rounded-md">
+									<img className="w-full h-full object-left object-cover" src="http://res.cloudinary.com/terieyenike/image/upload/v1790176127/uploaded/2026-09-23%2018.08.37.jpg.jpg" alt="course" />
+								</div>
+
+								<div className="text-[3px] whitespace-nowrap mt-0.5 font-semibold text-gray-700 [mask-image:linear-gradient(to_right,rgba(0,0,0,1)_70%,rgba(0,0,0,0)_100%)]">
+									Створюємо еб@ний ecommerce-shop з продажу пива
+								</div>
+
+								<div className="flex gap-0.5"> 
+									<div className="text-[2px] font-bold text-black"> 
+										@Enkod 
+									</div> 
+									<div className="text-[2px] font-medium text-gray-700">
+										125 позначок «Подобається» · 15 тис.
+									</div> 
+								</div>
+
+								<div className="flex items-center gap-[2px] mt-1">
+									<div className="size-2 border-[0.5px] rounded-full overflow-hidden"> 
+										<img src="/logo-dark.png" alt="enkod" />
+									</div>
+
+									<button className="px-1 h-2 text-[2px] whitespace-normal font-semibold text-white bg-red-600 rounded-md hover:bg-red-700 transition-colors duration-200">
+										Підписатися
+									</button>
+									
+									<div className="flex items-center gap-[3px] ml-auto"> 
+										<ThumbsUp className="size-[5px]" /> 
+										<ThumbsDown className="size-[5px]" /> 
+										<Share2 className="size-[5px]" /> 
+										<Bookmark className="size-[5px]" /> 
+										<MoreHorizontal className="size-[5px]" />
+									</div>
+
+								</div>
+
+								<div className="w-full bg-gray-100 rounded-xs p-0.5 mt-1">
+									<div className="text-[2px] flex gap-[0.5px] text-black">Коментарі <div className="text-[2px] text-gray-500">1,1 тис.</div></div>
+									
+									<div className="flex items-center mt-0.5">
+										<div className="size-1.5 border-[0.5px] mr-0.5 rounded-full overflow-hidden"> 
+											<img src="/logo-dark.png" alt="enkod" />
+										</div>
+
+										<input 
+											className="bg-gray-300 h-1.5 flex items-center px-0.5 rounded-full text-[2px] placeholder:text-[2px] placeholder:text-gray-500 outline-0" 
+											placeholder="Введіть текст коментаря" 
+											type="text" 
+										/>
+									</div>
+								</div>
+							</div>
+
 							<div className='absolute inset-x-0 top-0 z-10'>
 								<IPhoneDynamicIsland
 									ref={dynamicIslandRef}

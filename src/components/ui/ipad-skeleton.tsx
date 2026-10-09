@@ -50,7 +50,7 @@ export function IPadSkeleton() {
 							className='absolute inset-0'
 						>
 							<Image
-								src='/logo-dark.png'
+								src='/images/ipad.png'
 								alt='Screen'
 								fill
 								className='object-cover'

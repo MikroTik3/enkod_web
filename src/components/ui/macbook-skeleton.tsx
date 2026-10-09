@@ -57,7 +57,7 @@ export function MacbookSkeleton() {
 							className='absolute inset-0'
 						>
 							<Image
-								src='/logo-dark.png'
+								src='/images/macbook.png'
 								alt='Screen'
 								fill
 								className='object-cover'

@@ -32,7 +32,7 @@ export default async function HomePage() {
 			<Hero />
 			<Features />
 			<Courses />
-			{/* <FeaturesSecondary /> */}
+			<FeaturesSecondary />
 			<FAQs />
 			<TelegramCTA />
 		</Fragment>
