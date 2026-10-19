@@ -70,7 +70,7 @@ export function PasskeyModal() {
 						<ChevronRight className='size-5 text-muted-foreground'/>
 					</button>
 				</DialogTrigger>
-				<DialogContent className='sm:max-w-[500px]'>
+				<DialogContent className='sm:max-w-125'>
 					<DialogHeader>
 						<DialogTitle>
 							Ваші ключі доступу
@@ -88,7 +88,7 @@ export function PasskeyModal() {
 					) : (
 						<div className='my-2'>
 							{data?.length && (
-								<div className='grid max-h-[300px] gap-3 overflow-y-auto pr-1'>
+								<div className='grid max-h-75 gap-3 overflow-y-auto pr-1'>
 									{data?.map(
 										(
 											passkey,

@@ -52,7 +52,7 @@ export function Leaderboard({
 			<Separator />
 
 			<CardContent>
-				<div className='space-y-4'>
+				<div className='space-y-1.5'>
 					{users?.map((user, index) => {
 						const position = index + 1
 

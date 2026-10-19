@@ -50,7 +50,7 @@ export function Connections() {
 						Пов'язані акаунти
 					</h3>
 					
-					<div className='space-y-3'>
+					<div className='divide-y divide-black/10 overflow-hidden rounded-3xl border border-black/10 bg-white dark:divide-white/10 dark:border-white/10 dark:bg-neutral-900'>
 						{isLoadingProviders || isLoadingStatus
 							? Array.from({ length: 4 }).map(
 									(_, index) => (
@@ -77,10 +77,8 @@ export function Connections() {
 
 										return (
 											<Card
-												key={
-													index
-												}
-												className='rounded-2xl bg-white p-0 shadow-sm ring-1 shadow-black/10 ring-black/10 md:row-span-2 dark:bg-neutral-900 dark:shadow-white/5 dark:ring-white/10'
+												key={index}
+												className='rounded-none border-0 border-b border-black/10 bg-transparent p-0 shadow-none ring-0 last:border-b-0 dark:border-white/10'
 											>
 												<CardContent className='flex items-center justify-between gap-5 p-4 max-[440px]:flex-col max-[440px]:items-start'>
 													<div className='flex items-center gap-x-3 max-[440px]:items-start'>
@@ -150,7 +148,7 @@ export function Connections() {
 
 export function ConnectionsSkeleton() {
 	return (
-		<Card className='py-0 shadow-none'>
+		<Card className='rounded-none border-0 border-b border-black/10 bg-transparent py-0 shadow-none ring-0 last:border-b-0 dark:border-white/10'>
 			<CardContent className='flex items-center justify-between p-4'>
 				<div className='flex items-center gap-x-3'>
 					<Skeleton className='size-10.5 rounded-lg' />

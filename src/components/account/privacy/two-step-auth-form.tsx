@@ -1,4 +1,4 @@
-import { KeyRound, ListOrdered, Smartphone } from 'lucide-react'
+import { ChevronRight, KeyRound, ListOrdered, Smartphone } from 'lucide-react'
 
 import { Card, CardContent } from '../../ui/card'
 
@@ -19,42 +19,69 @@ export function TwoStepAuthForm({ status }: TwoFactorAuthFormProps) {
 			<Card className='py-0 rounded-4xl shadow-none'>
 				<CardContent className='p-0'>
 					<div className='divide-y divide-border'>
-						<div className='relative flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
-							<div className='flex gap-x-2 items-center'>
-								<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-orange-400 to-orange-600 ring-offset-orange-500'>
-									<Smartphone className='size-4 text-white' />
-								</div>
-								<h2>
-									Аутентифікатор
-								</h2>
-							</div>
-							<div>
+							<div> 
 								{status?.totpMfa ? (
-									<DisableTotpForm />
+									<DisableTotpForm>
+										<div className='relative flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
+											<div className='flex gap-x-2 items-center'>
+												<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-orange-400 to-orange-600 ring-offset-orange-500'>
+													<Smartphone className='size-4 text-white' />
+												</div>
+												<h2>
+													Аутентифікатор
+												</h2>
+											</div>
+
+											<button type='button' className="flex items-center">
+												<span className='text-muted-foreground'>Увiмкнути</span>
+												<ChevronRight className='size-5 text-muted-foreground' />
+											</button>
+										</div>
+									</DisableTotpForm>
 								) : (
-									<EnableTotpForm />
+									<EnableTotpForm>
+										<div className='relative flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
+											<div className='flex gap-x-2 items-center'>
+												<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-orange-400 to-orange-600 ring-offset-orange-500'>
+													<Smartphone className='size-4 text-white' />
+												</div>
+												<h2>
+													Аутентифікатор
+												</h2>
+											</div>
+											<button type='button' className="flex items-center">
+												<span className='text-muted-foreground'>Вiдключити</span>
+												<ChevronRight className='size-5 text-muted-foreground' />
+											</button>
+										</div>
+									</EnableTotpForm>
 								)}
 							</div>
-						</div>
 
-						<div className='flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
-							<div className='flex gap-x-2 items-center'>
-								<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-green-400 to-green-600 ring-offset-green-500'>
-									<KeyRound className='size-4 text-white' />
+						<div className='flex gap-3'>
+							{/* {status?.passkeyMfa && (
+								<PasskeyModal />
+							)} */}
+							<RegisterPasskeyForm>
+								<div className='relative w-[stretch] flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
+									<div className='flex gap-x-2 items-center'>
+										<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-green-400 to-green-600 ring-offset-green-500'>
+											<KeyRound className='size-4 text-white' />
+										</div>
+										<h2>
+											Ключі доступу
+										</h2>
+									</div>
+
+									<button type='button' className="flex items-center">
+										<span className='text-muted-foreground'>Додати</span>
+										<ChevronRight className='size-5 text-muted-foreground' />
+									</button>
 								</div>
-								<h2>
-									Ключі доступу
-								</h2>
-							</div>
-							<div className='flex gap-3'>
-								{status?.passkeyMfa && (
-									<PasskeyModal />
-								)}
-								<RegisterPasskeyForm />
-							</div>
+							</RegisterPasskeyForm>
 						</div>
 
-						{status?.recoveryActive && (
+						{/* {status?.recoveryActive && (
 							<div className='flex flex-col gap-4 p-4 md:flex-row md:items-center md:justify-between md:gap-0'>
 								<div className='mr-5 flex items-center gap-x-4'>
 									<div className='flex size-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white'>
@@ -84,7 +111,7 @@ export function TwoStepAuthForm({ status }: TwoFactorAuthFormProps) {
 									<RecoveryCodesModal />
 								</div>
 							</div>
-						)}
+						)} */}
 					</div>
 				</CardContent>
 			</Card>

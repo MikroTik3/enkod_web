@@ -17,7 +17,7 @@ export function SessionItem({ session, isCurrentSession }: SessionItemProps) {
 	console.log(isCurrentSession)
 
 	return (
-		<Card className='py-0 shadow-none gap-0'>
+		<Card className='gap-0 rounded-none border-0 border-b border-black/10 bg-transparent py-0 shadow-none ring-0 last:border-b-0 dark:border-white/10'>
 			<CardContent className='flex items-center justify-between gap-5 p-4 max-[440px]:flex-col max-[440px]:items-start'>
 				<div className='flex items-center gap-x-3'>
 					<div className='relative flex aspect-square size-10.5 items-center justify-center rounded-lg bg-linear-to-b from-neutral-200 to-neutral-200 align-middle shadow-none ring-1 ring-white ring-offset-2 ring-offset-neutral-200 ring-inset dark:from-neutral-800 dark:to-neutral-800 dark:ring-neutral-900 dark:ring-offset-neutral-800'>

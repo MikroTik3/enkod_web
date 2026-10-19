@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Check, ChevronRight, Copy, Loader2, TriangleAlert } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -40,7 +40,7 @@ const enableTotpSchema = z.object({
 
 export type EnableTotp = z.infer<typeof enableTotpSchema>
 
-export function EnableTotpForm() {
+export function EnableTotpForm({ children }: { children: React.ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false)
 	const [step, setStep] = useState(1)
 
@@ -154,13 +154,10 @@ export function EnableTotpForm() {
 			}}
 		>
 			<DialogTrigger asChild>
-				<button type='button' className="flex items-center">
-					<span className='text-muted-foreground'>Увiмкнути</span>
-					<ChevronRight className='size-5 text-muted-foreground'/>
-				</button>
+				{children}
 			</DialogTrigger>
 			
-			<DialogContent className='max-w-[600px]'>
+			<DialogContent className='max-w-150'>
 				<DialogHeader>
 					<DialogTitle>
 						{step === 1

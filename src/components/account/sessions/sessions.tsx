@@ -2,13 +2,13 @@
 
 import { Fragment } from 'react'
 
-import { Heading } from '@/components/shared/heading'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 
-import { RemoveAllSessions } from './remove-all-sessions'
 import { SessionItem } from './session-item'
 import { useGetSessions } from '@/api/hooks'
+
+
 
 export function Sessions() {
 	const { data, isLoading } = useGetSessions()
@@ -22,9 +22,11 @@ export function Sessions() {
 
 				<h2 className='text-lg text-center font-medium'>Пристрої</h2>
 				{isLoading ? (
-					Array.from({ length: 4 }).map((_, index) => (
-						<SessionsSkeleton key={index} />
-					))
+					<div className='overflow-hidden rounded-3xl border border-black/10 bg-white dark:border-white/10 dark:bg-neutral-900'>
+						{Array.from({ length: 4 }).map((_, index) => (
+							<SessionsSkeleton key={index} />
+						))}
+					</div>
 				) : (
 					<Fragment>
 						{current && (
@@ -32,10 +34,13 @@ export function Sessions() {
 								<p className='px-1 text-xs font-medium uppercase tracking-wide text-muted-foreground/60'>
 									Це пристрій
 								</p>
-								<SessionItem
-									session={current}
-									isCurrentSession
-								/>
+
+								<div className='overflow-hidden rounded-3xl border border-black/10 bg-white dark:border-white/10 dark:bg-neutral-900'>
+									<SessionItem
+										session={current}
+										isCurrentSession
+									/>
+								</div>
 
 								<p className="text-xs px-2 text-muted-foreground">Вийти з акаунта на всіх пристроях, крім цього.</p>
 							</section>
@@ -63,7 +68,7 @@ export function Sessions() {
 
 export function SessionsSkeleton() {
 	return (
-		<Card className='py-0 shadow-none'>
+		<Card className='rounded-none border-0 border-b border-black/10 bg-transparent py-0 shadow-none ring-0 last:border-b-0 dark:border-white/10'>
 			<CardContent className='flex items-center justify-between p-4'>
 				<div className='flex items-center gap-x-3'>
 					<Skeleton className='size-10.5 rounded-lg' />

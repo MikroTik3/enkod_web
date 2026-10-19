@@ -22,7 +22,7 @@ const disableTotpSchema = z.object({
 
 export type DisableTotp = z.infer<typeof disableTotpSchema>
 
-export function DisableTotpForm() {
+export function DisableTotpForm({ children }: { children: React.ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const queryClient = useQueryClient()
@@ -119,10 +119,7 @@ export function DisableTotpForm() {
 			open={isOpen}
 			onOpenChange={setIsOpen}
 		>
-			<button type='button' className="flex items-center">
-				<span className='text-muted-foreground'>Вiдключити</span>
-				<ChevronRight className='size-5 text-muted-foreground'/>
-			</button>
+			{children}
 		</ConfirmDialog>
 	)
 }

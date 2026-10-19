@@ -1,5 +1,9 @@
+'use client'
+
 import { zodResolver } from '@hookform/resolvers/zod'
+import { IconPassword } from '@tabler/icons-react'
 import { useMutation } from '@tanstack/react-query'
+import { ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -20,8 +24,6 @@ import { Field, FieldError, FieldGroup, FieldLabel } from '../../ui/field'
 import { Input } from '../../ui/input'
 
 import { changePassword } from '@/api/requests'
-import { IconPassword } from '@tabler/icons-react'
-import { ChevronRight } from 'lucide-react'
 
 const passwordSchema = z
 	.object({
@@ -54,8 +56,7 @@ export function PasswordForm() {
 		},
 		onError(error: any) {
 			toast.error(
-				error.response?.data?.message ??
-					'Помилка під час зміни пароля'
+				error.response?.data?.message ?? 'Помилка під час зміни пароля'
 			)
 		}
 	})
@@ -77,136 +78,100 @@ export function PasswordForm() {
 	}
 
 	return (
-		<div className='flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
-			<div className='flex gap-x-2 items-center'>
-				<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-yellow-400 to-yellow-600 ring-offset-yellow-500'>
-					<IconPassword className='size-4 text-white' />
-				</div>
-				<h2>
-					Пароль
-				</h2>
-			</div>
-			
-			<div>
-				<Dialog
-					open={isOpen}
-					onOpenChange={state => {
-						form.reset()
-						setIsOpen(state)
-					}}
+		<Dialog
+			open={isOpen}
+			onOpenChange={state => {
+				form.reset()
+				setIsOpen(state)
+			}}
+		>
+			<DialogTrigger asChild>
+				<button
+					type='button'
+					className='flex w-full gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between text-left cursor-pointer outline-none focus-visible:bg-gray-100 dark:focus-visible:bg-accent'
 				>
-					<DialogTrigger asChild>
-						<button type='button' className="flex items-center">
-							<span className='text-muted-foreground'>Змінити</span>
-							<ChevronRight className='size-5 text-muted-foreground'/>
-						</button>
-					</DialogTrigger>
+					<div className='flex gap-x-2 items-center'>
+						<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-yellow-400 to-yellow-600 ring-offset-yellow-500'>
+							<IconPassword className='size-4 text-white' />
+						</div>
+						<h2>Пароль</h2>
+					</div>
 
-					<DialogContent>
-						<DialogHeader>
-							<DialogTitle>
-								Зміна пароля
-							</DialogTitle>
-							<DialogDescription>
-								Введіть новий пароль і
-								підтвердьте його, щоб оновити
-								пароль.
-							</DialogDescription>
-						</DialogHeader>
+					<div className='flex items-center'>
+						<span className='text-muted-foreground'>Змінити</span>
+						<ChevronRight className='size-5 text-muted-foreground' />
+					</div>
+				</button>
+			</DialogTrigger>
 
-						<form
-							onSubmit={form.handleSubmit(onSubmit)}
-							className='grid gap-4'
-						>
-							<FieldGroup>
-								<Controller
-									control={form.control}
-									name='newPassword'
-									render={({
-										field,
-										fieldState
-									}) => (
-										<Field>
-											<FieldLabel>
-												Новий
-												пароль
-											</FieldLabel>
+			<DialogContent>
+				<DialogHeader>
+					<DialogTitle>Зміна пароля</DialogTitle>
+					<DialogDescription>
+						Введіть новий пароль і підтвердьте його, щоб оновити
+						пароль.
+					</DialogDescription>
+				</DialogHeader>
 
-											<Input
-												type='password'
-												placeholder='******'
-												disabled={
-													isPending
-												}
-												aria-invalid={
-													fieldState.invalid
-												}
-												{...field}
-											/>
+				<form
+					onSubmit={form.handleSubmit(onSubmit)}
+					className='grid gap-4'
+				>
+					<FieldGroup>
+						<Controller
+							control={form.control}
+							name='newPassword'
+							render={({ field, fieldState }) => (
+								<Field>
+									<FieldLabel>Новий пароль</FieldLabel>
 
-											<FieldError
-												errors={[
-													fieldState.error
-												]}
-											/>
-										</Field>
-									)}
-								/>
+									<Input
+										type='password'
+										placeholder='******'
+										disabled={isPending}
+										aria-invalid={fieldState.invalid}
+										{...field}
+									/>
 
-								<Controller
-									control={form.control}
-									name='confirmPassword'
-									render={({
-										field,
-										fieldState
-									}) => (
-										<Field>
-											<FieldLabel>
-												Підтвердіть
-												новий
-												пароль
-											</FieldLabel>
+									<FieldError errors={[fieldState.error]} />
+								</Field>
+							)}
+						/>
 
-											<Input
-												type='password'
-												placeholder='******'
-												disabled={
-													isPending
-												}
-												aria-invalid={
-													fieldState.invalid
-												}
-												{...field}
-											/>
+						<Controller
+							control={form.control}
+							name='confirmPassword'
+							render={({ field, fieldState }) => (
+								<Field>
+									<FieldLabel>
+										Підтвердіть новий пароль
+									</FieldLabel>
 
-											<FieldError
-												errors={[
-													fieldState.error
-												]}
-											/>
-										</Field>
-									)}
-								/>
-							</FieldGroup>
+									<Input
+										type='password'
+										placeholder='******'
+										disabled={isPending}
+										aria-invalid={fieldState.invalid}
+										{...field}
+									/>
 
-							<DialogFooter>
-								<DialogClose asChild>
-									<Button variant='outline'>
-										Скасувати
-									</Button>
-								</DialogClose>
+									<FieldError errors={[fieldState.error]} />
+								</Field>
+							)}
+						/>
+					</FieldGroup>
 
-								<Button
-									type='submit'
-									isLoading={isPending}
-								>
-									Оновити
-								</Button>
-							</DialogFooter>
-						</form>
-					</DialogContent>
-				</Dialog>
-			</div>
-		</div>
+					<DialogFooter>
+						<DialogClose asChild>
+							<Button variant='outline'>Скасувати</Button>
+						</DialogClose>
+
+						<Button type='submit' isLoading={isPending}>
+							Оновити
+						</Button>
+					</DialogFooter>
+				</form>
+			</DialogContent>
+		</Dialog>
 	)
 }

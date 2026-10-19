@@ -1,12 +1,14 @@
+'use client'
+
 import { zodResolver } from '@hookform/resolvers/zod'
+import { IconMail } from '@tabler/icons-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { CheckCircle, ChevronRight, Mail, MoreHorizontal, Pencil } from 'lucide-react'
+import { CheckCircle, ChevronRight, Pencil } from 'lucide-react'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
-import { Badge } from '../../ui/badge'
 import { Button } from '../../ui/button'
 import {
 	Dialog,
@@ -29,7 +31,7 @@ import { Input } from '../../ui/input'
 
 import type { AccountResponse } from '@/api/generated'
 import { changeEmail, sendEmailVerification } from '@/api/requests'
-import { IconMail } from '@tabler/icons-react'
+import { cn } from '@/lib/utils'
 
 const emailSchema = z.object({
 	email: z
@@ -43,6 +45,9 @@ export type Email = z.infer<typeof emailSchema>
 interface EmailFormProps {
 	user: AccountResponse | undefined
 }
+
+const rowClassName =
+	'flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'
 
 export function EmailForm({ user }: EmailFormProps) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -59,8 +64,7 @@ export function EmailForm({ user }: EmailFormProps) {
 		},
 		onError(error: any) {
 			toast.error(
-				error.response?.data?.message ??
-					'Помилка при відправці листа'
+				error.response?.data?.message ?? 'Помилка при відправці листа'
 			)
 		}
 	})
@@ -75,8 +79,7 @@ export function EmailForm({ user }: EmailFormProps) {
 		},
 		onError(error: any) {
 			toast.error(
-				error.response?.data?.message ??
-					'Помилка при зміні пошти'
+				error.response?.data?.message ?? 'Помилка при зміні пошти'
 			)
 		}
 	})
@@ -92,130 +95,107 @@ export function EmailForm({ user }: EmailFormProps) {
 		await mutateAsync(data)
 	}
 
-	return (
-		<div className='flex gap-4 hover:bg-gray-100 dark:hover:bg-accent px-4 py-2 items-center justify-between'>
-			<div className='flex gap-x-2 items-center'>
-				<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-blue-400 to-blue-600 ring-offset-blue-500'>
-					<IconMail className='size-4 text-white' />
-				</div>
-				<h2>
-					Пошта
-				</h2>
+	const label = (
+		<div className='flex gap-x-2 items-center'>
+			<div className='relative flex aspect-square items-center justify-center rounded-sm align-middle shadow-lg ring-1 ring-white/20 ring-offset-2 ring-inset size-7 bg-linear-to-b from-blue-400 to-blue-600 ring-offset-blue-500'>
+				<IconMail className='size-4 text-white' />
 			</div>
-			<div>
-				{user?.email ? (
-					<DropdownMenu>
-						<DropdownMenuTrigger
-							asChild
-							className='border-none ring-0'
+			<h2>Пошта</h2>
+		</div>
+	)
+
+	return (
+		<>
+			{user?.email ? (
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<div
+							role='button'
+							tabIndex={0}
+							className={cn(
+								rowClassName,
+								'cursor-pointer outline-none focus-visible:bg-gray-100 dark:focus-visible:bg-accent'
+							)}
 						>
-							<button type='button' className="flex items-center">
-								<ChevronRight className='size-5 text-muted-foreground'/>
-							</button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent align='end' side='top'>
-							<DropdownMenuGroup>
-								{!user.isEmailVerified && (
-									<DropdownMenuItem
-										onClick={() =>
-											send()
-										}
-									>
-										<CheckCircle />
-										Підтвердити
-									</DropdownMenuItem>
-								)}
-								<DropdownMenuItem
-									onClick={() =>
-										setIsOpen(true)
-									}
-								>
-									<Pencil />
-									Змінити
+							{label}
+							<ChevronRight className='size-5 text-muted-foreground' />
+						</div>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className='w-min' align='end' side='top'>
+						<DropdownMenuGroup>
+							{!user.isEmailVerified && (
+								<DropdownMenuItem onClick={() => send()}>
+									<CheckCircle />
+									Підтвердити
 								</DropdownMenuItem>
-							</DropdownMenuGroup>
-						</DropdownMenuContent>
-					</DropdownMenu>
-				) : (
-					<Button
-						variant='outline'
-						onClick={() => setIsOpen(true)}
-					>
+							)}
+							<DropdownMenuItem onClick={() => setIsOpen(true)}>
+								<Pencil />
+								Змінити
+							</DropdownMenuItem>
+						</DropdownMenuGroup>
+					</DropdownMenuContent>
+				</DropdownMenu>
+			) : (
+				<div className={rowClassName}>
+					{label}
+					<Button variant='outline' onClick={() => setIsOpen(true)}>
 						Прив'язати
 					</Button>
-				)}
+				</div>
+			)}
 
-				<Dialog
-					open={isOpen}
-					onOpenChange={state => {
-						form.reset()
-						setIsOpen(state)
-					}}
-				>
-					<DialogContent>
-						<DialogHeader>
-							<DialogTitle>
-								Оновлення пошти
-							</DialogTitle>
-							<DialogDescription>
-								Введіть нову поштову адресу.
-							</DialogDescription>
-						</DialogHeader>
-						<form
-							onSubmit={form.handleSubmit(onSubmit)}
-							className='grid gap-4'
-						>
-							<FieldGroup>
-								<Controller
-									name='email'
-									control={form.control}
-									render={({
-										field,
-										fieldState
-									}) => (
-										<Field>
-											<FieldLabel>
-												Ел.
-												пошта
-											</FieldLabel>
-											<Input
-												{...field}
-												aria-invalid={
-													fieldState.invalid
-												}
-												placeholder='anton@example.com'
-												autoComplete='email'
-												disabled={
-													isPending
-												}
-												type='text'
-											/>
-											<FieldError
-												errors={[
-													fieldState.error
-												]}
-											/>
-										</Field>
-									)}
-								/>
-							</FieldGroup>
-							<DialogFooter>
-								<DialogClose asChild>
-									<Button variant='outline'>
-										Відміна
-									</Button>
-								</DialogClose>
-								<Button
-									type='submit'
-									isLoading={isPending}
-								>
-									Оновити
-								</Button>
-							</DialogFooter>
-						</form>
-					</DialogContent>
-				</Dialog>
-			</div>
-		</div>
+			<Dialog
+				open={isOpen}
+				onOpenChange={state => {
+					form.reset()
+					setIsOpen(state)
+				}}
+			>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>Оновлення пошти</DialogTitle>
+						<DialogDescription>
+							Введіть нову поштову адресу.
+						</DialogDescription>
+					</DialogHeader>
+					<form
+						onSubmit={form.handleSubmit(onSubmit)}
+						className='grid gap-4'
+					>
+						<FieldGroup>
+							<Controller
+								name='email'
+								control={form.control}
+								render={({ field, fieldState }) => (
+									<Field>
+										<FieldLabel>Ел. пошта</FieldLabel>
+										<Input
+											{...field}
+											aria-invalid={fieldState.invalid}
+											placeholder='anton@example.com'
+											autoComplete='email'
+											disabled={isPending}
+											type='text'
+										/>
+										<FieldError
+											errors={[fieldState.error]}
+										/>
+									</Field>
+								)}
+							/>
+						</FieldGroup>
+						<DialogFooter>
+							<DialogClose asChild>
+								<Button variant='outline'>Відміна</Button>
+							</DialogClose>
+							<Button type='submit' isLoading={isPending}>
+								Оновити
+							</Button>
+						</DialogFooter>
+					</form>
+				</DialogContent>
+			</Dialog>
+		</>
 	)
 }

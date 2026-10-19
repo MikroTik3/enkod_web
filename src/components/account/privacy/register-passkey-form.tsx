@@ -36,7 +36,7 @@ const registerPasskeySchema = z.object({
 
 export type RegisterPasskey = z.infer<typeof registerPasskeySchema>
 
-export function RegisterPasskeyForm() {
+export function RegisterPasskeyForm({ children }: { children: React.ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isRegistering, setIsRegistering] = useState(false)
 
@@ -93,10 +93,7 @@ export function RegisterPasskeyForm() {
 			}}
 		>
 			<DialogTrigger asChild>
-				<button type='button' className="flex items-center">
-					<span className='text-muted-foreground'>Додати</span>
-					<ChevronRight className='size-5 text-muted-foreground'/>
-				</button>
+				{children}
 			</DialogTrigger>
 			<DialogContent className='max-w-137.5'>
 				<DialogHeader>
