@@ -42,12 +42,14 @@ export function Header() {
 						{isAuth ? (
 							<UserMenu />
 						) : (
-							<Link
-								className='hover:text-foreground/80 text-foreground/60 mx-3 text-sm font-medium transition-colors'
-								href={ROUTES.AUTH.LOGIN()}
-							>
-								Увійти
-							</Link>
+                                                 <div className='flex items-center gap-2'>
+                                                        <Link href={ROUTES.ACCOUNT.ROOT} className={cn(buttonVariants({ variant: 'ghost' }), 'rounded-2xl h-8')}>
+                                                               Увійти
+                                                        </Link>
+                                                        <Link href={ROUTES.ACCOUNT.ROOT} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
+                                                               Реєстрація
+                                                        </Link>
+                                                 </div>
 						)}
 					</div>
 				</NavBody>
@@ -61,6 +63,7 @@ export function Header() {
 								Назад
 							</Link>
 						)}
+
 						<MobileTrigger />
 					</div>
 				</MobileNav>

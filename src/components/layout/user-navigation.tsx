@@ -33,7 +33,7 @@ type NavGroup = {
 export function UserNavigation() {
 	const pathname = usePathname()
 
-	const { data, isLoading } = useGetSessions()
+	const { data } = useGetSessions()
 
 	const linkGroups: NavGroup[] = [
 		{

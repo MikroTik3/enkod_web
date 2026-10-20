@@ -175,3 +175,15 @@
 .no-visible-scrollbar::-webkit-scrollbar {
 	display: none;
 }
+
+.eyebrow {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    --tw-tracking: .14em;
+    letter-spacing: .14em;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+}
