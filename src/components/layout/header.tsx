@@ -43,10 +43,10 @@ export function Header() {
 							<UserMenu />
 						) : (
                                                  <div className='flex items-center gap-2'>
-                                                        <Link href={ROUTES.ACCOUNT.ROOT} className={cn(buttonVariants({ variant: 'ghost' }), 'rounded-2xl h-8')}>
+                                                        <Link href={ROUTES.AUTH.LOGIN()} className={cn(buttonVariants({ variant: 'ghost' }), 'rounded-2xl h-8')}>
                                                                Увійти
                                                         </Link>
-                                                        <Link href={ROUTES.ACCOUNT.ROOT} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
+                                                        <Link href={ROUTES.AUTH.REGISTER} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
                                                                Реєстрація
                                                         </Link>
                                                  </div>
@@ -63,6 +63,18 @@ export function Header() {
 								Назад
 							</Link>
 						)}
+
+                                          {!pathname.startsWith('/account/') && (
+                                                 <>
+                                                        <Link href={ROUTES.AUTH.LOGIN()} className={cn(buttonVariants({ variant: 'ghost' }), 'rounded-2xl h-8')}>
+                                                               Увійти
+                                                        </Link>
+
+                                                        <Link href={ROUTES.AUTH.REGISTER} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
+                                                               Реєстрація
+                                                        </Link>
+                                                 </>
+                                          )}
 
 						<MobileTrigger />
 					</div>
