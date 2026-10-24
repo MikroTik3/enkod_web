@@ -25,7 +25,6 @@ export function Header() {
 	const [isAuth, setIsAuth] = useState<boolean | null>()
 
 	const pathname = usePathname()
-	const router = useRouter()
 	const { isAuthorized } = useAuth()
 
 	useEffect(() => {

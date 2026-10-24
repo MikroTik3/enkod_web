@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation } from '@tanstack/react-query'
-import { ChartArea, LogOut, LucideUser2, Package, Settings } from 'lucide-react'
+import { ChartArea, LogOut, LucideUser2, Settings } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
