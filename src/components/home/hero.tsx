@@ -1,5 +1,8 @@
+'use client'
+
 import { IconArrowRight } from '@tabler/icons-react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -8,19 +11,36 @@ import { LinesGradientShader } from '../ui/lines-gradient-shader'
 
 import { ROUTES } from '@/constants'
 
+function useIsMobile(breakpoint = 768) {
+	const [isMobile, setIsMobile] = useState(false)
+
+	useEffect(() => {
+		const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`)
+		const update = () => setIsMobile(mq.matches)
+
+		update()
+		mq.addEventListener('change', update)
+		return () => mq.removeEventListener('change', update)
+	}, [breakpoint])
+
+	return isMobile
+}
+
 export function Hero() {
+	const isMobile = useIsMobile()
+
 	return (
 		<section
 			id='hero'
-			className='relative flex min-h-screen w-full bg-white dark:bg-zinc-950'
+			className='relative flex min-h-screen w-full overflow-hidden bg-white dark:bg-zinc-950'
 		>
 			<LinesGradientShader
 				className='pointer-events-none absolute inset-0 z-10 overflow-hidden bg-transparent mask-b-from-50% dark:bg-transparent'
-				bandCount={6}
-				bandSpacing={1}
-				xOffset={-128}
-				yOffset={-30}
-				rotationAngle={20}
+				bandCount={isMobile ? 4 : 6}
+				bandSpacing={isMobile ? 0.6 : 1}
+				xOffset={isMobile ? -250 : -28}
+				yOffset={isMobile ? -10 : -30}
+				rotationAngle={isMobile ? 35 : 20}
 			/>
 
 			<div className='z-20 mx-auto flex w-full max-w-335 flex-col justify-center gap-6 px-4 text-sm md:px-8'>
