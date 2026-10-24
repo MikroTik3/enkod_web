@@ -1,18 +1,13 @@
-import { IconDownload } from '@tabler/icons-react'
+'use client'
+
+import { IconArrowRight, IconDownload } from '@tabler/icons-react'
 import { useMutation } from '@tanstack/react-query'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { FaYoutube } from 'react-icons/fa'
 import { toast } from 'sonner'
 
 import { Button } from '../ui/button'
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle
-} from '../ui/card'
 
 import type { CourseResponse } from '@/api/generated'
 import { generateDownloadLink } from '@/api/requests'
@@ -21,27 +16,33 @@ import { useAuth, useCurrent } from '@/hooks'
 
 interface CourseActionsProps {
 	course: CourseResponse
+	lessonHref?: string
+	lessonLabel: string
 }
 
-export function CourseActions({ course }: CourseActionsProps) {
+export function CourseActions({
+	course,
+	lessonHref,
+	lessonLabel
+}: CourseActionsProps) {
 	const router = useRouter()
 	const { isAuthorized } = useAuth()
 	const { user } = useCurrent()
 
+	const hasAccess = isAuthorized && !!user?.isPremium
+
 	const { mutateAsync: generate, isPending: isGenerating } = useMutation({
 		mutationFn: (courseId: string) => generateDownloadLink(courseId),
 		onError() {
-			toast.error('Не удалось сгенерировать ссылку')
+			toast.error('Не вдалося згенерувати посилання')
 		}
 	})
 
 	const handleDownload = async () => {
-		if (!isAuthorized || !user?.isPremium)
-			return router.push(ROUTES.SUBSCRIPTION)
+		if (!hasAccess) return router.push(ROUTES.SUBSCRIPTION)
 
 		try {
 			const { url } = await generate(course.id)
-
 			window.open(url)
 		} catch (err) {
 			console.error(err)
@@ -49,44 +50,70 @@ export function CourseActions({ course }: CourseActionsProps) {
 	}
 
 	return (
-		<Card className='relative flex flex-col gap-5'>
-			<CardHeader>
-				<CardTitle className='text-foreground text-xl font-semibold'>
-					Матеріали курсу
-				</CardTitle>
-				<CardDescription className='text-sm text-neutral-600 dark:text-neutral-300'>
-					Завантажте вихідний код проєкту та перегляньте
-					повний відеокурс, щоб крок за кроком повторити
-					весь процес розробки.
-				</CardDescription>
-			</CardHeader>
-
-			<CardContent className='flex flex-col gap-2'>
+		<div className='flex flex-col gap-3'>
+			{!hasAccess ? (
 				<Button
-					className='w-full'
-					onClick={handleDownload}
-					isLoading={isGenerating}
+					size='lg'
+					disabled={true}
+					className='w-full rounded-full'
+					asChild
 				>
-					<IconDownload />
-					Завантажити код
+					<Link href={ROUTES.SUBSCRIPTION}>
+						Оформити підписку
+						<IconArrowRight />
+					</Link>
 				</Button>
+			) : lessonHref ? (
+				<Button
+					size='lg'
+					disabled={true}
+					className='w-full rounded-full'
+					asChild
+				>
+					<Link href={lessonHref}>
+						{lessonLabel}
+						<IconArrowRight />
+					</Link>
+				</Button>
+			) : (
+				<Button
+					size='lg'
+					className='w-full rounded-full'
+					disabled
+				>
+					Незабаром
+				</Button>
+			)}
 
-				{course.youtubeUrl && (
-					<Button
-						variant='outline'
-						className='w-full'
-						asChild
+			{course.youtubeUrl && (
+				<Button
+					variant='outline'
+					size='lg'
+					className='w-full rounded-full'
+					asChild
+				>
+					<a
+						href={course.youtubeUrl}
+						target='_blank'
+						rel='noopener noreferrer'
 					>
-						<Link
-							href={course.youtubeUrl as any}
-							target='_blank'
-						>
-							<FaYoutube />
-							Дивитися на YouTube
-						</Link>
-					</Button>
-				)}
-			</CardContent>
-		</Card>
+						<FaYoutube />
+						Дивитися на YouTube
+					</a>
+				</Button>
+			)}
+
+			<Button
+				variant='secondary'
+				size='lg'
+				disabled={true}
+				className='w-full rounded-full'
+				onClick={handleDownload}
+				isLoading={isGenerating}
+			>
+				<IconDownload />
+				Завантажити вихідний код
+			</Button>
+		</div>
 	)
 }

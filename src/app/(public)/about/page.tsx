@@ -1,4 +1,3 @@
-import { APP_CONFIG } from '@/constants/app'
 import {
 	IconArrowUpRight,
 	IconChevronRight,
@@ -7,10 +6,10 @@ import {
 } from '@tabler/icons-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-
-import { FaGithub, FaYoutube, FaLinkedinIn } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 import { RiTelegram2Fill } from 'react-icons/ri'
 
+import { APP_CONFIG } from '@/constants/app'
 import { ROUTES } from '@/constants/routes'
 
 export const metadata: Metadata = {
@@ -41,6 +40,19 @@ export const metadata: Metadata = {
 	}
 }
 
+type IconComponent = React.ComponentType<{
+	className?: string
+	style?: React.CSSProperties
+}>
+
+type LinkItem = {
+	href: string
+	label: string
+	icon: IconComponent
+	color?: string
+	internal?: boolean
+}
+
 const FACTS = [
 	{ label: 'Платформа', value: 'Enkod' },
 	{ label: 'Запуск', value: '2026' },
@@ -54,43 +66,40 @@ const FACTS = [
 	{ label: 'Підтримка', value: 'dotsenk20034@gmail.com' }
 ]
 
-const LINKS = [
+const LINKS: LinkItem[] = [
 	{
 		href: 'https://www.linkedin.com/in/artur-docenko',
 		label: 'LinkedIn',
 		icon: FaLinkedinIn,
 		color: '#0A66C2'
 	},
-	{ 
-		href: 'https://github.com/MikroTik3', 
-		label: 'GitHub', 
-		icon: FaGithub, 
-		color: '#24292F' 
-	}, 
-	{ 
-		href: 'https://youtube.com', 
-		label: 'YouTube', 
-		icon: FaYoutube, 
-		color: '#FF0000' 
-	}, 
-	{ 
-		href: 'https://t.me/enkod_community', 
-		label: 'Telegram', 
-		icon: RiTelegram2Fill, 
-		color: '#0088CC' 
-	}, 
-	{ 
-		href: 'mailto:dotsenk20034@gmail.com', 
-		label: 'Підтримка', 
-		icon: IconMail, 
-		color: '#000000' 
-	}, 
-	{ 
-		href: 'https://api.enkod.top/docs', 
-		label: 'Документація', 
-		icon: IconFileText, 
-		color: '#000000', 
-		internal: true 
+	{
+		href: 'https://github.com/MikroTik3',
+		label: 'GitHub',
+		icon: FaGithub
+	},
+	{
+		href: 'https://youtube.com',
+		label: 'YouTube',
+		icon: FaYoutube,
+		color: '#FF0000'
+	},
+	{
+		href: 'https://t.me/enkod_community',
+		label: 'Telegram',
+		icon: RiTelegram2Fill,
+		color: '#0088CC'
+	},
+	{
+		href: 'mailto:dotsenk20034@gmail.com',
+		label: 'Підтримка',
+		icon: IconMail
+	},
+	{
+		href: 'https://api.enkod.top/docs',
+		label: 'Документація',
+		icon: IconFileText,
+		internal: true
 	}
 ]
 
@@ -116,10 +125,35 @@ const POLICY = [
 	}
 ]
 
-function Card({ children, className }: { children: React.ReactNode; className?: string }) {
+function Card({
+	children,
+	className
+}: {
+	children: React.ReactNode
+	className?: string
+}) {
 	return (
-		<div className={`rounded-xl bg-white shadow-sm ring-1 shadow-black/5 ring-black/[0.08] dark:bg-neutral-900 dark:shadow-black/20 dark:ring-white/[0.06] ${className || ''}`}>
+		<div
+			className={`rounded-xl bg-white shadow-sm ring-1 shadow-black/5 ring-black/[0.08] dark:bg-neutral-900 dark:shadow-black/20 dark:ring-white/[0.06] ${className || ''}`}
+		>
 			{children}
+		</div>
+	)
+}
+
+function LinkIcon({
+	icon: Icon,
+	color
+}: {
+	icon: IconComponent
+	color?: string
+}) {
+	return (
+		<div className='relative flex aspect-square size-7 items-center justify-center rounded-sm bg-linear-to-b from-neutral-200 to-neutral-200 shadow-none ring-1 ring-white ring-offset-2 ring-offset-neutral-200 ring-inset dark:from-neutral-800 dark:to-neutral-800 dark:ring-neutral-900 dark:ring-offset-neutral-800'>
+			<Icon
+				className={`size-4 ${color ? '' : 'text-neutral-900 dark:text-white'}`}
+				style={color ? { color } : undefined}
+			/>
 		</div>
 	)
 }
@@ -222,23 +256,35 @@ export default async function AboutPage() {
 							({
 								href,
 								label,
-								icon: Icon,
+								icon,
 								color,
 								internal
-							}) =>
-								internal ? (
-									<Link
-										key={label}
-										href={href}
-										className='flex items-center gap-3 rounded-xl bg-white p-2.5 shadow-sm ring-1 ring-black/[0.08] hover:shadow-md dark:bg-neutral-900 dark:ring-white/[0.06]'
-									>
-										<div className='relative flex aspect-square size-7 items-center justify-center rounded-sm align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white'>
-											<Icon className='size-4' style={{ color: color }} />
-										</div>
+							}) => {
+								const className =
+									'flex items-center gap-3 rounded-xl bg-white p-2.5 shadow-sm ring-1 ring-black/[0.08] hover:shadow-md dark:bg-neutral-900 dark:ring-white/[0.06]'
+
+								const content = (
+									<>
+										<LinkIcon
+											icon={icon}
+											color={color}
+										/>
 										<span className='flex-1 text-sm text-neutral-700 dark:text-neutral-300'>
 											{label}
 										</span>
 										<IconArrowUpRight className='size-3.5 text-neutral-300 dark:text-neutral-600' />
+									</>
+								)
+
+								return internal ? (
+									<Link
+										key={label}
+										href={href}
+										className={
+											className
+										}
+									>
+										{content}
 									</Link>
 								) : (
 									<a
@@ -246,17 +292,14 @@ export default async function AboutPage() {
 										href={href}
 										target='_blank'
 										rel='noopener noreferrer'
-										className='flex items-center gap-3 rounded-xl bg-white p-2.5 shadow-sm ring-1 ring-black/[0.08] hover:shadow-md dark:bg-neutral-900 dark:ring-white/[0.06]'
+										className={
+											className
+										}
 									>
-										<div className='relative flex aspect-square size-7 items-center justify-center rounded-sm align-middle ring-1 ring-offset-2 ring-inset bg-linear-to-b from-neutral-200 to-neutral-200 ring-offset-neutral-200 shadow-none ring-white'>
-											<Icon className='size-4' style={{ color: color }} />
-										</div>
-										<span className='flex-1 text-sm text-neutral-700 dark:text-neutral-300'>
-											{label}
-										</span>
-										<IconArrowUpRight className='size-3.5 text-neutral-300 dark:text-neutral-600' />
+										{content}
 									</a>
 								)
+							}
 						)}
 					</div>
 				</section>

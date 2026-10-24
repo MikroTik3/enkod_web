@@ -8,6 +8,20 @@ interface CourseCardProps {
 	comingSoon?: boolean
 }
 
+export function CourseCardSkeleton() {
+	return (
+		<div className='flex animate-pulse flex-col gap-4 rounded-2xl border border-neutral-200 p-4 dark:border-neutral-800'>
+			<div className='aspect-video w-full rounded-xl bg-neutral-200 dark:bg-neutral-800' />
+
+			<div className='flex flex-col gap-2'>
+				<div className='h-6 w-3/4 rounded-md bg-neutral-200 dark:bg-neutral-800' />
+				<div className='h-4 w-full rounded-md bg-neutral-200 dark:bg-neutral-800' />
+				<div className='h-4 w-5/6 rounded-md bg-neutral-200 dark:bg-neutral-800' />
+			</div>
+		</div>
+	)
+}
+
 export function CourseCard({ course, comingSoon = false }: CourseCardProps) {
 	return (
 		<Link

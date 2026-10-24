@@ -35,10 +35,10 @@ export default async function CoursePage({
 }) {
 	const { slug } = await params
 
-	const [course, lessons] = await Promise.all([
-		getCourse(slug),
-		getCourseLessons(slug)
+	const [course] = await Promise.all([
+		getCourse(slug)
+		// getCourseLessons(slug)
 	])
 
-	return <CourseDetails course={course} lessons={lessons} />
+	return <CourseDetails course={course} lessons={[]} />
 }
