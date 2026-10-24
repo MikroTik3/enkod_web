@@ -12,7 +12,7 @@ export function CourseCard({ course, comingSoon = false }: CourseCardProps) {
 	return (
 		<Link
 			href={ROUTES.COURSES.SINGLE(course.slug)}
-			className='group block h-full overflow-hidden max-w-115 rounded-3xl bg-gray-100 antialiased transition duration-200 hover:bg-gray-50 dark:bg-neutral-900 dark:hover:bg-neutral-900'
+			className='group block h-full max-w-115 overflow-hidden rounded-3xl bg-gray-100 antialiased transition duration-200 hover:bg-gray-50 dark:bg-neutral-900 dark:hover:bg-neutral-900'
 		>
 			<div className='relative overflow-hidden rounded-2xl bg-neutral-200/50 transition duration-200 dark:bg-neutral-950'>
 				<div className='p-1'>
@@ -24,11 +24,9 @@ export function CourseCard({ course, comingSoon = false }: CourseCardProps) {
 							width='1024'
 							height='1020'
 							decoding='async'
-							className='max-h-64 min-h-64 w-full rounded-2xl aspect-auto shadow-sm ring-1 shadow-black/10 ring-black/10 transition-all duration-200 will-change-transform group-hover:scale-105 dark:shadow-black/50 dark:ring-black/50'
+							className='aspect-auto max-h-64 min-h-64 w-full rounded-2xl shadow-sm ring-1 shadow-black/10 ring-black/10 transition-all duration-200 will-change-transform group-hover:scale-105 dark:shadow-black/50 dark:ring-black/50'
 							src={course.thumbnail ?? ''}
 						/>
-
-						
 					</div>
 				</div>
 			</div>
@@ -47,7 +45,7 @@ export function CourseCard({ course, comingSoon = false }: CourseCardProps) {
 
 					{comingSoon && (
 						<span className='rounded-sm bg-white px-1 py-0.5 text-[10px] font-medium text-neutral-700 shadow-sm ring-1 shadow-black/10 ring-black/5 dark:bg-neutral-900 dark:text-neutral-300 dark:shadow-black/50 dark:ring-black/50'>
-							Soon
+							Скоро
 						</span>
 					)}
 				</div>

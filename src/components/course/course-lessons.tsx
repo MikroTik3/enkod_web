@@ -8,8 +8,8 @@ import { ROUTES } from '@/constants'
 import { useAuth } from '@/hooks'
 
 interface CourseLessonsProps {
-	lessons: LessonResponse[]
-	completedLessons: string[]
+	lessons?: LessonResponse[]
+	completedLessons?: string[]
 }
 
 export function CourseLessons({
