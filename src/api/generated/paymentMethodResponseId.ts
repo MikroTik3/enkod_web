@@ -12,7 +12,6 @@
 export type PaymentMethodResponseId =
 	(typeof PaymentMethodResponseId)[keyof typeof PaymentMethodResponseId]
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PaymentMethodResponseId = {
 	BANK_CARD: 'BANK_CARD',
 	SBP: 'SBP',

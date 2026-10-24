@@ -4,6 +4,8 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
+import { setSessionMarker } from '@/lib/marker'
+
 import { Button } from '../ui/button'
 import { Skeleton } from '../ui/skeleton'
 
@@ -28,6 +30,8 @@ export function AuthSocial() {
 							requestId: fingerprint.requestId
 						}
 					: { visitorId: '', requestId: '' }
+
+			setSessionMarker()
 
 			return getAuthUrl(provider, payload)
 		},

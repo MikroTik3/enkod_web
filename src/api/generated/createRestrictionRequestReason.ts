@@ -12,7 +12,6 @@
 export type CreateRestrictionRequestReason =
 	(typeof CreateRestrictionRequestReason)[keyof typeof CreateRestrictionRequestReason]
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CreateRestrictionRequestReason = {
 	INAPPROPRIATE_USERNAME: 'INAPPROPRIATE_USERNAME',
 	SPAM: 'SPAM',

@@ -5,6 +5,7 @@ import { toast } from 'sonner'
 import { ConfirmDialog } from '@/components/shared/confirm-dialog'
 
 import { cookies } from '@/lib/cookie'
+import { clearSessionMarker } from '@/lib/marker'
 
 import { Button } from '../../ui/button'
 import { Card, CardContent } from '../../ui/card'
@@ -21,6 +22,7 @@ export function AccountActions() {
 	const { mutate } = useLogout({
 		onSuccess() {
 			cookies.remove('token')
+			clearSessionMarker()
 
 			delete instance.defaults.headers['X-Session-Token']
 
@@ -36,7 +38,9 @@ export function AccountActions() {
 
 	return (
 		<div className='flex flex-col gap-y-3 pb-10'>
-			<h2 className='px-1 text-xs font-medium tracking-wider text-muted-foreground uppercase'>Дії</h2>
+			<h2 className='text-muted-foreground px-1 text-xs font-medium tracking-wider uppercase'>
+				Дії
+			</h2>
 			<Card className='border border-rose-500 bg-red-100 py-0 shadow-none dark:border-rose-900 dark:bg-red-950'>
 				<CardContent className='p-4'>
 					<div className='space-y-8'>

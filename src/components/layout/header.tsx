@@ -1,7 +1,8 @@
 'use client'
 
+import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 import {
 	MobileNav,
@@ -10,26 +11,43 @@ import {
 	NavbarLogo
 } from '@/components/ui/resizable-navbar'
 
-import { useAuth } from '@/hooks/useAuth'
+import { cn } from '@/lib/utils'
+
+import { buttonVariants } from '../ui/button'
 
 import MobileTrigger from './mobile-nav'
 import { NavbarLinks } from './nav-links'
 import { UserMenu } from './user-menu'
 import { ROUTES } from '@/constants'
-import { buttonVariants } from '../ui/button'
-import { ArrowLeft } from 'lucide-react'
-import { usePathname, useRouter } from 'next/navigation'
-import { cn } from '@/lib/utils'
+import { useSession } from '@/providers/auth-provider'
+
+function GuestButtons() {
+	return (
+		<div className='flex items-center gap-2'>
+			<Link
+				href={ROUTES.AUTH.LOGIN()}
+				className={cn(
+					buttonVariants({ variant: 'ghost' }),
+					'h-8 rounded-2xl'
+				)}
+			>
+				Увійти
+			</Link>
+			<Link
+				href={ROUTES.AUTH.REGISTER}
+				className={cn(buttonVariants(), 'h-8 rounded-2xl')}
+			>
+				Реєстрація
+			</Link>
+		</div>
+	)
+}
 
 export function Header() {
-	const [isAuth, setIsAuth] = useState<boolean | null>()
-
 	const pathname = usePathname()
-	const { isAuthorized } = useAuth()
+	const { isAuthorized } = useSession()
 
-	useEffect(() => {
-		setIsAuth(isAuthorized)
-	}, [])
+	const isAccountPage = pathname.startsWith('/account/')
 
 	return (
 		<div className='fixed z-50 h-16 w-full'>
@@ -38,42 +56,32 @@ export function Header() {
 					<NavbarLogo />
 					<NavbarLinks />
 					<div className='z-100 flex items-center gap-2'>
-						{isAuth ? (
+						{isAuthorized ? (
 							<UserMenu />
 						) : (
-                                                 <div className='flex items-center gap-2'>
-                                                        <Link href={ROUTES.AUTH.LOGIN()} className={cn(buttonVariants({ variant: 'ghost' }), 'rounded-2xl h-8')}>
-                                                               Увійти
-                                                        </Link>
-                                                        <Link href={ROUTES.AUTH.REGISTER} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
-                                                               Реєстрація
-                                                        </Link>
-                                                 </div>
+							<GuestButtons />
 						)}
 					</div>
 				</NavBody>
+
 				<MobileNav>
 					<NavbarLogo />
 
 					<div className='z-100 flex items-center gap-2'>
-						{pathname.startsWith('/account/') && (
-							<Link href={ROUTES.ACCOUNT.ROOT} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
-								<ArrowLeft className='size-4'/>
+						{isAccountPage ? (
+							<Link
+								href={ROUTES.ACCOUNT.ROOT}
+								className={cn(
+									buttonVariants(),
+									'h-8 rounded-2xl'
+								)}
+							>
+								<ArrowLeft className='size-4' />
 								Назад
 							</Link>
+						) : (
+							!isAuthorized && <GuestButtons />
 						)}
-
-                                          {!pathname.startsWith('/account/') && (
-                                                 <>
-                                                        <Link href={ROUTES.AUTH.LOGIN()} className={cn(buttonVariants({ variant: 'ghost' }), 'rounded-2xl h-8')}>
-                                                               Увійти
-                                                        </Link>
-
-                                                        <Link href={ROUTES.AUTH.REGISTER} className={cn(buttonVariants(), 'rounded-2xl h-8')}>
-                                                               Реєстрація
-                                                        </Link>
-                                                 </>
-                                          )}
 
 						<MobileTrigger />
 					</div>

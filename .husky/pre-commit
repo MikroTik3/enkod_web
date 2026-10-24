@@ -1,1 +1,1 @@
-npm run lint-staged --concurrent false
+npm run lint-staged

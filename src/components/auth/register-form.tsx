@@ -17,6 +17,7 @@ import {
 import { Input } from '@/components/ui/input'
 
 import { cookies } from '@/lib/cookie'
+import { setSessionMarker } from '@/lib/marker'
 
 import { Captcha } from '../shared/captcha'
 import { Button } from '../ui/button'
@@ -53,6 +54,7 @@ export function RegisterForm() {
 	const { mutateAsync, isPending } = useRegister({
 		onSuccess(data) {
 			cookies.set('token', data.token, { expires: 30 })
+			setSessionMarker()
 
 			instance.defaults.headers['X-Session-Token'] = data.token
 
